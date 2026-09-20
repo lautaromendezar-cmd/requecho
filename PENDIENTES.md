@@ -1,0 +1,117 @@
+# Pendientes
+
+Lo que falta o hay que validar con las clientas antes de publicar, agrupado por bloque.
+Regla del documento de estructura: ningún `[DATO A CONFIRMAR]` se publica hasta
+resolverse. En el código son campos opcionales de `src/content/landing.ts`: cuando el
+dato llega, se completa el campo y el elemento aparece solo. Lo marcado **se publica,
+validar** es texto que existe en el documento pero tiene una nota de validación.
+
+## Identidad visual
+
+- [ ] **Archivo original del isologo.** No estaba en la carpeta (`logo.png` es el de IAE)
+  y el folleto es 100 % imagen, sin vectores. Hoy se usa un trazado fiel del raster de la
+  portada (536 px) generado por `scripts/trazar-logo.py`. Cuando llegue el original,
+  reemplazar `public/brand/requecho.svg`, `src/components/brand/logo-path.ts`,
+  `src/app/icon.svg` y `src/app/apple-icon.png`.
+- [ ] **Fuentes de Canva.** La guía de marca (borrador, octubre 2026) fija Lato y así está
+  armado. Confirmar que sea la definitiva. Cambiarla es editar `src/lib/fonts.ts`.
+- [ ] **Paleta.** Se usa la de la guía de marca. La del documento de estructura quedó
+  comentada al final de `src/styles/tokens.css` para comparar en segundos.
+- [ ] **Fotos originales en alta.** Las 158 fotos de producto que llegaron por Drive son
+  miniaturas exportadas de Fotos (119 de 360×480 y 35 de 768×1024). Se construyó con
+  las 35 grandes. Con los originales, reemplazar las fuentes en
+  `scripts/preparar-imagenes.py` y volver a correrlo. Afecta hero, producto, galería,
+  macro de textura y la pieza del bloque 5.
+
+## Metadatos
+
+- [ ] **Descripción (se publica, validar).** El documento trae un error de tipeo
+  ("preconsumol") y una frase duplicada ("capacidades acústicas, térmicas y propiedades
+  acústicas y térmicas"). Se publica esta versión limpia: *"Transformamos descarte
+  textil preconsumo en paneles con propiedades acústicas y térmicas para arquitectura,
+  interiorismo y diseño."*
+
+## Bloque 1 — Hero
+
+- [ ] **Foto** `[ASSET pendiente]`: mano sosteniendo paneles de distintos colores sobre
+  fondo crema. Se usa la toma sobre pared clara (`B3347103`), con el fondo apenas
+  calentado hacia el warm light de la marca. Confirmar o mandar la toma sobre crema.
+
+## Bloque 2 — Problema
+
+- [ ] **Fuentes de las tres cifras.** El copy las trae (UNEP, 2025 · Ministerio de
+  Ambiente PBA, 2025 · UNEP / GlobalABC, 2026) pero el microcopy las marca como dato a
+  confirmar. Se publican como capción debajo de cada cifra, en ese orden. Confirmar.
+  Si alguna se quita del contenido, su cifra deja de mostrarse (no se publican sin fuente).
+
+## Bloque 3 — Producto
+
+- [ ] **Panel sobre fondo mostaza** `[ASSET pendiente]`: se usa la toma contra la puerta
+  amarilla (`A3C9D3B0`). Confirmar o mandar la toma de estudio.
+- [ ] **Macro de textura**: recorte de la cenital `C5FEFD08` (395 px). La lupa está
+  limitada a 1,5×; con el original en alta se puede subir.
+- [ ] **Serie de paneles de distintos colores**: galería con 7 fotos de la carpeta.
+  Confirmar la selección.
+- [ ] **"dégradés" / "degradés".** El documento acentúa distinto en el bloque 3 y en el 5.
+  Se publica cada uno tal cual está. ¿Unificar?
+
+## Bloque 4 — Cómo funciona
+
+- [ ] **Fotos reales de cada etapa** (opcional, `[ASSET pendiente]`). Cada paso tiene el
+  campo `foto` listo.
+- [ ] **Pin con scrub en desktop**: está activado. Si lo sienten como "scroll no simple",
+  poner `pinProcess: false` en `src/config/motion.ts` y la línea se dibuja igual, sin
+  que la sección se quede quieta.
+
+## Bloque 5 — Por qué Requecho
+
+- [ ] **Foto de la pieza Requecho**: recorte de la cenital `C5FEFD08`. Con original en
+  alta, reemplazar `public/images/panel-pieza.jpg`.
+- [ ] **Fondo grafito** (el "segundo escenario" de la guía). Si prefieren todo claro,
+  quitar la clase `surface-inverse` en `PorQue.tsx`.
+
+## Bloque 6 — Fundadoras
+
+- [ ] **Foto de Lu y Vero con el material en la mano** `[ASSET pendiente]`: no está. Se usa
+  la única foto de las dos solas (`Founders/1747138824542.jpeg`), sin material. Las dos
+  fotos de eventos incluyen a una tercera persona y no se usan.
+- [ ] **Quién es quién en la foto**: sin dato no hay epígrafe (campo `foto.epigrafe`).
+- [ ] **Retratos individuales en situación de trabajo** `[ASSET pendiente]`: placeholders
+  del sistema (campo `retrato` en cada card).
+- [ ] **Citas en primera persona** (una frase, hasta 20 palabras): el slot está en las
+  cards y oculto (campo `cita`).
+
+## Bloque 7 — Reconocimientos
+
+- [ ] **Texto del badge 1 cortado** en el documento ("…en octubre de 2026, como una de las
+  dos iniciativas de América"). Se publica hasta "en octubre de 2026." con punto final.
+  Falta el cierre de la frase.
+- [ ] **Logos oficiales**: se usan los archivos de la carpeta (PNG/JPG chicos). Pedir SVG
+  o PNG grandes. NAVES e IAE van juntos en el badge 2; "vos lo hacés" y BA en el 3.
+- [ ] Después de la Final Global (octubre 2026), actualizar el texto del badge 1.
+
+## Bloque 8 — Cierre y formulario
+
+- [ ] **Excel de destino**: archivo, cuenta, responsable y si llega aviso por mail. Las dos
+  recetas (Google Sheets y OneDrive) están en `docs/formulario.md`. Hasta definirlo, el
+  deploy de revisión apunta a un receptor descartable de webhook.site que **vence el
+  27-sep-2026** (ver README): sirve para probar, no para operar. Cuando venza, el
+  formulario en vivo responde con el mensaje de falla hasta que se cargue el destino real.
+- [ ] **Texto legal de la privacidad (se publica, validar)**: "Usamos tus datos solo para
+  responder tu consulta."
+- [ ] **Mail de contacto alternativo** para el mensaje de falla (campo `mailAlternativo`).
+- [ ] **Redes y mail en el pie** (campo `redes`).
+- [ ] **Muestras físicas** (punto 7 de datos a confirmar, cortado en el documento; se refiere
+  a este bloque): si se pueden ofrecer, sumarlas a la bajada y al botón.
+- [ ] **Botón**: "Quiero conocer el material". La alternativa del documento ("Hablemos de tu
+  proyecto") quedó comentada en `landing.ts`.
+
+## Publicación
+
+- [ ] El sitio se sirve con `noindex` (metadata y cabecera) hasta que `NEXT_PUBLIC_SITE_LIVE`
+  sea `true` en Vercel. No publicar con datos pendientes.
+- [ ] Dominio y hosting no están incluidos en el alcance.
+- [ ] Crear el repo `lautaromendezar-cmd/requecho` en GitHub (privado, vacío) y hacer
+  `git push -u origin main`: el remoto ya está configurado en el clon local.
+- [ ] Lighthouse mobile: rendimiento 86–89 sobre Vercel (objetivo 90). Ver el README para la
+  causa y las dos palancas disponibles.
