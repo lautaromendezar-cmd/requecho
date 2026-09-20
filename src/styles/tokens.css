@@ -1,0 +1,93 @@
+/* =============================================================================
+   TOKENS DE DISEÑO DE REQUECHO
+
+   Único lugar donde viven colores, escala tipográfica, radios, espaciados y
+   tiempos de la interfaz. Tailwind los consume vía @theme y los emite como
+   variables CSS (`static`: todas, se usen o no), así que también sirven en SVG y
+   estilos inline: var(--color-accent), var(--font-display), etc.
+
+   Cambiar toda la paleta  = editar este archivo.
+   Cambiar la tipografía   = editar src/lib/fonts.ts (acá sólo se enchufa).
+   Flags y tiempos de GSAP = src/config/motion.ts
+   ========================================================================== */
+
+@theme static {
+  /* ---- Color (guía de marca, borrador de octubre 2026) ------------------- */
+  --color-bg: #f1f1ef;             /* warm light: piso de toda la página */
+  --color-surface: #ffffff;        /* cards y superficies elevadas */
+  --color-surface-2: #e6e6e2;      /* placeholders del sistema, bloques neutros */
+  --color-accent: #efb821;         /* Requecho yellow: bloques de acento */
+  --color-accent-line: #efb821;    /* líneas cortas, indicadores, señal */
+  --color-on-accent: #151515;      /* texto sobre amarillo */
+  --color-text: #242424;           /* graphite: texto corriente */
+  --color-text-strong: #151515;    /* textile black: títulos y cifras */
+  --color-text-muted: #66665f;     /* datos, notas y capciones */
+  --color-line: #d6d6d0;           /* separadores horizontales finos */
+  --color-inverse-bg: #242424;     /* segundo escenario (bloque 5) */
+  --color-inverse-text: #f1f1ef;
+  --color-inverse-muted: #a8a8a2;
+  --color-error: #a63d2a;
+
+  /* ---- Tipografía: las familias las define src/lib/fonts.ts -------------- */
+  --font-display: var(--rq-font-display, ui-sans-serif, system-ui, sans-serif);
+  --font-body: var(--rq-font-body, ui-sans-serif, system-ui, sans-serif);
+
+  /* ---- Escala tipográfica ------------------------------------------------- */
+  --text-kicker: 0.75rem;
+  --text-kicker--line-height: 1.2;
+  --text-kicker--letter-spacing: 0.18em;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.6;
+  --text-lead: clamp(1.125rem, 1.05rem + 0.45vw, 1.375rem);
+  --text-lead--line-height: 1.5;
+  --text-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --text-h3--line-height: 1.25;
+  --text-h2: clamp(2rem, 1.4rem + 2.6vw, 3.5rem);
+  --text-h2--line-height: 1.08;
+  --text-h2--letter-spacing: -0.02em;
+  --text-display: clamp(2.6rem, 1.5rem + 4vw, 5rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.025em;
+  --text-stat: clamp(4rem, 2.2rem + 8vw, 9rem);
+  --text-stat--line-height: 0.95;
+  --text-stat--letter-spacing: -0.035em;
+  --text-step: clamp(2.5rem, 2rem + 2vw, 3.75rem);
+  --text-step--line-height: 1;
+
+  /* ---- Radios ------------------------------------------------------------- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1.25rem;
+  --radius-pill: 999px;
+
+  /* ---- Espaciado y contenedores ------------------------------------------ */
+  --spacing-section: clamp(5rem, 3rem + 9vw, 10rem);
+  --spacing-gutter: clamp(1.25rem, 0.6rem + 3vw, 4rem);
+  --container-content: 80rem;
+  --container-prose: 42rem;
+
+  /* ---- Movimiento en CSS. Los tiempos de GSAP viven en motion.ts --------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 200ms;
+  --duration-base: 450ms;
+  --duration-slow: 900ms;
+}
+
+/* -----------------------------------------------------------------------------
+   Alternativa: la paleta del documento de estructura, para comparar en segundos.
+   Descomentar este bloque (pisa al de arriba) y volver a cargar la página.
+   -------------------------------------------------------------------------- */
+/*
+@theme static {
+  --color-bg: #fefaf6;
+  --color-accent: #fdc230;
+  --color-accent-line: #f7b930;
+  --color-text: #1a1a1a;
+  --color-text-strong: #1a1a1a;
+  --color-inverse-bg: #1a1a1a;
+  --color-inverse-text: #fefaf6;
+}
+*/
