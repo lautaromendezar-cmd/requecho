@@ -111,7 +111,7 @@ validar** es texto que existe en el documento pero tiene una nota de validación
 - [ ] El sitio se sirve con `noindex` (metadata y cabecera) hasta que `NEXT_PUBLIC_SITE_LIVE`
   sea `true` en Vercel. No publicar con datos pendientes.
 - [ ] Dominio y hosting no están incluidos en el alcance.
-- [ ] Crear el repo `lautaromendezar-cmd/requecho` en GitHub (privado, vacío) y hacer
-  `git push -u origin main`: el remoto ya está configurado en el clon local.
+- [ ] Confirmar que el repo `lautaromendezar-cmd/requecho` sea privado (ya tiene `main`
+  pusheado).
 - [ ] Lighthouse mobile: rendimiento 86–89 sobre Vercel (objetivo 90). Ver el README para la
   causa y las dos palancas disponibles.

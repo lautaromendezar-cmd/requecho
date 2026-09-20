@@ -103,8 +103,9 @@ quedó algún elemento con opacidad 0, overflow horizontal, más de un h1 o erro
   stack (React, GSAP con ScrollTrigger y SplitText, Lenis). Draggable e Inertia ya se cargan
   aparte, sólo con la galería. Para llegar a 90 habría que sacar del arranque otros
   60–80 KB: apagar Lenis (`smoothScroll: false`) y diferir SplitText son los dos candidatos.
-- **Repo:** `git` inicializado con un commit por bloque; el remoto
-  `github.com/lautaromendezar-cmd/requecho` todavía no existe (no hay `gh` en esta PC).
+- **Repo:** `github.com/lautaromendezar-cmd/requecho`, rama `main`, un commit por bloque.
+  El deploy automático por push no funciona mientras la cuenta de GitHub siga marcada:
+  se publica con `vercel deploy --prod` desde esta carpeta.
 
 ## Deploy
 
