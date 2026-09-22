@@ -128,7 +128,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative flex min-h-[100svh] items-center overflow-hidden"
+      className="surface-soft relative flex min-h-[100svh] items-center overflow-hidden"
       aria-labelledby="hero-titulo"
       data-reveal-scope="manual"
     >
