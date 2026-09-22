@@ -105,6 +105,9 @@
   .surface-inverse .text-muted {
     color: var(--color-inverse-muted);
   }
+  .surface-soft {
+    background: var(--color-surface);
+  }
   .surface-accent {
     background: var(--color-accent);
     color: var(--color-on-accent);

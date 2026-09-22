@@ -44,7 +44,7 @@ export function Producto() {
   );
 
   return (
-    <section ref={ref} className="py-section" aria-labelledby="producto-titulo">
+    <section ref={ref} className="surface-soft py-section" aria-labelledby="producto-titulo">
       <div className="container-x">
         {/* Encabezado */}
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-x-8">
@@ -98,7 +98,7 @@ export function Producto() {
                 data-icon-host
                 data-reveal
                 data-reveal-delay={String(i * 90)}
-                className="group relative flex flex-col gap-5 overflow-hidden rounded-lg bg-surface p-7 transition-transform duration-[var(--duration-base)] ease-[var(--ease-out-expo)] hover:-translate-y-1"
+                className="group relative flex flex-col gap-5 overflow-hidden rounded-lg bg-bg p-7 transition-transform duration-[var(--duration-base)] ease-[var(--ease-out-expo)] hover:-translate-y-1"
               >
                 <span
                   aria-hidden="true"
