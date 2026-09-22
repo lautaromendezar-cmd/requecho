@@ -88,6 +88,10 @@ validar** es texto que existe en el documento pero tiene una nota de validación
   Falta el cierre de la frase.
 - [ ] **Logos oficiales**: se usan los archivos de la carpeta (PNG/JPG chicos). Pedir SVG
   o PNG grandes. NAVES e IAE van juntos en el badge 2; "vos lo hacés" y BA en el 3.
+  `scripts/emparejar-logos.py` les recorta el margen propio y escribe los `-badge.png`
+  que consume el bloque; con archivos nuevos, se vuelve a correr y se actualizan las
+  medidas en `landing.ts` (las imprime el script). El tamaño con que se ve cada uno lo
+  calcula `Reconocimientos.tsx` igualando áreas: no hace falta tocarlo.
 - [ ] Después de la Final Global (octubre 2026), actualizar el texto del badge 1.
 
 ## Bloque 8 — Cierre y formulario
@@ -100,7 +104,11 @@ validar** es texto que existe en el documento pero tiene una nota de validación
 - [ ] **Texto legal de la privacidad (se publica, validar)**: "Usamos tus datos solo para
   responder tu consulta."
 - [ ] **Mail de contacto alternativo** para el mensaje de falla (campo `mailAlternativo`).
-- [ ] **Redes y mail en el pie** (campo `redes`).
+- [ ] **Dirección, teléfono, mail institucional y redes del pie** (campo `datos`). Hoy hay
+  datos de relleno para que las clientas vieran la forma del pie: se muestran apagados,
+  sin enlazar y con su aclaración. Al cargar los reales hay que **borrar `ejemplo`**, y
+  recién ahí quedan como enlaces. Mientras la bandera siga puesta, el pie no los muestra
+  si `NEXT_PUBLIC_SITE_LIVE` es `true`: nunca sale en vivo un teléfono inventado.
 - [ ] **Muestras físicas** (punto 7 de datos a confirmar, cortado en el documento; se refiere
   a este bloque): si se pueden ofrecer, sumarlas a la bajada y al botón.
 - [ ] **Botón**: "Quiero conocer el material". La alternativa del documento ("Hablemos de tu
