@@ -468,4 +468,27 @@ export const contacto = {
   pie: "REQUECHO © 2026",
   /** [DATO A CONFIRMAR: redes y mail en el pie]. */
   redes: undefined as { nombre: string; url: string }[] | undefined,
+  /**
+   * [DATO A CONFIRMAR: dirección, teléfono, mail institucional y redes].
+   * Lo de acá abajo es de relleno, para que las clientas vean la forma del pie
+   * con los datos puestos. Mientras `ejemplo` sea `true` se muestran apagados,
+   * sin enlazar y con su aclaración, y no salen si el sitio se publica. Cuando
+   * lleguen los datos reales: reemplazar y borrar `ejemplo`.
+   */
+  datos: {
+    ejemplo: true,
+    direccion: { titulo: "Oficina", lineas: ["Av. Ejemplo 1234, piso 5", "C1000 · Ciudad de Buenos Aires"] },
+    contacto: {
+      titulo: "Contacto",
+      telefono: { texto: "+54 9 11 0000 0000", href: "tel:+5491100000000" },
+      mail: { texto: "hola@requecho.com", href: "mailto:hola@requecho.com" },
+    },
+    redes: {
+      titulo: "Redes",
+      items: [
+        { nombre: "Instagram", url: "https://instagram.com/requecho" },
+        { nombre: "LinkedIn", url: "https://linkedin.com/company/requecho" },
+      ],
+    },
+  },
 };

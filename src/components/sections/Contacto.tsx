@@ -15,6 +15,10 @@ import { LeadForm } from "./contacto/LeadForm";
  */
 export function Contacto() {
   const ref = useRef<HTMLElement>(null);
+  // Los datos de relleno del pie sirven para la revisión; si el sitio se
+  // publica, no salen (la regla del proyecto: ningún dato a confirmar en vivo).
+  const datos =
+    contacto.datos.ejemplo && process.env.NEXT_PUBLIC_SITE_LIVE === "true" ? undefined : contacto.datos;
 
   useGSAP(
     () => {
@@ -60,19 +64,45 @@ export function Contacto() {
           </div>
         </div>
 
-        <footer className="mt-24 flex flex-col gap-4 border-t border-on-accent/15 pt-8 text-small sm:flex-row sm:items-center sm:justify-between lg:mt-32">
-          <p className="font-display font-bold tracking-[0.08em]">{contacto.pie}</p>
-          {contacto.redes ? (
-            <ul className="m-0 flex list-none gap-6 p-0">
-              {contacto.redes.map((r) => (
-                <li key={r.url}>
-                  <a href={r.url} className="underline-offset-4 hover:underline">
-                    {r.nombre}
-                  </a>
-                </li>
-              ))}
-            </ul>
+        <footer className="mt-24 border-t border-on-accent/15 pt-10 text-small lg:mt-32">
+          {datos ? (
+            <div className={`grid gap-10 sm:grid-cols-3 ${datos.ejemplo ? "opacity-60" : ""}`}>
+              <div>
+                <p className="footer-titulo">{datos.direccion.titulo}</p>
+                {datos.direccion.lineas.map((l) => (
+                  <p key={l} className="mt-2">
+                    {l}
+                  </p>
+                ))}
+              </div>
+              <div>
+                <p className="footer-titulo">{datos.contacto.titulo}</p>
+                {[datos.contacto.telefono, datos.contacto.mail].map((d) => (
+                  <p key={d.texto} className="mt-2">
+                    {datos.ejemplo ? d.texto : <a href={d.href} className="underline-offset-4 hover:underline">{d.texto}</a>}
+                  </p>
+                ))}
+              </div>
+              <div>
+                <p className="footer-titulo">{datos.redes.titulo}</p>
+                {datos.redes.items.map((r) => (
+                  <p key={r.url} className="mt-2">
+                    {datos.ejemplo ? (
+                      r.nombre
+                    ) : (
+                      <a href={r.url} className="underline-offset-4 hover:underline">
+                        {r.nombre}
+                      </a>
+                    )}
+                  </p>
+                ))}
+              </div>
+            </div>
           ) : null}
+          {datos?.ejemplo ? (
+            <p className="mt-8 italic opacity-55">Datos de ejemplo, a la espera de los definitivos.</p>
+          ) : null}
+          <p className="mt-10 font-display font-bold tracking-[0.08em]">{contacto.pie}</p>
         </footer>
       </div>
     </section>
