@@ -37,30 +37,42 @@ export function PorQue() {
             ? { trigger: stage.parentElement, start: "top 70%", end: "bottom 60%", scrub: 0.7, invalidateOnRefresh: true }
             : { trigger: stage, start: "top 70%", once: true },
         });
-        const centroPieza = () => piece.offsetTop + piece.offsetHeight / 2;
-        // 1. Las capas viajan al centro y se estiran hasta ocupar la caja de la pieza:
-        //    cuatro rectángulos finos que terminan siendo uno solo.
+        // Cada capa termina siendo una franja de la pieza: apiladas y sin
+        // separación cubren su silueta exacta. El estiramiento es de apenas
+        // 1,2× (no deforma el borde) y el cambio por la foto ocurre sobre el
+        // mismo contorno, así que se lee como fusión y no como superposición.
+        const franja = () => piece.offsetHeight / layers.length;
+
+        // 1. Las capas se juntan hasta tocarse
         tl.to(
           layers,
           {
-            y: (_i, el) => {
+            y: (i, el) => {
               const l = el as HTMLElement;
-              return centroPieza() - (l.offsetTop + l.offsetHeight / 2);
+              const destino = piece.offsetTop + (i + 0.5) * franja();
+              return destino - (l.offsetTop + l.offsetHeight / 2);
             },
-            scaleY: () => piece.offsetHeight / layers[0].offsetHeight,
+            scaleY: () => franja() / layers[0].offsetHeight,
             transformOrigin: "50% 50%",
             duration: 1,
           },
           0,
         );
-        tl.to(labels, { opacity: 0, duration: 0.35 }, 0.05);
-        tl.to(layers, { opacity: 0.6, duration: 0.6 }, 0.35);
-        tl.to(left, { opacity: 0.6, duration: 0.6 }, 0.4);
-        // 2. La pieza compacta pasa a ser la foto real del panel
-        tl.fromTo(piece, { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: 0.6 }, 0.95);
-        tl.to(layers, { opacity: 0, duration: 0.35 }, 1.1);
-        // 3. El lado Requecho gana presencia
-        tl.fromTo(right, { opacity: 0.65, y: 12 }, { opacity: 1, y: 0, duration: 0.6 }, 1.15);
+        // 2. Los nombres acompañan el viaje y se apagan al cerrarse la pila
+        tl.to(labels, { opacity: 0, duration: 0.3 }, 0.6);
+        tl.to(left, { opacity: 0.55, duration: 0.5 }, 0.55);
+        // 3. La pila ya es la pieza: el material se abre desde el centro a
+        //    opacidad plena (con opacidad quedaría translúcido y gris sobre el
+        //    grafito) y los contornos se apagan detrás.
+        tl.fromTo(
+          piece,
+          { opacity: 1, clipPath: "inset(50% 0% 50% 0%)" },
+          { clipPath: "inset(0% 0% 0% 0%)", duration: 0.55, ease: "power2.out" },
+          0.95,
+        );
+        tl.to(layers, { opacity: 0, duration: 0.4 }, 1.15);
+        // 4. El lado Requecho gana presencia
+        tl.fromTo(right, { opacity: 0.65, y: 12 }, { opacity: 1, y: 0, duration: 0.6 }, 1.25);
         return tl;
       };
 
@@ -76,7 +88,7 @@ export function PorQue() {
         // Estado final, sin animar
         gsap.set(layers, { opacity: 0 });
         gsap.set(labels, { opacity: 0 });
-        gsap.set(piece, { opacity: 1 });
+        gsap.set(piece, { opacity: 1, clipPath: "none" });
         gsap.set([left, right], { opacity: 1 });
       });
     },
