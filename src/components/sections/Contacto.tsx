@@ -5,6 +5,7 @@ import { gsap, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
 import { contacto } from "@/content/landing";
 import { Kicker } from "@/components/ui/Kicker";
+import { Icon } from "@/components/ui/Icon";
 import { LeadForm } from "./contacto/LeadForm";
 
 /**
@@ -46,6 +47,7 @@ export function Contacto() {
   );
 
   return (
+    <>
     <section ref={ref} className="surface-accent relative py-section" aria-labelledby="contacto-titulo">
       <div data-veil aria-hidden="true" className="contact-veil pointer-events-none absolute inset-0 bg-bg" />
       <div className="container-x relative">
@@ -64,47 +66,79 @@ export function Contacto() {
           </div>
         </div>
 
-        <footer className="mt-24 border-t border-on-accent/15 pt-10 text-small lg:mt-32">
-          {datos ? (
-            <div className={`grid gap-10 sm:grid-cols-3 ${datos.ejemplo ? "opacity-60" : ""}`}>
-              <div>
-                <p className="footer-titulo">{datos.direccion.titulo}</p>
-                {datos.direccion.lineas.map((l) => (
-                  <p key={l} className="mt-2">
-                    {l}
-                  </p>
-                ))}
+      </div>
+    </section>
+
+    {/* El pie tiene escenario propio: cierra la página en grafito y despega del
+        mostaza del bloque 8. */}
+    <footer className="surface-inverse py-16 text-small lg:py-20">
+      <div className="container-x">
+        {datos ? (
+          <div className={`grid gap-10 sm:grid-cols-3 ${datos.ejemplo ? "opacity-75" : ""}`}>
+            <div>
+              <p className="footer-titulo">{datos.direccion.titulo}</p>
+              <div className="mt-4 flex gap-3">
+                <Icon name="ubicacion" size={20} bare draw={false} className="mt-[2px] shrink-0 text-accent-line" />
+                <div>
+                  {datos.direccion.lineas.map((l) => (
+                    <p key={l}>{l}</p>
+                  ))}
+                </div>
               </div>
-              <div>
-                <p className="footer-titulo">{datos.contacto.titulo}</p>
-                {[datos.contacto.telefono, datos.contacto.mail].map((d) => (
-                  <p key={d.texto} className="mt-2">
-                    {datos.ejemplo ? d.texto : <a href={d.href} className="underline-offset-4 hover:underline">{d.texto}</a>}
-                  </p>
-                ))}
-              </div>
-              <div>
-                <p className="footer-titulo">{datos.redes.titulo}</p>
-                {datos.redes.items.map((r) => (
-                  <p key={r.url} className="mt-2">
+            </div>
+            <div>
+              <p className="footer-titulo">{datos.contacto.titulo}</p>
+              <ul className="mt-4 m-0 list-none space-y-3 p-0">
+                {[
+                  { ...datos.contacto.telefono, icono: "telefono" as const },
+                  { ...datos.contacto.mail, icono: "mail" as const },
+                ].map((d) => (
+                  <li key={d.texto} className="flex items-center gap-3">
+                    <Icon name={d.icono} size={20} bare draw={false} className="shrink-0 text-accent-line" />
                     {datos.ejemplo ? (
-                      r.nombre
+                      <span>{d.texto}</span>
+                    ) : (
+                      <a href={d.href} className="underline-offset-4 hover:underline">
+                        {d.texto}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="footer-titulo">{datos.redes.titulo}</p>
+              <ul className="mt-4 m-0 list-none space-y-3 p-0">
+                {datos.redes.items.map((r) => (
+                  <li key={r.url} className="flex items-center gap-3">
+                    <Icon
+                      name={r.nombre.toLowerCase() === "linkedin" ? "linkedin" : "instagram"}
+                      size={20}
+                      bare
+                      draw={false}
+                      className="shrink-0 text-accent-line"
+                    />
+                    {datos.ejemplo ? (
+                      <span>{r.nombre}</span>
                     ) : (
                       <a href={r.url} className="underline-offset-4 hover:underline">
                         {r.nombre}
                       </a>
                     )}
-                  </p>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
-          ) : null}
-          {datos?.ejemplo ? (
-            <p className="mt-8 italic opacity-55">Datos de ejemplo, a la espera de los definitivos.</p>
-          ) : null}
-          <p className="mt-10 font-display font-bold tracking-[0.08em]">{contacto.pie}</p>
-        </footer>
+          </div>
+        ) : null}
+        {datos?.ejemplo ? (
+          <p className="mt-10 italic text-inverse-muted">Datos de ejemplo, a la espera de los definitivos.</p>
+        ) : null}
+        <p className="mt-12 border-t border-inverse-text/15 pt-8 font-display font-bold tracking-[0.08em]">
+          {contacto.pie}
+        </p>
       </div>
-    </section>
+    </footer>
+    </>
   );
 }
