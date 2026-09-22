@@ -135,7 +135,7 @@ export function Hero() {
       <div className="container-x grid w-full items-center gap-10 py-10 lg:grid-cols-12 lg:gap-8 lg:py-24">
         <div className="order-2 lg:order-1 lg:col-span-6 xl:col-span-5">
           <div data-reveal data-hero="logo" className="text-text-strong">
-            <Logo height={22} />
+            <Logo height={44} />
           </div>
           <span className="accent-line mt-5" data-reveal data-hero="line" aria-hidden="true" />
           <h1 id="hero-titulo" data-reveal className="mt-10 max-w-[17ch] text-display text-text-strong">
