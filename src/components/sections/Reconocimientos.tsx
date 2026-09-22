@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
-import { reconocimientos } from "@/content/landing";
+import { reconocimientos, type Badge } from "@/content/landing";
 
 /**
  * BLOQUE 7 — RECONOCIMIENTOS
@@ -12,6 +12,33 @@ import { reconocimientos } from "@/content/landing";
  * Entran en stagger con el trazo dibujándose; en hover se elevan y el trazo pasa a
  * amarillo. Sólo estos tres.
  */
+/** Porción del cuadro que ocupa cada logo, medida en área. */
+const PESO = 0.16;
+/** Lo que queda del lado de la tarjeta una vez descontado el margen. */
+const DISPONIBLE = 84;
+
+/**
+ * El peso visual de un logo es su área, no su alto ni su ancho: con el mismo
+ * alto, uno apaisado pesa el doble. A cada uno se le da el ancho que iguala su
+ * área a la de los demás; si dos no entran al lado del otro, se apilan.
+ */
+function repartir(badge: Badge) {
+  const lista = badge.logoSecundario ? [badge.logo, badge.logoSecundario] : [badge.logo];
+  const proporciones = lista.map((l) => l.width / l.height);
+  const apilados = lista.length > 1 && proporciones.every((r) => r > 2);
+  let anchos = proporciones.map((r) => Math.sqrt(PESO * r) * 100);
+
+  // Si no entran, se achican todos por igual: es lo que mantiene parejas las
+  // áreas dentro de la tarjeta.
+  const ocupado = apilados
+    ? Math.max(...anchos)
+    : anchos.reduce((suma, a) => suma + a, 0) + (lista.length - 1) * 5;
+  const margen = apilados ? DISPONIBLE - 6 : DISPONIBLE;
+  if (ocupado > margen) anchos = anchos.map((a) => (a * margen) / ocupado);
+
+  return { apilados, piezas: lista.map((logo, i) => ({ logo, ancho: anchos[i].toFixed(1) })) };
+}
+
 export function Reconocimientos() {
   const ref = useRef<HTMLElement>(null);
 
@@ -47,7 +74,9 @@ export function Reconocimientos() {
         </h2>
 
         <ul className="mt-14 grid list-none gap-14 p-0 md:grid-cols-3 md:gap-8 lg:mt-20">
-          {reconocimientos.badges.map((b, i) => (
+          {reconocimientos.badges.map((b, i) => {
+            const { piezas, apilados } = repartir(b);
+            return (
             <li
               key={b.titulo}
               data-reveal
@@ -59,32 +88,21 @@ export function Reconocimientos() {
                     el segundo corría el badge respecto del texto. */}
                 <div
                   className={`absolute inset-0 flex items-center justify-center rounded-[var(--radius-lg)] bg-surface ${
-                    b.logoSecundario ? "gap-4 p-4 lg:gap-5 lg:p-5" : "p-6 lg:p-8"
+                    apilados ? "flex-col gap-[7%]" : "gap-[5%]"
                   }`}
                 >
-                  <div className="relative h-[78%] flex-1">
+                  {piezas.map(({ logo, ancho }) => (
                     <Image
-                      src={b.logo.src}
-                      alt={b.logo.alt}
-                      fill
+                      key={logo.src}
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={logo.width}
+                      height={logo.height}
                       sizes="(min-width: 64rem) 200px, 160px"
-                      className="object-contain"
+                      className="h-auto"
+                      style={{ width: `${ancho}%` }}
                     />
-                  </div>
-                  {b.logoSecundario ? (
-                    <>
-                      <span aria-hidden="true" className="h-[52%] w-px shrink-0 bg-line" />
-                      <div className="relative h-[78%] flex-1">
-                        <Image
-                          src={b.logoSecundario.src}
-                          alt={b.logoSecundario.alt}
-                          fill
-                          sizes="(min-width: 64rem) 200px, 160px"
-                          className="object-contain"
-                        />
-                      </div>
-                    </>
-                  ) : null}
+                  ))}
                 </div>
                 <svg
                   viewBox="0 0 100 100"
@@ -109,7 +127,8 @@ export function Reconocimientos() {
               <h3 className="mt-8 max-w-[22ch] text-h3">{b.titulo}</h3>
               <p className="mt-3 max-w-[36ch] text-text">{b.texto}</p>
             </li>
-          ))}
+            );
+          })}
         </ul>
       </div>
     </section>

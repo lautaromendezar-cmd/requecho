@@ -401,19 +401,19 @@ export const reconocimientos = {
       // El documento trae la frase cortada ("...como una de las dos iniciativas de
       // América"). Se publica hasta "en octubre de 2026"; falta el cierre.
       texto: "Representamos a la Argentina en la Final Global de Singapur, en octubre de 2026.",
-      logo: { src: "/logos/climatelaunchpad.png", alt: "ClimateLaunchpad", width: 447, height: 447 },
+      logo: { src: "/logos/climatelaunchpad-badge.png", alt: "ClimateLaunchpad", width: 352, height: 153 },
     },
     {
       titulo: "Semifinalistas · NAVES, IAE Business School",
       texto: "En la competencia de emprendimientos del IAE Business School. 2025",
-      logo: { src: "/logos/naves.png", alt: "NAVES", width: 720, height: 480 },
-      logoSecundario: { src: "/logos/iae.png", alt: "IAE Business School", width: 388, height: 436 },
+      logo: { src: "/logos/naves-badge.png", alt: "NAVES", width: 506, height: 370 },
+      logoSecundario: { src: "/logos/iae-badge.png", alt: "IAE Business School", width: 386, height: 432 },
     },
     {
       titulo: "Ganadoras de “Vos Lo Hacés” · Gobierno de la Ciudad de Buenos Aires",
       texto: "Proyecto elegido entre más de 160 postulantes. 2025",
-      logo: { src: "/logos/vos-lo-haces.png", alt: "Vos Lo Hacés", width: 720, height: 240 },
-      logoSecundario: { src: "/logos/gcba.jpg", alt: "Gobierno de la Ciudad de Buenos Aires", width: 342, height: 192 },
+      logo: { src: "/logos/vos-lo-haces-badge.png", alt: "Vos Lo Hacés", width: 1874, height: 398 },
+      logoSecundario: { src: "/logos/gcba-badge.png", alt: "Gobierno de la Ciudad de Buenos Aires", width: 184, height: 64 },
     },
   ] satisfies Badge[],
 };
