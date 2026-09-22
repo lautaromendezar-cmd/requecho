@@ -33,7 +33,7 @@
   --font-body: var(--rq-font-body, ui-sans-serif, system-ui, sans-serif);
 
   /* ---- Escala tipográfica ------------------------------------------------- */
-  --text-kicker: 0.75rem;
+  --text-kicker: 0.875rem;
   --text-kicker--line-height: 1.2;
   --text-kicker--letter-spacing: 0.18em;
   --text-small: 0.875rem;
