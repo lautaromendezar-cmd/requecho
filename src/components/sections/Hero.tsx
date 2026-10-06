@@ -9,7 +9,7 @@ import { Logo } from "@/components/brand/Logo";
 
 /**
  * BLOQUE 1 — HERO
- * Secuencia de carga corta: isologo, línea, H1 por líneas con máscara, subtítulo,
+ * Secuencia de carga corta: logo, H1 por líneas con máscara, subtítulo,
  * foto con máscara clip-path (desktop) o leve escala (mobile, para no demorar el
  * LCP). Parallax de la foto al scroll y tilt con el puntero. Sin botón.
  */
@@ -48,8 +48,7 @@ export function Hero() {
 
         const start = contextSafe!(() => {
           const tl = gsap.timeline({ defaults: { ease: motion.eases.out } });
-          tl.fromTo(q("[data-hero='logo']"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.9 }, 0)
-            .fromTo(q("[data-hero='line']"), { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.9 }, 0.15);
+          tl.fromTo(q("[data-hero='logo']"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.9 }, 0);
 
           if (wide) {
             tl.to(media, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "expo.inOut" }, 0.1);
@@ -135,9 +134,8 @@ export function Hero() {
       <div className="container-x grid w-full items-center gap-10 py-10 lg:grid-cols-12 lg:gap-8 lg:py-24">
         <div className="order-2 lg:order-1 lg:col-span-6 xl:col-span-5">
           <div data-reveal data-hero="logo" className="text-text-strong">
-            <Logo height={44} />
+            <Logo height={64} />
           </div>
-          <span className="accent-line mt-5" data-reveal data-hero="line" aria-hidden="true" />
           <h1 id="hero-titulo" data-reveal className="mt-10 max-w-[17ch] text-display text-text-strong">
             {hero.titulo}
           </h1>
