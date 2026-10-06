@@ -144,7 +144,7 @@ export function Hero() {
           <h1 id="hero-titulo" data-reveal className="mt-10 max-w-[17ch] text-display text-text-strong">
             {hero.titulo}
           </h1>
-          <p data-reveal data-hero="sub" className="mt-8 max-w-[52ch] text-lead text-text">
+          <p data-reveal data-hero="sub" className="mt-8 max-w-[44ch] text-[length:clamp(1.1875rem,1rem+0.55vw,1.5rem)] leading-[1.5] text-text">
             {hero.subtitulo}
           </p>
           <div data-reveal data-hero="cue" className="mt-12 hidden lg:block">
@@ -155,7 +155,7 @@ export function Hero() {
         <div className="order-1 lg:order-2 lg:col-span-6 lg:col-start-7 xl:col-span-6 xl:col-start-7">
           <div
             data-hero-media
-            className="relative aspect-[4/3] w-full overflow-hidden rounded-lg lg:aspect-auto lg:h-[min(76svh,50vw)]"
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-lg lg:aspect-auto lg:h-[min(62svh,44vw)]"
           >
             <Image
               data-hero-img
