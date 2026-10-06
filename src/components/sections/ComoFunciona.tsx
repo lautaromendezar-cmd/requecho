@@ -33,7 +33,7 @@ export function ComoFunciona() {
         const tl = gsap.timeline({
           defaults: { ease: "none" },
           scrollTrigger: pin
-            ? { trigger: stage, start: "top 14%", end: "+=130%", pin: true, scrub: 0.6, anticipatePin: 1 }
+            ? { trigger: stage, start: "top 14%", end: "+=60%", pin: true, scrub: 0.6, anticipatePin: 1 }
             : { trigger: stage, start: "top 72%", end: "bottom 55%", scrub: 0.6 },
           onUpdate: () => {
             const p = tl.progress();
