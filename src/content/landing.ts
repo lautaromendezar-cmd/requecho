@@ -209,49 +209,21 @@ export const producto = {
     width: 395,
     height: 206,
   } satisfies Imagen,
+  galeriaTitulo: "Nuestro material aplicado a productos",
+  /** Carrusel en cuadrado (scripts/preparar-carrusel.py). */
   galeria: [
-    {
-      src: "/images/galeria-01.jpg",
-      alt: "Cuatro paneles Requecho de pie, en blanco, durazno, azul oscuro y negro, sobre una mesa blanca.",
-      width: 768,
-      height: 1024,
-    },
-    {
-      src: "/images/galeria-02.jpg",
-      alt: "Tres paneles Requecho apilados, blanco, durazno y negro, vistos de canto.",
-      width: 768,
-      height: 1024,
-    },
-    {
-      src: "/images/galeria-03.jpg",
-      alt: "Cuatro paneles Requecho de pie en fila, del blanco al gris jaspeado, sobre una superficie de madera.",
-      width: 1024,
-      height: 768,
-    },
-    {
-      src: "/images/galeria-04.jpg",
-      alt: "Cinco paneles Requecho apoyados de canto en distintos ángulos sobre una tabla de madera.",
-      width: 1024,
-      height: 768,
-    },
-    {
-      src: "/images/galeria-05.jpg",
-      alt: "Cuatro paneles Requecho en fila mostrando sus variaciones de textura, del claro al oscuro.",
-      width: 768,
-      height: 1024,
-    },
-    {
-      src: "/images/galeria-06.jpg",
-      alt: "Tres paneles Requecho vistos desde arriba, cada uno con una combinación distinta de fibras claras y oscuras.",
-      width: 768,
-      height: 1024,
-    },
-    {
-      src: "/images/galeria-07.jpg",
-      alt: "Pila de paneles Requecho grises sobre una mesa blanca.",
-      width: 768,
-      height: 1024,
-    },
+    { src: "/images/productos/puerta-amarilla.jpg", alt: "Una mano sostiene dos paneles Requecho en tonos azules y blancos contra una puerta pintada de amarillo.", width: 940, height: 940 },
+    { src: "/images/productos/cuadro-indigo.jpg", alt: "Cuadro con marco de madera armado con ocho paneles Requecho en azul índigo.", width: 940, height: 940 },
+    { src: "/images/productos/manos-bloques.jpg", alt: "Dos manos muestran paneles Requecho en azul oscuro y uno claro con fibras rojas y naranjas.", width: 940, height: 940 },
+    { src: "/images/productos/paneles-hiedra.jpg", alt: "Paneles Requecho azul, negro y claro con fibras de colores apoyados junto a una hiedra.", width: 940, height: 940 },
+    { src: "/images/productos/discos.jpg", alt: "Discos de material Requecho con fibras grises, azules y rojas, amontonados.", width: 940, height: 940 },
+    { src: "/images/productos/paneles-puerta.jpg", alt: "Dos paneles Requecho azul jaspeado apoyados contra una puerta amarilla.", width: 940, height: 940 },
+    { src: "/images/productos/cuadro-mosaico.jpg", alt: "Cuadro con marco de madera con paneles Requecho en mosaico de azul y crema.", width: 940, height: 940 },
+    { src: "/images/productos/jean-y-muestras.jpg", alt: "Recortes de jean en un frasco de vidrio junto a muestras Requecho: el descarte y el material terminado.", width: 940, height: 940 },
+    { src: "/images/productos/disco-amarillo.jpg", alt: "Disco Requecho en negro y crema sobre una pared amarilla.", width: 940, height: 940 },
+    { src: "/images/productos/manos-hiedra.jpg", alt: "Manos que despliegan en abanico paneles Requecho en distintos tonos de azul, en un patio con hiedra.", width: 940, height: 940 },
+    { src: "/images/productos/cuadro-patio.jpg", alt: "Cuadro de paneles Requecho azul y crema con marco de madera, al sol en un patio con plantas.", width: 940, height: 940 },
+    { src: "/images/productos/muestras.jpg", alt: "Muestras Requecho vistas desde arriba: un disco crema y negro, un panel oscuro y uno claro con fibras rojas.", width: 940, height: 940 },
   ] satisfies Imagen[],
 };
 

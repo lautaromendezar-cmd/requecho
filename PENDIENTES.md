@@ -65,8 +65,9 @@ validar** es texto que existe en el documento pero tiene una nota de validación
   amarilla (`A3C9D3B0`). Confirmar o mandar la toma de estudio.
 - [ ] **Macro de textura**: recorte de la cenital `C5FEFD08` (395 px). La lupa está
   limitada a 1,5×; con el original en alta se puede subir.
-- [ ] **Serie de paneles de distintos colores**: galería con 7 fotos de la carpeta.
-  Confirmar la selección.
+- [x] **Carrusel "Nuestro material aplicado a productos"** (devolución oct. 2026): 12 fotos
+  cuadradas de `fotos-nuevas/Producto` (recorte con foco por foto en
+  `scripts/preparar-carrusel.py`). Se dejaron afuera las casi repetidas; ver el script.
 - [ ] **Links a la ficha técnica (PDF en Drive), uno en español y otro en inglés.** El
   botón "Descargar ficha técnica" está debajo de la ficha breve con `url: "#"` provisorio
   (se ve pero no descarga nada): reemplazar `producto.fichaTecnica.url` en `landing.ts` y

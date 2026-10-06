@@ -162,49 +162,21 @@ export const producto = {
     width: 395,
     height: 206,
   } satisfies Imagen,
+  galeriaTitulo: "Our material applied to products",
+  /** Carrusel en cuadrado (scripts/preparar-carrusel.py). */
   galeria: [
-    {
-      src: "/images/galeria-01.jpg",
-      alt: "Four Requecho panels standing upright — white, peach, dark blue and black — on a white table.",
-      width: 768,
-      height: 1024,
-    },
-    {
-      src: "/images/galeria-02.jpg",
-      alt: "Three stacked Requecho panels, white, peach and black, seen from the edge.",
-      width: 768,
-      height: 1024,
-    },
-    {
-      src: "/images/galeria-03.jpg",
-      alt: "Four Requecho panels standing in a row, from white to speckled grey, on a wooden surface.",
-      width: 1024,
-      height: 768,
-    },
-    {
-      src: "/images/galeria-04.jpg",
-      alt: "Five Requecho panels leaning on their edges at different angles on a wooden board.",
-      width: 1024,
-      height: 768,
-    },
-    {
-      src: "/images/galeria-05.jpg",
-      alt: "Four Requecho panels in a row showing their texture variations, from light to dark.",
-      width: 768,
-      height: 1024,
-    },
-    {
-      src: "/images/galeria-06.jpg",
-      alt: "Three Requecho panels seen from above, each with a different mix of light and dark fibers.",
-      width: 768,
-      height: 1024,
-    },
-    {
-      src: "/images/galeria-07.jpg",
-      alt: "A stack of grey Requecho panels on a white table.",
-      width: 768,
-      height: 1024,
-    },
+    { src: "/images/productos/puerta-amarilla.jpg", alt: "A hand holds two blue-and-white Requecho panels against a door painted yellow.", width: 940, height: 940 },
+    { src: "/images/productos/cuadro-indigo.jpg", alt: "Wooden-framed piece made of eight indigo-blue Requecho panels.", width: 940, height: 940 },
+    { src: "/images/productos/manos-bloques.jpg", alt: "Two hands show dark-blue Requecho panels and a light one with red and orange fibers.", width: 940, height: 940 },
+    { src: "/images/productos/paneles-hiedra.jpg", alt: "Blue, black and light Requecho panels with colored fibers resting next to ivy.", width: 940, height: 940 },
+    { src: "/images/productos/discos.jpg", alt: "A pile of Requecho discs with grey, blue and red fibers.", width: 940, height: 940 },
+    { src: "/images/productos/paneles-puerta.jpg", alt: "Two speckled-blue Requecho panels leaning against a yellow door.", width: 940, height: 940 },
+    { src: "/images/productos/cuadro-mosaico.jpg", alt: "Wooden-framed mosaic of blue and cream Requecho panels.", width: 940, height: 940 },
+    { src: "/images/productos/jean-y-muestras.jpg", alt: "Denim offcuts in a glass jar next to Requecho samples: the waste and the finished material.", width: 940, height: 940 },
+    { src: "/images/productos/disco-amarillo.jpg", alt: "A black-and-cream Requecho disc on a yellow wall.", width: 940, height: 940 },
+    { src: "/images/productos/manos-hiedra.jpg", alt: "Hands fanning out Requecho panels in different shades of blue, in a courtyard with ivy.", width: 940, height: 940 },
+    { src: "/images/productos/cuadro-patio.jpg", alt: "A wooden-framed piece of blue and cream Requecho panels, in the sun in a courtyard with plants.", width: 940, height: 940 },
+    { src: "/images/productos/muestras.jpg", alt: "Requecho samples from above: a cream-and-black disc, a dark panel and a light one with red fibers.", width: 940, height: 940 },
   ] satisfies Imagen[],
 };
 

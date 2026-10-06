@@ -193,9 +193,14 @@ export function Producto() {
           </div>
         </div>
 
-        {/* Galería */}
-        <div className="mt-14 lg:mt-14" data-reveal>
-          <Gallery imagenes={producto.galeria} />
+        {/* Carrusel: el material aplicado a productos */}
+        <div className="mt-16 lg:mt-24">
+          <h3 data-reveal className="max-w-[18ch] text-h2">
+            {producto.galeriaTitulo}
+          </h3>
+          <div className="mt-10 lg:mt-12">
+            <Gallery imagenes={producto.galeria} />
+          </div>
         </div>
       </div>
     </section>
