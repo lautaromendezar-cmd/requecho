@@ -4,7 +4,7 @@
 #
 # Lee de material-del-cliente/imagenes-drive/ (carpeta ignorada por git) y escribe
 # copias limpias (sin EXIF, orientadas, recomprimidas) en public/images/, los logos de
-# los reconocimientos en public/logos/ y la imagen de Open Graph en public/og.jpg.
+# los reconocimientos en public/logos/. La imagen de Open Graph sale de generar-og.py.
 # Cuando lleguen los originales en alta, alcanza con reemplazar los archivos fuente en
 # el diccionario FUENTES y volver a correr el script.
 
@@ -130,24 +130,8 @@ def main() -> None:
             im.convert("RGB").save(LOGOS / destino, "JPEG", quality=90)
         print(f"logos/{destino:22s} {im.width}x{im.height}")
 
-    # Open Graph: fondo warm light, isologo a la izquierda, foto del hero a la derecha
-    og = Image.new("RGB", (1200, 630), (241, 241, 239))
-    foto = Image.open(SALIDA / "hero-paneles.jpg")
-    foto = foto.resize((int(foto.width * 630 / foto.height), 630), Image.LANCZOS)
-    og.paste(foto, (1200 - foto.width, 0))
-    logo_path = RAIZ / "_plan" / "logo-cover-crop.png"
-    if logo_path.exists():
-        logo = Image.open(logo_path).convert("RGB")
-        ancho = 360
-        logo = logo.resize((ancho, int(logo.height * ancho / logo.width)), Image.LANCZOS)
-        # el fondo del recorte es casi blanco: lo pego con máscara por luminancia
-        mascara = ImageOps.invert(logo.convert("L")).point(lambda v: 255 if v > 60 else 0)
-        tinta = Image.new("RGB", logo.size, (36, 36, 36))
-        og.paste(tinta, (96, 260), mascara)
-        # línea corta amarilla, el gesto de la marca
-        og.paste(Image.new("RGB", (48, 4), (239, 184, 33)), (96, 260 + logo.height + 28))
-    og.save(RAIZ / "public" / "og.jpg", "JPEG", quality=86, optimize=True)
-    print("og.jpg 1200x630")
+    # La imagen de Open Graph la arma scripts/generar-og.py (usa hero-paneles.jpg).
+    print("ahora: python scripts/generar-og.py")
 
 
 if __name__ == "__main__":
