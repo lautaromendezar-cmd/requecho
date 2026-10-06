@@ -465,7 +465,7 @@ export const contacto = {
   },
   /** [DATO A CONFIRMAR: mail de contacto alternativo]. Se sumaría al mensaje de falla. */
   mailAlternativo: undefined as string | undefined,
-  pie: "REQUECHO © 2026",
+  pie: "© 2026",
   /** [DATO A CONFIRMAR: redes y mail en el pie]. */
   redes: undefined as { nombre: string; url: string }[] | undefined,
   /**

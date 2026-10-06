@@ -6,6 +6,7 @@ import { motion } from "@/config/motion";
 import { contacto } from "@/content/landing";
 import { Kicker } from "@/components/ui/Kicker";
 import { Icon } from "@/components/ui/Icon";
+import { Logo } from "@/components/brand/Logo";
 import { LeadForm } from "./contacto/LeadForm";
 
 /**
@@ -134,9 +135,12 @@ export function Contacto() {
         {datos?.ejemplo ? (
           <p className="mt-10 italic text-inverse-muted">Datos de ejemplo, a la espera de los definitivos.</p>
         ) : null}
-        <p className="mt-12 border-t border-inverse-text/15 pt-8 font-display font-bold tracking-[0.08em]">
-          {contacto.pie}
-        </p>
+        {/* Versión negativa del logo (letras claras, escuadras amarillas), como
+            pide el manual sobre fondos oscuros. */}
+        <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t border-inverse-text/15 pt-8">
+          <Logo height={40} className="text-inverse-text" />
+          <p className="text-inverse-muted">{contacto.pie}</p>
+        </div>
       </div>
     </footer>
     </>
