@@ -34,7 +34,7 @@ export function PorQue() {
         const tl = gsap.timeline({
           defaults: { ease: "power2.inOut" },
           scrollTrigger: scrub
-            ? { trigger: stage.parentElement, start: "top 70%", end: "bottom 60%", scrub: 0.7, invalidateOnRefresh: true }
+            ? { trigger: stage, start: "top 75%", end: "bottom 40%", scrub: 0.7, invalidateOnRefresh: true }
             : { trigger: stage, start: "top 70%", once: true },
         });
         // Cada capa termina siendo una franja de la pieza: apiladas y sin
@@ -112,9 +112,10 @@ export function PorQue() {
           </p>
         </div>
 
-        {/* Comparativa: en desktop, un tramo alto con la escena pegajosa */}
-        <div className="mt-14 lg:mt-20 lg:min-h-[160vh]">
-          <div data-compare className="lg:sticky lg:top-[12vh]">
+        {/* Comparativa: la fusión se arma con el scroll mientras la escena cruza
+            la pantalla, sin tramo pegajoso (dejaba un momento vacío). */}
+        <div className="mt-14 lg:mt-20">
+          <div data-compare>
             <p className="kicker text-inverse-muted" data-reveal="fade">
               <span>{comparativa.titulo}</span>
             </p>
