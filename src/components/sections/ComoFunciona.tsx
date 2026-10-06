@@ -11,7 +11,7 @@ import { Icon } from "@/components/ui/Icon";
  * BLOQUE 4 — CÓMO FUNCIONA
  * Cinco pasos unidos por una línea que se dibuja con el scroll y va activando cada
  * paso: el círculo se llena de acento, el ícono se dibuja y el número cambia de
- * peso. Desktop: horizontal, pineado con scrub (flag motion.pinProcess).
+ * peso. Desktop: horizontal, con scrub (pin opcional: flag motion.pinProcess).
  * Mobile: apilado, sin pin. El remate revela la foto del panel terminado.
  */
 export function ComoFunciona() {
@@ -35,7 +35,7 @@ export function ComoFunciona() {
           defaults: { ease: "none" },
           scrollTrigger: pin
             ? { trigger: stage, start: "top 14%", end: "+=60%", pin: true, scrub: 0.6, anticipatePin: 1 }
-            : { trigger: stage, start: "top 72%", end: "bottom 55%", scrub: 0.6 },
+            : { trigger: stage, start: "top 78%", end: "bottom 40%", scrub: 0.6 },
           onUpdate: () => {
             const p = tl.progress();
             steps.forEach((s, i) => s.classList.toggle("is-active", p >= (i + 0.55) / n));
@@ -48,7 +48,7 @@ export function ComoFunciona() {
           tl.fromTo(strokes, { drawSVG: "0%" }, { drawSVG: "100%", duration: 0.12, stagger: 0.01 }, at);
           tl.fromTo(
             s.querySelector("[data-step-body]"),
-            { opacity: 0.65, y: 8 }, // 0,65: el texto inactivo sigue cumpliendo 4,5:1
+            { opacity: 0.8, y: 8 }, // el paso todavía inactivo se lee igual, sólo un poco más tenue
             { opacity: 1, y: 0, duration: 0.08, ease: "power2.out" },
             at + 0.02,
           );
@@ -113,7 +113,7 @@ export function ComoFunciona() {
                 <div data-step-body className="mt-6">
                   <p className="step-number text-text-strong">{p.numero}</p>
                   <h3 className="mt-3 text-h3">{p.titulo}</h3>
-                  <p className="mt-2 max-w-[30ch] text-text">{p.texto}</p>
+                  <p className="mt-2 max-w-[30ch] text-[length:1.125rem] leading-[1.55] text-text">{p.texto}</p>
                   {p.foto ? (
                     <div className="mt-5 overflow-hidden rounded-md">
                       <Image

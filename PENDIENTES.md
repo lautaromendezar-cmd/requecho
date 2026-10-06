@@ -80,9 +80,8 @@ validar** es texto que existe en el documento pero tiene una nota de validación
 
 - [ ] **Fotos reales de cada etapa** (opcional, `[ASSET pendiente]`). Cada paso tiene el
   campo `foto` listo.
-- [ ] **Pin con scrub en desktop**: está activado. Si lo sienten como "scroll no simple",
-  poner `pinProcess: false` en `src/config/motion.ts` y la línea se dibuja igual, sin
-  que la sección se quede quieta.
+- [x] **Pin con scrub en desktop**: apagado (`pinProcess: false`) por la devolución de
+  oct. 2026 (espacio vacío al bajar). La línea y los pasos se activan igual con el scroll.
 
 ## Bloque 5 — Por qué Requecho
 

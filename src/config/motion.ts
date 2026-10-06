@@ -5,8 +5,9 @@ export const motion = {
   /** Scroll suavizado con Lenis. Se apaga solo con prefers-reduced-motion. */
   smoothScroll: true,
   /** Bloque 4 pineado con scrub en desktop. En false, la línea se dibuja con el
-   *  scroll pero la sección no se queda quieta. */
-  pinProcess: true,
+   *  scroll pero la sección no se queda quieta. Apagado por devolución de las
+   *  clientas (oct. 2026): el pin dejaba un espacio vacío largo al bajar. */
+  pinProcess: false,
   /** Lupa de textura en el bloque 3 (desktop). */
   lens: true,
 
