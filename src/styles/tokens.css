@@ -57,10 +57,10 @@
   --text-step: clamp(2.25rem, 1.85rem + 1.6vw, 3.25rem);
   --text-step--line-height: 1;
 
-  /* ---- Radios ------------------------------------------------------------- */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.625rem;
-  --radius-lg: 1.25rem;
+  /* ---- Radios: casi rectos, como las escuadras del logo ------------------- */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.1875rem;
+  --radius-lg: 0.25rem;
   --radius-pill: 999px;
 
   /* ---- Espaciado y contenedores ------------------------------------------ */
