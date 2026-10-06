@@ -65,15 +65,16 @@ export function Reconocimientos() {
     { scope: ref },
   );
 
+  // Sigue a Fundadoras sobre el mismo fondo: el aire de arriba ya lo da ese bloque.
   return (
-    <section ref={ref} className="py-section" aria-labelledby="reconocimientos-titulo">
+    <section ref={ref} className="pb-section" aria-labelledby="reconocimientos-titulo">
       <div className="container-x">
         <h2 id="reconocimientos-titulo" className="kicker" data-reveal="fade">
           <span>{reconocimientos.kicker}</span>
           <span className="accent-line" data-reveal="line" data-reveal-delay="180" aria-hidden="true" />
         </h2>
 
-        <ul className="mt-14 grid list-none gap-14 p-0 md:grid-cols-3 md:gap-8 lg:mt-20">
+        <ul className="mt-14 grid list-none gap-14 p-0 md:grid-cols-3 md:gap-8 lg:mt-14">
           {reconocimientos.badges.map((b, i) => {
             const { piezas, apilados } = repartir(b);
             return (

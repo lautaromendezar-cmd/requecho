@@ -84,7 +84,7 @@ export function Problema() {
           </p>
         </div>
 
-        <ol className="mt-20 list-none p-0 lg:mt-28">
+        <ol className="mt-14 list-none p-0 lg:mt-20">
           {cifras.map((c, i) => {
             const numero = formatoNumero.format(c.valor);
             const largo = numero.length > 3;
@@ -135,7 +135,7 @@ export function Problema() {
 
         <p
           data-puente
-          className="mt-20 max-w-[28ch] font-display text-h2 font-bold text-text-strong lg:mt-28"
+          className="mt-14 max-w-[28ch] font-display text-h2 font-bold text-text-strong lg:mt-20"
         >
           {problema.puente}
         </p>

@@ -88,7 +88,7 @@ export function Fundadoras() {
           </div>
         </div>
 
-        <ul className="mt-20 grid list-none gap-6 p-0 md:grid-cols-2 lg:mt-28">
+        <ul className="mt-14 grid list-none gap-6 p-0 md:grid-cols-2 lg:mt-20">
           {fundadoras.cards.map((f, i) => (
             <li
               key={f.nombre}
@@ -125,7 +125,7 @@ export function Fundadoras() {
           ))}
         </ul>
 
-        <div className="mt-20 grid gap-8 lg:mt-28 lg:grid-cols-12 lg:gap-x-8">
+        <div className="mt-14 grid gap-8 lg:mt-20 lg:grid-cols-12 lg:gap-x-8">
           <p data-reveal className="font-display text-h3 font-bold text-text-strong lg:col-span-6">
             <span className="accent-line mb-5" data-reveal="line" aria-hidden="true" />
             {fundadoras.impacto[0]}

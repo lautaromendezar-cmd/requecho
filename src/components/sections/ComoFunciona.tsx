@@ -85,7 +85,7 @@ export function ComoFunciona() {
             </p>
           </div>
 
-          <ol className="relative mt-16 grid list-none gap-12 p-0 pl-[calc(1.75rem+1.5rem)] lg:mt-24 lg:grid-cols-5 lg:gap-6 lg:pl-0">
+          <ol className="relative mt-12 grid list-none gap-12 p-0 pl-[calc(1.75rem+1.5rem)] lg:mt-16 lg:grid-cols-5 lg:gap-6 lg:pl-0">
             {/* Línea horizontal (desktop) a la altura del centro de los círculos */}
             <span
               data-line-h
@@ -132,7 +132,7 @@ export function ComoFunciona() {
         </div>
 
         {/* Remate con la foto del panel terminado */}
-        <div className="mt-24 grid items-center gap-10 lg:mt-36 lg:grid-cols-12 lg:gap-x-8">
+        <div className="mt-16 grid items-center gap-10 lg:mt-24 lg:grid-cols-12 lg:gap-x-8">
           <p data-reveal className="max-w-[26ch] font-display text-h2 font-bold text-text-strong lg:col-span-6">
             {proceso.remate}
           </p>

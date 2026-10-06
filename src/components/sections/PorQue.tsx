@@ -113,7 +113,7 @@ export function PorQue() {
         </div>
 
         {/* Comparativa: en desktop, un tramo alto con la escena pegajosa */}
-        <div className="mt-20 lg:mt-28 lg:min-h-[160vh]">
+        <div className="mt-14 lg:mt-20 lg:min-h-[160vh]">
           <div data-compare className="lg:sticky lg:top-[12vh]">
             <p className="kicker text-inverse-muted" data-reveal="fade">
               <span>{comparativa.titulo}</span>
@@ -173,7 +173,7 @@ export function PorQue() {
         </div>
 
         {/* Diferenciales 2x2 */}
-        <div className="mt-24 lg:mt-32">
+        <div className="mt-16 lg:mt-20">
           <h3 data-reveal className="text-h3">
             {porQue.diferencialesTitulo}
           </h3>

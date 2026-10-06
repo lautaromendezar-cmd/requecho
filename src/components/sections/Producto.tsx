@@ -60,7 +60,7 @@ export function Producto() {
         </div>
 
         {/* Panel sobre mostaza + cuerpo */}
-        <div className="mt-16 grid items-end gap-10 lg:mt-24 lg:grid-cols-12 lg:gap-x-8">
+        <div className="mt-12 grid items-end gap-10 lg:mt-16 lg:grid-cols-12 lg:gap-x-8">
           <div className="relative lg:col-span-7">
             <div
               data-accent-block
@@ -86,7 +86,7 @@ export function Producto() {
         </div>
 
         {/* Propiedades y desempeño */}
-        <div className="mt-24 lg:mt-32">
+        <div className="mt-16 lg:mt-14">
           <h3 data-reveal className="text-h3">
             {producto.propiedadesTitulo}
           </h3>
@@ -136,7 +136,7 @@ export function Producto() {
         </div>
 
         {/* Aplicaciones */}
-        <div className="mt-20 grid gap-6 lg:grid-cols-12 lg:gap-x-8">
+        <div className="mt-14 grid gap-6 lg:grid-cols-12 lg:gap-x-8">
           <h3 data-reveal className="text-h3 lg:col-span-3">
             {producto.aplicacionesTitulo}
           </h3>
@@ -155,7 +155,7 @@ export function Producto() {
         </div>
 
         {/* Ficha breve + macro de textura */}
-        <div className="mt-20 grid gap-10 lg:mt-28 lg:grid-cols-12 lg:gap-x-8">
+        <div className="mt-14 grid gap-10 lg:mt-20 lg:grid-cols-12 lg:gap-x-8">
           <div className="lg:col-span-6">
             <h3 data-reveal className="text-h3">
               {producto.fichaTitulo}
@@ -180,7 +180,7 @@ export function Producto() {
         </div>
 
         {/* Galería */}
-        <div className="mt-20 lg:mt-28" data-reveal>
+        <div className="mt-14 lg:mt-14" data-reveal>
           <Gallery imagenes={producto.galeria} />
         </div>
       </div>
