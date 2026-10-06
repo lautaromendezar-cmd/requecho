@@ -62,7 +62,7 @@ export function Fundadoras() {
                 width={fundadoras.foto.width}
                 height={fundadoras.foto.height}
                 sizes="(min-width: 64rem) 40vw, 100vw"
-                className="h-full w-full object-cover object-[50%_45%]"
+                className="h-full w-full object-cover object-[50%_25%]"
               />
             </div>
             {fundadoras.foto.epigrafe ? (

@@ -86,7 +86,7 @@ export function Producto() {
         </div>
 
         {/* Propiedades y desempeño */}
-        <div className="mt-16 lg:mt-14">
+        <div className="mt-16 lg:mt-24">
           <h3 data-reveal className="text-h3">
             {producto.propiedadesTitulo}
           </h3>
