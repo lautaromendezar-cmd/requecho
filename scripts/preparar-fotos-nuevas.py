@@ -1,23 +1,26 @@
 """
-Carrusel "Nuestro material aplicado a productos" (bloque 3).
+Fotos nuevas de las clientas (fotos-nuevas/, fuera del repo), recortadas con un
+punto de interés por foto y guardadas como JPG livianos. Next/Image genera
+después los tamaños.
 
-Lee la selección de producto que mandaron las clientas (fotos-nuevas/, fuera del
-repo), recorta cada foto a cuadrado alrededor de su punto de interés y escribe
-JPG livianos en public/images/productos/. Next/Image genera después los tamaños.
+  - Carrusel "Nuestro material aplicado a productos" (bloque 3): cuadradas, en
+    public/images/productos/.
+  - Diferenciales (bloque 5): 4:3, una por tema, en public/images/diferenciales/.
 
 Quedaron afuera las casi repetidas de la carpeta: la 2.ª toma de la mano contra
 la puerta amarilla, el disco amarillo apaisado (está el vertical), el par de
 marcos azules (está el marco índigo solo), los dos discos en ocho (no entran
 en un cuadrado) y el collage de muestras sobre blanco (igual al de fondo gris).
 
-Uso:  python scripts/preparar-carrusel.py
+Uso:  python scripts/preparar-fotos-nuevas.py
 """
 from pathlib import Path
 
 from PIL import Image, ImageOps
 
 RAIZ = Path(__file__).resolve().parent.parent
-ORIGEN = RAIZ / "fotos-nuevas" / "Producto" / "Producto - Selección"
+FOTOS = RAIZ / "fotos-nuevas"
+ORIGEN = FOTOS / "Producto" / "Producto - Selección"
 DESTINO = RAIZ / "public" / "images" / "productos"
 # Todas al mismo lado (la más chica de la selección mide 938): el contenido las
 # declara 940 x 940.
@@ -40,11 +43,29 @@ SELECCION = [
 ]
 
 
+# Diferenciales: (ruta dentro de fotos-nuevas, salida, foco x, foco y, zoom).
+# zoom > 1 recorta más cerca del foco (p. ej. las manos y no el retrato entero).
+DIFERENCIALES = [
+    ("Veronica/Veronica (Selección)/Vero con desperdicio textil.png", "material-recuperado", 0.4, 0.62, 1.55),
+    ("Producto/Producto - Selección/Textured Black and Cream Disk on Yellow Door.png", "diseno", 0.5, 0.5, 1.0),
+    ("Secado/Secado - Selección/secado seleccion.png", "propiedades", 0.5, 0.55, 1.0),
+    ("Secado/Secado - Selección/Copia de 20260925_105321.jpg", "identidad", 0.5, 0.27, 1.0),
+]
+DIF_DESTINO = RAIZ / "public" / "images" / "diferenciales"
+DIF_ANCHO, DIF_ALTO = 960, 720
+
+
+def recorte(im: Image.Image, fx: float, fy: float, ratio: float = 1.0, zoom: float = 1.0) -> Image.Image:
+    """Recorte de proporción ancho/alto `ratio`, lo más grande posible (÷ zoom)."""
+    w = min(im.width, im.height * ratio) / zoom
+    h = w / ratio
+    x = min(max(im.width * fx - w / 2, 0), im.width - w)
+    y = min(max(im.height * fy - h / 2, 0), im.height - h)
+    return im.crop((round(x), round(y), round(x + w), round(y + h)))
+
+
 def recorte_cuadrado(im: Image.Image, fx: float, fy: float) -> Image.Image:
-    lado = min(im.width, im.height)
-    x = round(min(max(im.width * fx - lado / 2, 0), im.width - lado))
-    y = round(min(max(im.height * fy - lado / 2, 0), im.height - lado))
-    return im.crop((x, y, x + lado, y + lado))
+    return recorte(im, fx, fy)
 
 
 def main():
@@ -56,6 +77,14 @@ def main():
         salida = DESTINO / f"{nombre}.jpg"
         im.save(salida, "JPEG", quality=84, optimize=True, progressive=True)
         print(f"productos/{nombre}.jpg  {im.width}x{im.height}  {salida.stat().st_size // 1024} KB")
+
+    DIF_DESTINO.mkdir(parents=True, exist_ok=True)
+    for ruta, nombre, fx, fy, zoom in DIFERENCIALES:
+        im = ImageOps.exif_transpose(Image.open(FOTOS / ruta)).convert("RGB")
+        im = recorte(im, fx, fy, DIF_ANCHO / DIF_ALTO, zoom).resize((DIF_ANCHO, DIF_ALTO), Image.LANCZOS)
+        salida = DIF_DESTINO / f"{nombre}.jpg"
+        im.save(salida, "JPEG", quality=84, optimize=True, progressive=True)
+        print(f"diferenciales/{nombre}.jpg  {im.width}x{im.height}  {salida.stat().st_size // 1024} KB")
 
 
 if __name__ == "__main__":

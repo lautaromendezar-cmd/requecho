@@ -85,8 +85,9 @@ validar** es texto que existe en el documento pero tiene una nota de validación
 
 ## Bloque 5 — Por qué Requecho
 
-- [ ] **Foto de la pieza Requecho**: recorte de la cenital `C5FEFD08`. Con original en
-  alta, reemplazar `public/images/panel-pieza.jpg`.
+- [x] **Comparativa de capas: se sacó** (devolución oct. 2026: no se entendía y repetía
+  las palabras de la bajada). Los cuatro diferenciales la reemplazan, cada uno con su
+  foto de `fotos-nuevas/` (recortes en `scripts/preparar-fotos-nuevas.py`).
 - [ ] **Fondo grafito** (el "segundo escenario" de la guía). Si prefieren todo claro,
   quitar la clase `surface-inverse` en `PorQue.tsx`.
 

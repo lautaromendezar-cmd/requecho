@@ -285,48 +285,34 @@ export const porQue = {
   titulo: "Circularidad, desempeño y diseño",
   bajada:
     "Donde una solución convencional necesita varias capas, Requecho integra desempeño acústico y térmico con terminación visible en un solo material.",
-  diferencialesTitulo: "Diferenciales",
   diferenciales: [
     {
       titulo: "Material recuperado",
       texto: "Cada m² permite recuperar aproximadamente 7,5 kg de descarte textil preconsumo.",
       icono: "ciclo",
+      imagen: { src: "/images/diferenciales/material-recuperado.jpg", alt: "Manos que sostienen un puñado de descarte textil triturado, la materia prima de Requecho.", width: 960, height: 720 },
     },
     {
       titulo: "Diseño para cada espacio",
       texto:
         "Trabajamos colores, combinaciones y degradés junto con arquitectos y diseñadores para integrar el material al proyecto.",
       icono: "diseno",
+      imagen: { src: "/images/diferenciales/diseno.jpg", alt: "Pieza circular de Requecho en negro y crema colgada sobre una puerta amarilla.", width: 960, height: 720 },
     },
     {
       titulo: "Propiedades funcionales",
       texto: "El mismo material aporta terminación visible, absorción acústica y comportamiento térmico.",
       icono: "capas",
+      imagen: { src: "/images/diferenciales/propiedades.jpg", alt: "Paneles Requecho gruesos secándose sobre una rejilla: se ven el espesor y la densidad de las fibras.", width: 960, height: 720 },
     },
     {
       titulo: "Identidad material",
       texto:
         "Las fibras, texturas y variaciones propias del material forman parte de la expresión final de cada pieza.",
       icono: "huella",
+      imagen: { src: "/images/diferenciales/identidad.jpg", alt: "Primer plano de la superficie de una pieza Requecho: fibras claras con hilos de colores y un recorte rosa.", width: 960, height: 720 },
     },
-  ] satisfies { titulo: string; texto: string; icono: IconName }[],
-  comparativa: {
-    titulo: "Visual comparativo",
-    convencional: {
-      titulo: "Solución convencional",
-      capas: ["Aislación acústica/térmica", "estructura", "cobertura", "terminación"],
-    },
-    requecho: {
-      titulo: "Requecho",
-      texto: "Una sola pieza visible que integra terminación + desempeño",
-      imagen: {
-        src: "/images/panel-pieza.jpg",
-        alt: "Un panel Requecho visto de frente: fibras textiles grises y blancas prensadas en una sola pieza.",
-        width: 421,
-        height: 243,
-      } satisfies Imagen,
-    },
-  },
+  ] satisfies { titulo: string; texto: string; icono: IconName; imagen: Imagen }[],
 };
 
 // ---------------------------------------------------------------------------

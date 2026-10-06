@@ -640,14 +640,6 @@
   transition: transform var(--duration-slow) var(--ease-out-expo);
 }
 
-/* =============================================================================
-   Bloque 5: capas de la solución convencional
-   ========================================================================== */
-.layer {
-  border: 1.5px solid currentColor;
-  border-radius: var(--radius-sm);
-}
-
 /* Utilidad: número de paso, peso que cambia al activarse */
 .step-number {
   font-family: var(--font-display);
@@ -703,23 +695,6 @@
     opacity: 0;
     animation: none;
   }
-}
-
-/* Bloque 5: sin JS la foto no se superpone a las capas, va debajo */
-html:not(.js) .js-piece {
-  position: relative;
-  inset: auto;
-  margin-top: 1rem;
-  left: 0;
-  right: 0;
-}
-html:not(.js) [data-layer] {
-  position: relative;
-  top: auto;
-  margin-bottom: 0.5rem;
-}
-html:not(.js) [data-compare] ul {
-  position: relative;
 }
 
 /* Errores del formulario: entran deslizando */

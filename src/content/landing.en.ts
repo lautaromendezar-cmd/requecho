@@ -229,47 +229,33 @@ export const porQue = {
   titulo: "Circularity, performance and design",
   bajada:
     "Where a conventional solution needs several layers, Requecho combines acoustic and thermal performance with a visible finish in a single material.",
-  diferencialesTitulo: "What sets us apart",
   diferenciales: [
     {
       titulo: "Recovered material",
       texto: "Each m² recovers approximately 7.5 kg of pre-consumer textile waste.",
       icono: "ciclo",
+      imagen: { src: "/images/diferenciales/material-recuperado.jpg", alt: "Hands holding a bunch of shredded textile waste, Requecho's raw material.", width: 960, height: 720 },
     },
     {
       titulo: "Design for every space",
       texto:
         "We work on colors, combinations and gradients together with architects and designers to integrate the material into the project.",
       icono: "diseno",
+      imagen: { src: "/images/diferenciales/diseno.jpg", alt: "A round black-and-cream Requecho piece hanging on a yellow door.", width: 960, height: 720 },
     },
     {
       titulo: "Functional properties",
       texto: "The same material provides a visible finish, sound absorption and thermal performance.",
       icono: "capas",
+      imagen: { src: "/images/diferenciales/propiedades.jpg", alt: "Thick Requecho panels drying on a rack, showing the thickness and density of the fibers.", width: 960, height: 720 },
     },
     {
       titulo: "Material identity",
       texto: "The material's own fibers, textures and variations are part of the final expression of each piece.",
       icono: "huella",
+      imagen: { src: "/images/diferenciales/identidad.jpg", alt: "Close-up of a Requecho surface: light fibers with colored threads and a pink fabric scrap.", width: 960, height: 720 },
     },
-  ] satisfies { titulo: string; texto: string; icono: IconName }[],
-  comparativa: {
-    titulo: "Side by side",
-    convencional: {
-      titulo: "Conventional solution",
-      capas: ["Acoustic/thermal insulation", "structure", "covering", "finish"],
-    },
-    requecho: {
-      titulo: "Requecho",
-      texto: "A single visible piece that combines finish + performance",
-      imagen: {
-        src: "/images/panel-pieza.jpg",
-        alt: "A Requecho panel seen from the front: grey and white textile fibers pressed into a single piece.",
-        width: 421,
-        height: 243,
-      } satisfies Imagen,
-    },
-  },
+  ] satisfies { titulo: string; texto: string; icono: IconName; imagen: Imagen }[],
 };
 
 // ---------------------------------------------------------------------------

@@ -107,8 +107,7 @@ def main() -> None:
         x0, y0, x1, y1 = cajas[1]
         m = 6
         guardar(cen.crop((x0 + m, y0 + m, x1 - m, y1 - m)), "textura-macro.jpg", 90)
-        x0, y0, x1, y1 = cajas[2]
-        guardar(cen.crop((x0 - 4, y0 - 4, x1 + 4, y1 + 4)), "panel-pieza.jpg", 90)
+        # (panel-pieza.jpg ya no se usa: la comparativa del bloque 5 se sacó)
     else:
         print("ATENCIÓN: no encontré los tres paneles en la cenital, revisar umbral")
 
