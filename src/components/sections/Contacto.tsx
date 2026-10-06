@@ -133,13 +133,13 @@ export function Contacto() {
           </div>
         ) : null}
         {datos?.ejemplo ? (
-          <p className="mt-10 italic text-inverse-muted">Datos de ejemplo, a la espera de los definitivos.</p>
+          <p className="mt-10 text-legal text-inverse-muted">Datos de ejemplo, a la espera de los definitivos.</p>
         ) : null}
         {/* Versión negativa del logo (letras claras, escuadras amarillas), como
             pide el manual sobre fondos oscuros. */}
         <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t border-inverse-text/15 pt-8">
           <Logo height={40} className="text-inverse-text" />
-          <p className="text-inverse-muted">{contacto.pie}</p>
+          <p className="text-legal text-inverse-muted">{contacto.pie}</p>
         </div>
       </div>
     </footer>

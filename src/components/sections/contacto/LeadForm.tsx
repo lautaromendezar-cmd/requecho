@@ -196,7 +196,7 @@ export function LeadForm() {
                 {mensajeFalla}
               </p>
             ) : null}
-            <p className="text-small text-on-accent/80">{contacto.privacidad}</p>
+            <p className="text-legal text-on-accent/80">{contacto.privacidad}</p>
           </div>
         </form>
       )}

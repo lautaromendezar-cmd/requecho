@@ -126,7 +126,7 @@ export function Problema() {
                 </div>
                 <div className="lg:col-span-4">
                   <p className="max-w-[34ch] text-lead text-text">{c.texto}</p>
-                  <p className="mt-4 text-small text-muted">{c.fuente}</p>
+                  <p className="mt-4 text-legal text-muted">{c.fuente}</p>
                 </div>
               </li>
             );

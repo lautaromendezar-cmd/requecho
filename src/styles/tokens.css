@@ -31,6 +31,7 @@
   /* ---- Tipografía: las familias las define src/lib/fonts.ts -------------- */
   --font-display: var(--rq-font-display, ui-sans-serif, system-ui, sans-serif);
   --font-body: var(--rq-font-body, ui-sans-serif, system-ui, sans-serif);
+  --font-legal: var(--rq-font-legal, "Arial Narrow", ui-sans-serif, sans-serif);
 
   /* ---- Escala tipográfica (calibrada para Montserrat, más ancha que Lato) -- */
   --text-kicker: 0.875rem;

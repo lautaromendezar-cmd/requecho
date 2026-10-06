@@ -9,7 +9,7 @@
 // --font-body (ver src/styles/tokens.css) y nada más cambia.
 // =============================================================================
 import type { CSSProperties } from "react";
-import { Montserrat } from "next/font/google";
+import { Archivo, Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -18,6 +18,20 @@ const montserrat = Montserrat({
   fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
 });
 
+// Legales (manual: Archivo Condensed Regular): Archivo variable con el eje de
+// ancho; el CSS la comprime con font-stretch (ver .text-legal en globals.css).
+// Va siempre en letra chica y lejos del hero: no se precarga.
+const archivo = Archivo({
+  subsets: ["latin"],
+  axes: ["wdth"],
+  display: "swap",
+  preload: false,
+  variable: "--font-archivo",
+  fallback: ["Arial Narrow", "ui-sans-serif", "sans-serif"],
+});
+
+export const legalFont = archivo;
+
 export const displayFont = montserrat;
 export const bodyFont = montserrat;
 
@@ -25,8 +39,9 @@ export const bodyFont = montserrat;
 export const fontVariables = {
   "--rq-font-display": displayFont.style.fontFamily,
   "--rq-font-body": bodyFont.style.fontFamily,
+  "--rq-font-legal": legalFont.style.fontFamily,
 } as CSSProperties;
 
 export const fontClassName = Array.from(
-  new Set([displayFont.variable, bodyFont.variable]),
+  new Set([displayFont.variable, bodyFont.variable, legalFont.variable]),
 ).join(" ");
