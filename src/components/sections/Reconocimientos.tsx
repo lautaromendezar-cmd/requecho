@@ -115,7 +115,7 @@ export function Reconocimientos() {
                     y="0.5"
                     width="99"
                     height="99"
-                    rx="10"
+                    rx="3"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1"
