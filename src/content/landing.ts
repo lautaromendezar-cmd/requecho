@@ -27,6 +27,25 @@ export type Cifra = {
   icono: IconName;
 };
 
+/** Datos del idioma: formato de números, etiqueta del selector y Open Graph. */
+export const idioma = {
+  htmlLang: "es-AR",
+  locale: "es-AR",
+  ogLocale: "es_AR",
+  /** Cómo se nombra este idioma en el selector ES / EN. */
+  corto: "ES",
+  nombre: "Español",
+};
+
+/** Textos de interfaz que no están en el documento (accesibilidad y avisos). */
+export const ui = {
+  selectorIdioma: "Idioma",
+  galeria: "Fotos del material",
+  fotoAnterior: "Foto anterior",
+  fotoSiguiente: "Foto siguiente",
+  datosEjemplo: "Datos de ejemplo, a la espera de los definitivos.",
+};
+
 export const meta = {
   title: "Requecho | Paneles hechos con descarte textil",
   // Versión limpia de la descripción del documento, que traía un error de tipeo
@@ -167,7 +186,7 @@ export const producto = {
     ["Uso", "Interior, no estructural"],
     ["Rendimiento", "50 paneles = 1 m²"],
     ["Material recuperado", "≈ 7,5 kg de descarte textil recuperado por m²"],
-  ] as const,
+  ] as [string, string][],
   imagenPrincipal: {
     src: "/images/producto-mostaza.jpg",
     alt: "Una mano sostiene dos paneles Requecho, uno claro y uno gris jaspeado, contra una puerta pintada de amarillo.",

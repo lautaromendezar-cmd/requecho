@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
-import { reconocimientos, type Badge } from "@/content/landing";
+import { useContenido } from "@/content/ContenidoProvider";
+import type { Badge } from "@/content/landing";
 
 /**
  * BLOQUE 7 — RECONOCIMIENTOS
@@ -40,6 +41,7 @@ function repartir(badge: Badge) {
 }
 
 export function Reconocimientos() {
+  const { reconocimientos } = useContenido();
   const ref = useRef<HTMLElement>(null);
 
   useGSAP(

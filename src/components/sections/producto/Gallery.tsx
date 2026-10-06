@@ -6,6 +6,7 @@ import type { Draggable as DraggableType } from "gsap/Draggable";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
 import type { Imagen } from "@/content/landing";
+import { useContenido } from "@/content/ContenidoProvider";
 import { Icon } from "@/components/ui/Icon";
 
 /**
@@ -14,6 +15,7 @@ import { Icon } from "@/components/ui/Icon";
  * scroll-snap. Sin reproducción automática.
  */
 export function Gallery({ imagenes }: { imagenes: Imagen[] }) {
+  const { ui } = useContenido();
   const wrap = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLUListElement>(null);
   const prev = useRef<HTMLButtonElement>(null);
@@ -125,7 +127,7 @@ export function Gallery({ imagenes }: { imagenes: Imagen[] }) {
         tabIndex={0}
         role="region"
         aria-roledescription="galería"
-        aria-label="Fotos del material"
+        aria-label={ui.galeria}
       >
         <ul ref={track} className="gallery__track m-0 list-none p-0">
           {/* Todas en 4:3 apaisado (devolución: fotos menos verticales). */}
@@ -155,7 +157,7 @@ export function Gallery({ imagenes }: { imagenes: Imagen[] }) {
           ref={prev}
           type="button"
           className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-line text-text-strong transition-colors hover:border-text-strong"
-          aria-label="Foto anterior"
+          aria-label={ui.fotoAnterior}
         >
           <Icon name="flecha" bare draw={false} size={22} className="rotate-180" />
         </button>
@@ -163,7 +165,7 @@ export function Gallery({ imagenes }: { imagenes: Imagen[] }) {
           ref={next}
           type="button"
           className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-line text-text-strong transition-colors hover:border-text-strong"
-          aria-label="Foto siguiente"
+          aria-label={ui.fotoSiguiente}
         >
           <Icon name="flecha" bare draw={false} size={22} />
         </button>

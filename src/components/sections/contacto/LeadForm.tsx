@@ -1,16 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
-import { contacto } from "@/content/landing";
-import { erroresPorCampo, leadSchema, UTM_KEYS, type LeadErrors, type LeadField, type Utm } from "@/lib/leads/schema";
+import { useContenido, useIdioma } from "@/content/ContenidoProvider";
+import type { Contenido } from "@/content";
+import { crearLeadSchema, erroresPorCampo, UTM_KEYS, type LeadErrors, type LeadField, type Utm } from "@/lib/leads/schema";
 import { Icon } from "@/components/ui/Icon";
 
 type Estado = "idle" | "enviando" | "error" | "exito";
 type Valores = Record<LeadField, string>;
 
-const inicial = (): Valores => ({
+const inicial = (contacto: Contenido["contacto"]): Valores => ({
   nombre: "",
   apellido: "",
   empresa: "",
@@ -51,7 +52,10 @@ function limpiarWhatsapp(v: string): string {
 }
 
 export function LeadForm() {
-  const [valores, setValores] = useState<Valores>(inicial);
+  const { contacto } = useContenido();
+  const lang = useIdioma();
+  const leadSchema = useMemo(() => crearLeadSchema(lang), [lang]);
+  const [valores, setValores] = useState<Valores>(() => inicial(contacto));
   const [errores, setErrores] = useState<LeadErrors>({});
   const [estado, setEstado] = useState<Estado>("idle");
   const [nombreEnviado, setNombreEnviado] = useState("");
@@ -111,7 +115,7 @@ export function LeadForm() {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ ...parsed.data, website: honeypot, utm: utm.current ?? leerUtm() }),
+        body: JSON.stringify({ ...parsed.data, idioma: lang, website: honeypot, utm: utm.current ?? leerUtm() }),
       });
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; errors?: LeadErrors };
       if (res.ok && data.ok) {

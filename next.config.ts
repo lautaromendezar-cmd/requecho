@@ -6,6 +6,16 @@ const live = process.env.NEXT_PUBLIC_SITE_LIVE?.trim() === "true";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // El layout raíz está en app/[lang] (ver app/global-not-found.tsx).
+  experimental: { globalNotFound: true },
+  // Español en la raíz, inglés en /en. /es existe sólo por dentro: se sirve como
+  // "/" y, si alguien entra a /es, se lo manda a "/" para no duplicar la página.
+  async rewrites() {
+    return [{ source: "/", destination: "/es" }];
+  },
+  async redirects() {
+    return [{ source: "/es", destination: "/", permanent: true }];
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 85],

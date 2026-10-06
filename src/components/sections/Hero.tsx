@@ -4,8 +4,9 @@ import Image from "next/image";
 import { useRef } from "react";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
-import { hero } from "@/content/landing";
+import { useContenido } from "@/content/ContenidoProvider";
 import { Logo } from "@/components/brand/Logo";
+import { SelectorIdioma } from "@/components/ui/SelectorIdioma";
 
 /**
  * BLOQUE 1 — HERO
@@ -14,6 +15,7 @@ import { Logo } from "@/components/brand/Logo";
  * LCP). Parallax de la foto al scroll y tilt con el puntero. Sin botón.
  */
 export function Hero() {
+  const { hero } = useContenido();
   const ref = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -131,6 +133,9 @@ export function Hero() {
       aria-labelledby="hero-titulo"
       data-reveal-scope="manual"
     >
+      <div className="container-x absolute inset-x-0 top-0 z-10 flex justify-end pt-3 lg:pt-8">
+        <SelectorIdioma />
+      </div>
       <div className="container-x grid w-full items-center gap-10 py-10 lg:grid-cols-12 lg:gap-8 lg:py-24">
         <div className="order-2 lg:order-1 lg:col-span-6 xl:col-span-5">
           <div data-reveal data-hero="logo" className="text-text-strong">

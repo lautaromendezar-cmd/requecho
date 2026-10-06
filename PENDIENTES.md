@@ -24,6 +24,20 @@ validar** es texto que existe en el documento pero tiene una nota de validación
   `scripts/preparar-imagenes.py` y volver a correrlo. Afecta hero, producto, galería,
   macro de textura y la pieza del bloque 5.
 
+## Versión en inglés (/en)
+
+- [ ] **Validar la traducción.** `src/content/landing.en.ts` es un borrador hecho por
+  nosotros a partir del texto en español; las clientas tienen que revisarlo antes de
+  publicar. Puntos a mirar en particular: "personas de la diversidad" se tradujo como
+  "LGBTQ+ people"; "Vos Lo Hacés" queda en castellano (es el nombre del programa); la
+  fuente "Ministerio de Ambiente PBA" se expandió a "Ministry of Environment, Buenos
+  Aires Province".
+- [ ] **Regla de los dos archivos:** cualquier dato a confirmar que llegue se carga en
+  `landing.ts` y en `landing.en.ts`. El tipo obliga a que tengan los mismos campos.
+- [ ] El formulario en inglés arranca el WhatsApp en "+" (sin código de país fijo) y
+  manda `idioma: "en"` para que los mensajes de error vuelvan en inglés. El Excel de
+  destino no tiene columna de idioma: si la quieren, se suma.
+
 ## Metadatos
 
 - [ ] **Descripción (se publica, validar).** El documento trae un error de tipeo

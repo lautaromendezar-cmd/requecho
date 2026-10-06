@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
-import { proceso } from "@/content/landing";
+import { useContenido } from "@/content/ContenidoProvider";
 import { Icon } from "@/components/ui/Icon";
 
 /**
@@ -15,6 +15,7 @@ import { Icon } from "@/components/ui/Icon";
  * Mobile: apilado, sin pin. El remate revela la foto del panel terminado.
  */
 export function ComoFunciona() {
+  const { proceso } = useContenido();
   const ref = useRef<HTMLElement>(null);
 
   useGSAP(

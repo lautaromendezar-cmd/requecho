@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
-import { porQue } from "@/content/landing";
+import { useContenido } from "@/content/ContenidoProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Icon } from "@/components/ui/Icon";
 
@@ -15,6 +15,7 @@ import { Icon } from "@/components/ui/Icon";
  * pieza pasa a ser la foto real del panel. Debajo, la grilla 2x2 con hover.
  */
 export function PorQue() {
+  const { porQue } = useContenido();
   const ref = useRef<HTMLElement>(null);
 
   useGSAP(

@@ -26,6 +26,16 @@ Tailwind las consume vía `@theme` y las expone como utilidades (`bg-accent`, `t
 No hay ningún hex fuera de ese archivo. Al final hay un bloque comentado con la paleta del
 documento de estructura: descomentarlo pisa la del manual y sirve para comparar.
 
+## Idiomas
+
+El sitio está en español (`/`) e inglés (`/en`). El layout raíz vive en `src/app/[lang]/`
+(estático para los dos idiomas); `next.config.ts` sirve `/` como `/es` y redirige `/es` a
+`/`. Los textos están en `src/content/landing.ts` (español) y `landing.en.ts` (inglés),
+con la misma forma; `src/content/index.ts` los junta y los componentes los leen con
+`useContenido()`. El selector ES · EN está en el hero y en el pie
+(`src/components/ui/SelectorIdioma.tsx`). Las rutas inexistentes caen en
+`src/app/global-not-found.tsx`.
+
 ## Cambiar tipografías
 
 Un solo archivo: `src/lib/fonts.ts`. Según el manual de marca, `displayFont` y `bodyFont` son

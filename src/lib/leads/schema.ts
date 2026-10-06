@@ -1,11 +1,7 @@
-// Esquema compartido entre navegador y servidor. Los mensajes son los del
-// documento de estructura (src/content/landing.ts).
+// Esquema compartido entre navegador y servidor. Los mensajes salen del
+// contenido de cada idioma (src/content/landing*.ts).
 import { z } from "zod";
-import { contacto } from "@/content/landing";
-
-const e = contacto.errores;
-
-const requerido = z.string().trim().min(1, e.vacio);
+import { contenidos, type Lang } from "@/content";
 
 /** Sólo dígitos, espacios y "+", con código de país y al menos 10 dígitos. */
 export function whatsappValido(v: string): boolean {
@@ -16,15 +12,19 @@ export function whatsappValido(v: string): boolean {
 
 const MAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-export const leadSchema = z.object({
-  nombre: requerido,
-  apellido: requerido,
-  empresa: requerido,
-  whatsapp: requerido.refine(whatsappValido, e.whatsapp),
-  mail: requerido.refine((v) => MAIL.test(v), e.mail),
-});
+export function crearLeadSchema(lang: Lang) {
+  const e = contenidos[lang].contacto.errores;
+  const requerido = z.string().trim().min(1, e.vacio);
+  return z.object({
+    nombre: requerido,
+    apellido: requerido,
+    empresa: requerido,
+    whatsapp: requerido.refine(whatsappValido, e.whatsapp),
+    mail: requerido.refine((v) => MAIL.test(v), e.mail),
+  });
+}
 
-export type LeadInput = z.infer<typeof leadSchema>;
+export type LeadInput = z.infer<ReturnType<typeof crearLeadSchema>>;
 export type LeadField = keyof LeadInput;
 export type LeadErrors = Partial<Record<LeadField, string>>;
 

@@ -3,10 +3,11 @@
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
-import { contacto } from "@/content/landing";
+import { useContenido } from "@/content/ContenidoProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Icon } from "@/components/ui/Icon";
 import { Logo } from "@/components/brand/Logo";
+import { SelectorIdioma } from "@/components/ui/SelectorIdioma";
 import { LeadForm } from "./contacto/LeadForm";
 
 /**
@@ -16,6 +17,7 @@ import { LeadForm } from "./contacto/LeadForm";
  * botón con estado de envío y éxito que reemplaza al formulario. Pie de página.
  */
 export function Contacto() {
+  const { contacto, ui } = useContenido();
   const ref = useRef<HTMLElement>(null);
   // Los datos de relleno del pie sirven para la revisión; si el sitio se
   // publica, no salen (la regla del proyecto: ningún dato a confirmar en vivo).
@@ -133,13 +135,16 @@ export function Contacto() {
           </div>
         ) : null}
         {datos?.ejemplo ? (
-          <p className="mt-10 text-legal text-inverse-muted">Datos de ejemplo, a la espera de los definitivos.</p>
+          <p className="mt-10 text-legal text-inverse-muted">{ui.datosEjemplo}</p>
         ) : null}
         {/* Versión negativa del logo (letras claras, escuadras amarillas), como
             pide el manual sobre fondos oscuros. */}
         <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t border-inverse-text/15 pt-8">
           <Logo height={40} className="text-inverse-text" />
-          <p className="text-legal text-inverse-muted">{contacto.pie}</p>
+          <div className="flex items-center gap-6">
+            <SelectorIdioma />
+            <p className="text-legal text-inverse-muted">{contacto.pie}</p>
+          </div>
         </div>
       </div>
     </footer>

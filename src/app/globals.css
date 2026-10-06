@@ -96,6 +96,41 @@
     letter-spacing: 0.01em;
   }
 
+  /* Selector ES · EN (hero y pie) */
+  .selector-idioma {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+  .selector-idioma__sep {
+    margin-right: 0.5rem;
+    opacity: 0.4;
+  }
+  .selector-idioma__actual {
+    color: var(--color-text-strong);
+    box-shadow: inset 0 -2px 0 var(--color-accent-line);
+  }
+  .selector-idioma__link {
+    color: var(--color-text-muted);
+    transition: color var(--duration-fast);
+  }
+  .selector-idioma__link:hover {
+    color: var(--color-text-strong);
+  }
+  .surface-inverse .selector-idioma__actual {
+    color: var(--color-inverse-text);
+  }
+  .surface-inverse .selector-idioma__link {
+    color: var(--color-inverse-muted);
+  }
+  .surface-inverse .selector-idioma__link:hover {
+    color: var(--color-inverse-text);
+  }
+
   .footer-titulo {
     font-family: var(--font-display);
     font-weight: 700;

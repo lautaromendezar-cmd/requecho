@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
-import { producto } from "@/content/landing";
+import { useContenido } from "@/content/ContenidoProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Icon } from "@/components/ui/Icon";
 import { TextureLens } from "./producto/TextureLens";
@@ -17,6 +17,7 @@ import { Gallery } from "./producto/Gallery";
  * macro de textura con lupa y galería arrastrable sin autoplay.
  */
 export function Producto() {
+  const { producto, idioma } = useContenido();
   const ref = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -116,7 +117,7 @@ export function Producto() {
                     {p.dato}
                   </p>
                 ) : null}
-                {p.rango ? <RangeBar min={p.rango.min} max={p.rango.max} escalaMax={p.rango.escalaMax} /> : null}
+                {p.rango ? <RangeBar min={p.rango.min} max={p.rango.max} escalaMax={p.rango.escalaMax} locale={idioma.locale} /> : null}
                 {p.texto ? <p className="text-text">{p.texto}</p> : null}
                 {p.referencias ? (
                   <div>
@@ -189,10 +190,10 @@ export function Producto() {
 }
 
 /** Barra de rango: sólo representa los valores del documento (α 0,51–0,70). */
-function RangeBar({ min, max, escalaMax }: { min: number; max: number; escalaMax: number }) {
+function RangeBar({ min, max, escalaMax, locale }: { min: number; max: number; escalaMax: number; locale: string }) {
   const left = (min / escalaMax) * 100;
   const width = ((max - min) / escalaMax) * 100;
-  const f = (n: number) => n.toLocaleString("es-AR", { minimumFractionDigits: 2 });
+  const f = (n: number) => n.toLocaleString(locale, { minimumFractionDigits: 2 });
   return (
     <div aria-hidden="true" className="mt-1">
       <div className="relative h-[3px] w-full rounded-pill bg-line">

@@ -12,6 +12,3 @@ if (typeof window !== "undefined") {
 }
 
 export { gsap, ScrollTrigger, SplitText, DrawSVGPlugin, useGSAP };
-
-/** Formatea un número al estilo rioplatense (500.000). */
-export const formatoNumero = new Intl.NumberFormat("es-AR", { maximumFractionDigits: 0 });

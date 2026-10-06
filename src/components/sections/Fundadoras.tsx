@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
-import { fundadoras } from "@/content/landing";
+import { useContenido } from "@/content/ContenidoProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Placeholder } from "@/components/ui/Placeholder";
 
@@ -14,6 +14,7 @@ import { Placeholder } from "@/components/ui/Placeholder";
  * y el slot de cita preparado (oculto hasta que existan las citas).
  */
 export function Fundadoras() {
+  const { fundadoras } = useContenido();
   const ref = useRef<HTMLElement>(null);
 
   useGSAP(

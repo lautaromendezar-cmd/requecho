@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import { formatoNumero, gsap, SplitText, useGSAP } from "@/lib/gsap";
+import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
-import { problema } from "@/content/landing";
+import { useContenido } from "@/content/ContenidoProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Icon } from "@/components/ui/Icon";
 
@@ -13,6 +13,8 @@ import { Icon } from "@/components/ui/Icon";
  * ícono que se dibuja. La línea puente se revela palabra por palabra con el scroll.
  */
 export function Problema() {
+  const { problema, idioma } = useContenido();
+  const formatoNumero = new Intl.NumberFormat(idioma.locale, { maximumFractionDigits: 0 });
   const ref = useRef<HTMLElement>(null);
   // Las cifras no se publican sin su fuente.
   const cifras = problema.cifras.filter((c) => c.fuente);
