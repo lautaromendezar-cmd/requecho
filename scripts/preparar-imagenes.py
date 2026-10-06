@@ -35,7 +35,7 @@ FUENTES = {
     "galeria-06.jpg": "C5FEFD08",          # #128 cenital de tres paneles
     "galeria-07.jpg": "E571B72E",          # #152 pila sobre mesa blanca
 }
-FUNDADORAS = DRIVE / "Founders" / "1747138824542.jpeg"
+# (La foto de las fundadoras sale de scripts/preparar-fotos-nuevas.py.)
 CENITAL = "C5FEFD08"  # de acá salen la macro de textura y la pieza del bloque 5
 
 
@@ -94,10 +94,6 @@ def main() -> None:
         if nombre == "hero-paneles.jpg":
             im = calentar(im)
         guardar(im, nombre, 88 if nombre.startswith("hero") else 84)
-
-    # Fundadoras
-    f = ImageOps.exif_transpose(Image.open(FUNDADORAS)).convert("RGB")
-    guardar(f, "fundadoras.jpg", 84)
 
     # Recortes de la cenital: textura macro (panel del medio) y pieza (panel de abajo)
     cen = abrir(CENITAL)

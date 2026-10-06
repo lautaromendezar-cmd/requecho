@@ -271,21 +271,33 @@ export const fundadoras = {
   complementariedad:
     "Today we bring those two experiences together to build Requecho. Luciana leads business, commercial development and communication. Verónica leads product, production and textile recovery.",
   foto: {
-    src: "/images/fundadoras.jpg",
-    alt: "Luciana Sabsay and Verónica Litvinoff, smiling and back to back, in front of an exposed brick wall.",
+    src: "/images/fundadoras/juntas.jpg",
+    alt: "Verónica Litvinoff and Luciana Sabsay against a white wall: Verónica holds a handful of textile scraps and Luciana two Requecho panels.",
     width: 1280,
-    height: 1597,
+    height: 960,
     epigrafe: undefined as string | undefined,
   },
   cards: [
     {
       nombre: "Luciana Sabsay",
       rol: "Co-founder · Business & Sales",
+      retrato: {
+        src: "/images/fundadoras/luciana.jpg",
+        alt: "Portrait of Luciana Sabsay, smiling, in a floral shirt against a white wall.",
+        width: 960,
+        height: 720,
+      },
       bio: "Fashion designer (UBA) specialized in Communication and Marketing. More than twenty years of experience in textile production, business development and supplier and workshop management. For twelve years she led production at ADA Collection for international markets. She is also a textile sustainability consultant.",
     },
     {
       nombre: "Verónica Litvinoff",
       rol: "Co-founder · Product & Operations",
+      retrato: {
+        src: "/images/fundadoras/veronica.jpg",
+        alt: "Portrait of Verónica Litvinoff, smiling, in a light blue printed shirt against a white wall.",
+        width: 960,
+        height: 720,
+      },
       bio: "Fashion designer (UBA) specialized in product, biomaterials and textile innovation, with training in the Sociology of Design. More than twenty years of experience in product development and production, from raw-material selection to working with workshops and industrial processes.",
     },
   ] as Fundadora[],

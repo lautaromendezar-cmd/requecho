@@ -324,7 +324,7 @@ export type Fundadora = {
   bio: string;
   /** Cita en primera persona, hasta 20 palabras. Todavía no existe: slot oculto. */
   cita?: string;
-  /** [ASSET pendiente] retrato individual en situación de trabajo. */
+  /** Retrato individual, 4:3. Sin retrato, la card muestra un placeholder. */
   retrato?: Imagen;
 };
 
@@ -338,10 +338,10 @@ export const fundadoras = {
   complementariedad:
     "Hoy combinamos esas dos experiencias para construir Requecho. Luciana lidera negocios, desarrollo comercial y comunicación. Verónica lidera el producto, producción y recuperación textil.",
   foto: {
-    src: "/images/fundadoras.jpg",
-    alt: "Luciana Sabsay y Verónica Litvinoff, sonrientes y espalda con espalda, frente a una pared de ladrillo a la vista.",
+    src: "/images/fundadoras/juntas.jpg",
+    alt: "Verónica Litvinoff y Luciana Sabsay frente a una pared blanca: Verónica sostiene un puñado de recortes textiles y Luciana dos paneles de Requecho.",
     width: 1280,
-    height: 1597,
+    height: 960,
     /** [DATO A CONFIRMAR: quién es quién en la foto]. Sin dato, no hay epígrafe. */
     epigrafe: undefined as string | undefined,
   },
@@ -349,11 +349,23 @@ export const fundadoras = {
     {
       nombre: "Luciana Sabsay",
       rol: "Cofundadora · Negocio y Comercial",
+      retrato: {
+        src: "/images/fundadoras/luciana.jpg",
+        alt: "Retrato de Luciana Sabsay, sonriente, con camisa floral frente a una pared blanca.",
+        width: 960,
+        height: 720,
+      },
       bio: "Diseñadora de Indumentaria (UBA), con especialización en Comunicación y Marketing. Más de veinte años de experiencia en producción textil, desarrollo de negocios y gestión de proveedores y talleres. Durante doce años lideró la producción de ADA Collection para mercados internacionales. Hoy es además consultora en sustentabilidad textil.",
     },
     {
       nombre: "Verónica Litvinoff",
       rol: "Cofundadora · Producto y Operaciones",
+      retrato: {
+        src: "/images/fundadoras/veronica.jpg",
+        alt: "Retrato de Verónica Litvinoff, sonriente, con camisa celeste estampada frente a una pared blanca.",
+        width: 960,
+        height: 720,
+      },
       bio: "Diseñadora de Indumentaria (UBA), especializada en producto, biomateriales e innovación textil, con formación en Sociología del Diseño. Más de veinte años de experiencia en desarrollo de producto y producción, desde la selección de materias primas hasta el trabajo con talleres y procesos industriales.",
     },
   ] as Fundadora[],

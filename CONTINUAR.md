@@ -27,7 +27,9 @@
 
 ## Sigue
 
-- Feedback de las secciones **6 (Fundadoras), 7 (Reconocimientos) y 8 (Contacto / pie)**:
+- ~~6 (Fundadoras)~~ hecho el 6-oct a la noche: foto juntas con muestras y un retrato 4:3
+  de cada una (las de las carpetas "Principales"), salen de `scripts/preparar-fotos-nuevas.py`.
+- Feedback de las secciones **7 (Reconocimientos) y 8 (Contacto / pie)**:
   Lautaro las pasa de a una, como hasta ahora (un cambio → push → verificar en vivo).
 - Para Fundadoras hay fotos nuevas en `fotos-nuevas/` (Juntas, Luciana, Verónica, En
   equipo, Ariel). Ojo: la foto "Vero con desperdicio textil" ya se usa recortada (sólo
