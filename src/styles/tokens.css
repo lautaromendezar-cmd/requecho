@@ -12,7 +12,7 @@
    ========================================================================== */
 
 @theme static {
-  /* ---- Color (guía de marca, borrador de octubre 2026) ------------------- */
+  /* ---- Color (manual de marca, oct. 2026: paleta principal) ------------- */
   --color-bg: #f1f1ef;             /* warm light: piso de toda la página */
   --color-surface: #ffffff;        /* cards y superficies elevadas */
   --color-surface-2: #e6e6e2;      /* placeholders del sistema, bloques neutros */
@@ -27,6 +27,13 @@
   --color-inverse-text: #f1f1ef;
   --color-inverse-muted: #a8a8a2;
   --color-error: #a63d2a;
+
+  /* Secundarios aprobados por las clientas (lámina aparte del manual, que
+     reemplaza a la complementaria del PDF). Disponibles, hoy sin uso: el sitio
+     se apoya en amarillo y grafito, como los ejemplos de aplicación. */
+  --color-brand-green: #78a892;
+  --color-brand-blue: #78a9c2;
+  --color-brand-violet: #9a8fc4;
 
   /* ---- Tipografía: las familias las define src/lib/fonts.ts -------------- */
   --font-display: var(--rq-font-display, ui-sans-serif, system-ui, sans-serif);

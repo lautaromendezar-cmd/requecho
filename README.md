@@ -28,8 +28,10 @@ documento de estructura: descomentarlo pisa la del manual y sirve para comparar.
 
 ## Cambiar tipografías
 
-Un solo archivo: `src/lib/fonts.ts`. Hoy `displayFont` y `bodyFont` son la misma Lato
-(300/400/700/900). Para separarlas, declarar otra fuente de `next/font` y asignarla a una
+Un solo archivo: `src/lib/fonts.ts`. Según el manual de marca, `displayFont` y `bodyFont` son
+Montserrat (variable: ExtraBold 800 en títulos, Bold 700 en subtítulos, Regular 400 en
+párrafos) y `legalFont` es Archivo comprimida a 75 % (la "Archivo Condensed" del manual),
+que se aplica con la clase `.text-legal`. Para separar display y body, declarar otra fuente de `next/font` y asignarla a una
 de las dos: el CSS las lee como `--font-display` y `--font-body` y no hay que tocar nada más.
 La escala tipográfica (`--text-display`, `--text-h2`, `--text-stat`…) vive en `tokens.css`.
 
@@ -70,10 +72,14 @@ node scripts/prueba-formulario.mjs
 ## Imágenes y logo
 
 - `scripts/preparar-imagenes.py` lee `material-del-cliente/` (fuera del repo) y escribe las
-  copias optimizadas en `public/images/` y `public/logos/`, más `public/og.jpg`. Cuando
-  lleguen los originales en alta, actualizar las fuentes ahí y volver a correrlo.
-- `scripts/trazar-logo.py` vectoriza el isologo desde el raster de la portada del folleto.
-  Es un trazado fiel, no una recreación tipográfica; se reemplaza cuando llegue el original.
+  copias optimizadas en `public/images/` y `public/logos/`. Cuando lleguen los originales
+  en alta, actualizar las fuentes ahí y volver a correrlo.
+- `scripts/extraer-logo.py` saca el logo y el isologo oficiales, en vector, del Guideline
+  de marca (`material-del-cliente/marca-2026-10/`) y escribe `logo-path.ts`,
+  `public/brand/*.svg` y el favicon. `<Logo>` e `<Isologo>` (`src/components/brand/`)
+  pintan las letras en `currentColor` y las escuadras en amarillo (`variant="mono"`: todo
+  en un color, para fondos amarillos). Respetar los "usos incorrectos" del manual.
+- `scripts/generar-og.py` arma `public/og.jpg` con el logo y la foto del hero.
 - El sistema de íconos es propio: `src/components/ui/icon-glyphs.ts` (trazos en grilla de 24)
   y `<Icon>` los dibuja con DrawSVG y les da una microanimación al hover/tap.
 
@@ -130,5 +136,5 @@ src/config/         motion.ts (flags y tiempos)
 src/lib/            fonts.ts, gsap.ts, leads/ (schema, store)
 src/styles/         tokens.css
 docs/               formulario.md
-scripts/            preparar-imagenes.py, trazar-logo.py, capturas.mjs, prueba-formulario.mjs, webhook-prueba.mjs
+scripts/            preparar-imagenes.py, extraer-logo.py, generar-og.py, capturas.mjs, prueba-formulario.mjs, webhook-prueba.mjs
 ```

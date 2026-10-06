@@ -8,15 +8,16 @@ validar** es texto que existe en el documento pero tiene una nota de validación
 
 ## Identidad visual
 
-- [ ] **Archivo original del isologo.** No estaba en la carpeta (`logo.png` es el de IAE)
-  y el folleto es 100 % imagen, sin vectores. Hoy se usa un trazado fiel del raster de la
-  portada (536 px) generado por `scripts/trazar-logo.py`. Cuando llegue el original,
-  reemplazar `public/brand/requecho.svg`, `src/components/brand/logo-path.ts`,
-  `src/app/icon.svg` y `src/app/apple-icon.png`.
-- [ ] **Fuentes de Canva.** La guía de marca (borrador, octubre 2026) fija Lato y así está
-  armado. Confirmar que sea la definitiva. Cambiarla es editar `src/lib/fonts.ts`.
-- [ ] **Paleta.** Se usa la de la guía de marca. La del documento de estructura quedó
-  comentada al final de `src/styles/tokens.css` para comparar en segundos.
+- [x] **Logo e isologo oficiales** (manual de marca, oct. 2026). Se extraen en vector del
+  Guideline con `scripts/extraer-logo.py`: hero (versión principal), pie (negativa),
+  favicon, ícono de Apple y OG (isologo / logo).
+- [x] **Tipografías del manual**: Montserrat (títulos ExtraBold, subtítulos Bold, párrafos
+  Regular) y Archivo Condensed en legales (fuentes de las cifras, privacidad, pie).
+- [x] **Paleta.** La principal del manual ya era la del sitio. Los tres secundarios
+  aprobados (verde, celeste, violeta) quedaron como tokens, sin uso. El PDF trae errores de
+  tipeo en los hex del negro y del claro; se tomaron los valores de las muestras.
+- [x] **Esquinas casi rectas** (2–4 px) en fotos, cards, campos, botón y badges, para
+  acompañar las escuadras del logo.
 - [ ] **Fotos originales en alta.** Las 158 fotos de producto que llegaron por Drive son
   miniaturas exportadas de Fotos (119 de 360×480 y 35 de 768×1024). Se construyó con
   las 35 grandes. Con los originales, reemplazar las fuentes en
