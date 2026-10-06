@@ -177,8 +177,7 @@ export function Producto() {
             {producto.fichaTecnica.url ? (
               <a
                 href={producto.fichaTecnica.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(producto.fichaTecnica.url !== "#" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 data-reveal
                 data-icon-host
                 className="btn-outline mt-8"

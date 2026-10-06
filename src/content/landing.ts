@@ -187,7 +187,8 @@ export const producto = {
   fichaTecnica: {
     texto: "Descargar ficha técnica",
     formato: "PDF",
-    url: undefined as string | undefined,
+    // "#" provisorio para que se vea el botón; reemplazar por el link de Drive.
+    url: "#" as string | undefined,
   },
   ficha: [
     ["Composición", "Textiles triturados + aglutinante de base biológica"],
