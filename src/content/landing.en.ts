@@ -137,6 +137,11 @@ export const producto = {
   aplicacionesTitulo: "Applications",
   aplicaciones: ["Interior wall cladding", "Acoustic panels", "Furniture and design objects", "Custom developments"],
   fichaTitulo: "Quick specs",
+  fichaTecnica: {
+    texto: "Download technical data sheet",
+    formato: "PDF",
+    url: undefined as string | undefined,
+  },
   ficha: [
     ["Composition", "Shredded textiles + bio-based binder"],
     ["Size", "20 × 10 × 2.5 cm"],

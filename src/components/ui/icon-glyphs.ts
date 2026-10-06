@@ -152,6 +152,12 @@ export const glyphs = {
   // --- Utilitarios ----------------------------------------------------------
   check: [{ d: "M5.5 12.5 10 17 18.5 8" }],
   flecha: [{ d: "M5 12h14M13 6l6 6-6 6", part: "arrow" }],
+  /** Hoja con flecha hacia abajo: descargar un PDF */
+  documento: [
+    { d: "M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" },
+    { d: "M14 3v5h5" },
+    { d: "M12 11v6M9.5 14.5 12 17l2.5-2.5", part: "arrow" },
+  ],
 } as const satisfies Record<string, readonly Glyph[]>;
 
 export type IconName = keyof typeof glyphs;

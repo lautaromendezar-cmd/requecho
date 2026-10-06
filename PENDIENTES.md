@@ -67,6 +67,10 @@ validar** es texto que existe en el documento pero tiene una nota de validación
   limitada a 1,5×; con el original en alta se puede subir.
 - [ ] **Serie de paneles de distintos colores**: galería con 7 fotos de la carpeta.
   Confirmar la selección.
+- [ ] **Links a la ficha técnica (PDF en Drive), uno en español y otro en inglés.** El
+  botón "Descargar ficha técnica" está armado debajo de la ficha breve y aparece solo al
+  cargar `producto.fichaTecnica.url` en `landing.ts` y en `landing.en.ts`. El link de
+  Drive tiene que estar compartido como "cualquier persona con el enlace".
 - [ ] **"dégradés" / "degradés".** El documento acentúa distinto en el bloque 3 y en el 5.
   Se publica cada uno tal cual está. ¿Unificar?
 

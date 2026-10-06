@@ -174,6 +174,20 @@ export function Producto() {
                 </div>
               ))}
             </dl>
+            {producto.fichaTecnica.url ? (
+              <a
+                href={producto.fichaTecnica.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-reveal
+                data-icon-host
+                className="btn-outline mt-8"
+              >
+                <Icon name="documento" size={22} bare draw={false} />
+                <span>{producto.fichaTecnica.texto}</span>
+                <span className="text-legal opacity-70">{producto.fichaTecnica.formato}</span>
+              </a>
+            ) : null}
           </div>
           <div data-reveal className="lg:col-span-5 lg:col-start-8">
             <TextureLens imagen={producto.textura} />

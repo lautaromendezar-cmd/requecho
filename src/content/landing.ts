@@ -180,6 +180,15 @@ export const producto = {
     "Desarrollos especiales",
   ],
   fichaTitulo: "Ficha breve",
+  /**
+   * [DATO A CONFIRMAR: link al PDF de la ficha técnica en Drive]. Sin url, el
+   * botón no se muestra. La versión en inglés tiene su propio PDF.
+   */
+  fichaTecnica: {
+    texto: "Descargar ficha técnica",
+    formato: "PDF",
+    url: undefined as string | undefined,
+  },
   ficha: [
     ["Composición", "Textiles triturados + aglutinante de base biológica"],
     ["Medida", "20 × 10 × 2,5 cm"],
