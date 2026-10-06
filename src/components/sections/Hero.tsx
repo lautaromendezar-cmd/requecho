@@ -150,7 +150,7 @@ export function Hero() {
         <div className="order-1 lg:order-2 lg:col-span-6 lg:col-start-7 xl:col-span-6 xl:col-start-7">
           <div
             data-hero-media
-            className="relative h-[min(70svh,120vw)] w-full overflow-hidden rounded-lg lg:h-[min(82svh,56vw)]"
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-lg lg:aspect-auto lg:h-[min(76svh,50vw)]"
           >
             <Image
               data-hero-img

@@ -55,14 +55,14 @@ export function Fundadoras() {
       <div className="container-x">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-x-8">
           <figure className="m-0 lg:col-span-5">
-            <div data-reveal="mask-up" className="overflow-hidden rounded-lg">
+            <div data-reveal="mask-up" className="aspect-[4/3] overflow-hidden rounded-lg">
               <Image
                 src={fundadoras.foto.src}
                 alt={fundadoras.foto.alt}
                 width={fundadoras.foto.width}
                 height={fundadoras.foto.height}
                 sizes="(min-width: 64rem) 40vw, 100vw"
-                className="h-auto w-full"
+                className="h-full w-full object-cover object-[50%_45%]"
               />
             </div>
             {fundadoras.foto.epigrafe ? (

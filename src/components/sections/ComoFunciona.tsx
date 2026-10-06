@@ -136,14 +136,14 @@ export function ComoFunciona() {
           <p data-reveal className="max-w-[26ch] font-display text-h2 font-bold text-text-strong lg:col-span-6">
             {proceso.remate}
           </p>
-          <div data-reveal="mask-up" className="overflow-hidden rounded-lg lg:col-span-5 lg:col-start-8">
+          <div data-reveal="mask-up" className="aspect-[4/3] overflow-hidden rounded-lg lg:col-span-5 lg:col-start-8">
             <Image
               src={proceso.imagenRemate.src}
               alt={proceso.imagenRemate.alt}
               width={proceso.imagenRemate.width}
               height={proceso.imagenRemate.height}
               sizes="(min-width: 64rem) 40vw, 100vw"
-              className="h-auto w-full"
+              className="h-full w-full object-cover"
             />
           </div>
         </div>

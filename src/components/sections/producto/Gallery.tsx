@@ -128,22 +128,19 @@ export function Gallery({ imagenes }: { imagenes: Imagen[] }) {
         aria-label="Fotos del material"
       >
         <ul ref={track} className="gallery__track m-0 list-none p-0">
+          {/* Todas en 4:3 apaisado (devolución: fotos menos verticales). */}
           {imagenes.map((im, i) => {
-            const apaisada = im.width > im.height;
             return (
               <li
                 key={im.src}
-                className={`gallery__slide overflow-hidden rounded-lg ${
-                  apaisada ? "w-[82vw] sm:w-[60vw] lg:w-[38vw]" : "w-[66vw] sm:w-[42vw] lg:w-[26vw]"
-                }`}
-                style={{ aspectRatio: `${im.width} / ${im.height}` }}
+                className="gallery__slide aspect-[4/3] w-[82vw] overflow-hidden rounded-lg sm:w-[56vw] lg:w-[34vw]"
               >
                 <Image
                   src={im.src}
                   alt={im.alt}
                   width={im.width}
                   height={im.height}
-                  sizes={apaisada ? "(min-width: 64rem) 38vw, 82vw" : "(min-width: 64rem) 26vw, 66vw"}
+                  sizes="(min-width: 64rem) 34vw, 82vw"
                   loading={i < 2 ? "eager" : "lazy"}
                   className="h-full w-full object-cover"
                   draggable={false}

@@ -67,14 +67,14 @@ export function Producto() {
               aria-hidden="true"
               className="absolute -bottom-6 -left-4 h-[72%] w-[78%] rounded-lg bg-accent lg:-bottom-10 lg:-left-10"
             />
-            <div data-reveal="mask-left" className="relative overflow-hidden rounded-lg">
+            <div data-reveal="mask-left" className="relative aspect-[4/3] overflow-hidden rounded-lg">
               <Image
                 src={producto.imagenPrincipal.src}
                 alt={producto.imagenPrincipal.alt}
                 width={producto.imagenPrincipal.width}
                 height={producto.imagenPrincipal.height}
                 sizes="(min-width: 64rem) 55vw, 100vw"
-                className="h-auto w-full"
+                className="h-full w-full object-cover"
               />
             </div>
           </div>
