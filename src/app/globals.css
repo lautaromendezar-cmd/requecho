@@ -26,7 +26,7 @@
   h3 {
     font-family: var(--font-display);
     color: var(--color-text-strong);
-    font-weight: 900;
+    font-weight: 800;
     text-wrap: balance;
   }
 
@@ -593,7 +593,7 @@
   font-variation-settings: normal;
 }
 .step.is-active .step-number {
-  font-weight: 900;
+  font-weight: 800;
 }
 .step__dot {
   transform: scale(0);

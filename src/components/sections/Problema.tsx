@@ -100,10 +100,10 @@ export function Problema() {
                 </div>
                 <div className="lg:col-span-7">
                   <p
-                    className={`font-display font-black tabular-nums text-text-strong ${
+                    className={`font-display font-extrabold tabular-nums text-text-strong ${
                       largo ? "text-[length:var(--text-stat-long)]" : "text-stat"
                     }`}
-                    style={largo ? ({ "--text-stat-long": "clamp(3rem, 1.2rem + 7.5vw, 8rem)", lineHeight: 0.95, letterSpacing: "-0.035em" } as React.CSSProperties) : undefined}
+                    style={largo ? ({ "--text-stat-long": "clamp(2.5rem, 1rem + 6vw, 6.5rem)", lineHeight: 0.95, letterSpacing: "-0.035em" } as React.CSSProperties) : undefined}
                   >
                     <span aria-hidden="true">
                       {c.prefijo}
