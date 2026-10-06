@@ -275,13 +275,6 @@ export const proceso = {
       icono: "secar",
     },
   ] as Paso[],
-  remate: "Lo que empieza como un recorte textil vuelve al circuito productivo convertido en un nuevo material.",
-  imagenRemate: {
-    src: "/images/proceso-panel.jpg",
-    alt: "Paneles Requecho terminados, de pie sobre una mesa blanca: blanco, durazno, azul oscuro y negro.",
-    width: 768,
-    height: 1024,
-  } satisfies Imagen,
 };
 
 // ---------------------------------------------------------------------------

@@ -34,7 +34,6 @@ FUENTES = {
     "galeria-05.jpg": "FD686BE2",          # #164 cuatro paneles en fila
     "galeria-06.jpg": "C5FEFD08",          # #128 cenital de tres paneles
     "galeria-07.jpg": "E571B72E",          # #152 pila sobre mesa blanca
-    "proceso-panel.jpg": "3883F1FD",       # remate del bloque 4 (misma toma que galería 01)
 }
 FUNDADORAS = DRIVE / "Founders" / "1747138824542.jpeg"
 CENITAL = "C5FEFD08"  # de acá salen la macro de textura y la pieza del bloque 5

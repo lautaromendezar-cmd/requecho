@@ -219,13 +219,6 @@ export const proceso = {
       icono: "secar",
     },
   ] as Paso[],
-  remate: "What starts as a textile offcut returns to the production cycle as a new material.",
-  imagenRemate: {
-    src: "/images/proceso-panel.jpg",
-    alt: "Finished Requecho panels standing on a white table: white, peach, dark blue and black.",
-    width: 768,
-    height: 1024,
-  } satisfies Imagen,
 };
 
 // ---------------------------------------------------------------------------

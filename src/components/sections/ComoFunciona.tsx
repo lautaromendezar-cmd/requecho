@@ -12,7 +12,7 @@ import { Icon } from "@/components/ui/Icon";
  * Cinco pasos unidos por una línea que se dibuja con el scroll y va activando cada
  * paso: el círculo se llena de acento, el ícono se dibuja y el número cambia de
  * peso. Desktop: horizontal, con scrub (pin opcional: flag motion.pinProcess).
- * Mobile: apilado, sin pin. El remate revela la foto del panel terminado.
+ * Mobile: apilado, sin pin. (El remate con foto se sacó por devolución, oct. 2026.)
  */
 export function ComoFunciona() {
   const { proceso } = useContenido();
@@ -130,23 +130,6 @@ export function ComoFunciona() {
               </li>
             ))}
           </ol>
-        </div>
-
-        {/* Remate con la foto del panel terminado */}
-        <div className="mt-16 grid items-center gap-10 lg:mt-24 lg:grid-cols-12 lg:gap-x-8">
-          <p data-reveal className="max-w-[26ch] font-display text-h2 font-bold text-text-strong lg:col-span-6">
-            {proceso.remate}
-          </p>
-          <div data-reveal="mask-up" className="aspect-[4/3] overflow-hidden rounded-lg lg:col-span-5 lg:col-start-8">
-            <Image
-              src={proceso.imagenRemate.src}
-              alt={proceso.imagenRemate.alt}
-              width={proceso.imagenRemate.width}
-              height={proceso.imagenRemate.height}
-              sizes="(min-width: 64rem) 40vw, 100vw"
-              className="h-full w-full object-cover"
-            />
-          </div>
         </div>
       </div>
     </section>
