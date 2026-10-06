@@ -21,7 +21,7 @@
   --color-on-accent: #151515;      /* texto sobre amarillo */
   --color-text: #242424;           /* graphite: texto corriente */
   --color-text-strong: #151515;    /* textile black: títulos y cifras */
-  --color-text-muted: #66665f;     /* datos, notas y capciones */
+  --color-text-muted: #55554f;     /* datos, notas y capciones (contraste ≥ 6:1 sobre el claro) */
   --color-line: #d6d6d0;           /* separadores horizontales finos */
   --color-inverse-bg: #242424;     /* segundo escenario (bloque 5) */
   --color-inverse-text: #f1f1ef;
@@ -40,15 +40,17 @@
   --font-body: var(--rq-font-body, ui-sans-serif, system-ui, sans-serif);
   --font-legal: var(--rq-font-legal, "Arial Narrow", ui-sans-serif, sans-serif);
 
-  /* ---- Escala tipográfica (calibrada para Montserrat, más ancha que Lato) -- */
-  --text-kicker: 0.875rem;
+  /* ---- Escala tipográfica (calibrada para Montserrat, más ancha que Lato) --
+     Textos corrientes un escalón arriba del estándar: devolución de las
+     clientas sobre legibilidad (oct. 2026). Ningún texto baja de 15 px. */
+  --text-kicker: 0.9375rem;
   --text-kicker--line-height: 1.2;
   --text-kicker--letter-spacing: 0.18em;
-  --text-small: 0.875rem;
+  --text-small: 0.9375rem;
   --text-small--line-height: 1.5;
-  --text-body: 1rem;
+  --text-body: 1.0625rem;
   --text-body--line-height: 1.65;
-  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-lead: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
   --text-lead--line-height: 1.55;
   --text-h3: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
   --text-h3--line-height: 1.25;
