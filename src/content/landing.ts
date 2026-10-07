@@ -467,6 +467,8 @@ export const contacto = {
   /** [DATO A CONFIRMAR: mail de contacto alternativo]. Se sumaría al mensaje de falla. */
   mailAlternativo: undefined as string | undefined,
   pie: "© 2026",
+  /** Barra de firma debajo del pie. */
+  firma: { texto: "Diseño web:", nombre: "Lautaro Mendez", url: "https://www.lautaromendez.com.ar" },
   /** [DATO A CONFIRMAR: redes y mail en el pie]. */
   redes: undefined as { nombre: string; url: string }[] | undefined,
   /**

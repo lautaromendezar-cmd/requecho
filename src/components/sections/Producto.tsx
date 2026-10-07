@@ -141,14 +141,12 @@ export function Producto() {
           <h3 data-reveal className="text-h3 lg:col-span-3">
             {producto.aplicacionesTitulo}
           </h3>
-          <ul className="m-0 flex list-none flex-wrap gap-x-3 gap-y-3 p-0 text-lead lg:col-span-9">
+          {/* Dos columnas parejas: con los puntos en una sola tira, el corte de
+              renglón dejaba un separador colgando al principio de la segunda línea. */}
+          <ul className="m-0 grid list-none gap-x-16 gap-y-4 p-0 text-lead sm:grid-cols-[repeat(2,minmax(0,max-content))] lg:col-span-9">
             {producto.aplicaciones.map((a, i) => (
-              <li key={a} data-reveal data-reveal-delay={String(i * 80)} className="flex items-center gap-3">
-                {i > 0 ? (
-                  <span aria-hidden="true" className="text-accent-line">
-                    ·
-                  </span>
-                ) : null}
+              <li key={a} data-reveal data-reveal-delay={String(i * 80)} className="flex items-baseline gap-4">
+                <span aria-hidden="true" className="h-[2px] w-4 shrink-0 translate-y-[-0.3em] bg-accent-line" />
                 <span>{a}</span>
               </li>
             ))}

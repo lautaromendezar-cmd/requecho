@@ -151,6 +151,18 @@ export function Contacto() {
         </div>
       </div>
     </footer>
+
+    {/* Firma: una franja más oscura que el grafito, en la letra de los legales. */}
+    <div className="firma">
+      <div className="container-x py-4">
+        <p className="text-legal">
+          {contacto.firma.texto}{" "}
+          <a href={contacto.firma.url} target="_blank" rel="noopener noreferrer" className="firma__link">
+            {contacto.firma.nombre}
+          </a>
+        </p>
+      </div>
+    </div>
     </>
   );
 }

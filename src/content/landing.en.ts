@@ -372,6 +372,7 @@ export const contacto = {
   },
   mailAlternativo: undefined as string | undefined,
   pie: "© 2026",
+  firma: { texto: "Web design:", nombre: "Lautaro Mendez", url: "https://www.lautaromendez.com.ar" },
   redes: undefined as { nombre: string; url: string }[] | undefined,
   datos: {
     ejemplo: true,

@@ -133,10 +133,10 @@ export function Hero() {
       aria-labelledby="hero-titulo"
       data-reveal-scope="manual"
     >
-      <div className="container-x absolute inset-x-0 top-0 z-10 flex justify-end pt-3 lg:pt-8">
+      <div className="container-x absolute inset-x-0 top-0 z-10 flex justify-end pt-5 lg:pt-8">
         <SelectorIdioma />
       </div>
-      <div className="container-x grid w-full items-center gap-10 py-10 lg:grid-cols-12 lg:gap-8 lg:py-24">
+      <div className="container-x grid w-full items-center gap-10 pb-10 pt-16 lg:grid-cols-12 lg:gap-8 lg:py-24">
         <div className="order-2 lg:order-1 lg:col-span-6 xl:col-span-5">
           <div data-reveal data-hero="logo" className="text-text-strong">
             <Logo height={64} />

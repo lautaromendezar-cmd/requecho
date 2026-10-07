@@ -764,3 +764,19 @@
     animation: none;
   }
 }
+
+/* Firma del diseñador, debajo del pie: más oscura que el grafito, sin competir. */
+.firma {
+  background: color-mix(in srgb, var(--color-inverse-bg) 55%, #000);
+  color: var(--color-inverse-muted);
+}
+.firma__link {
+  color: var(--color-inverse-text);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-inverse-text) 30%, transparent);
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color var(--duration-fast);
+}
+.firma__link:hover {
+  text-decoration-color: var(--color-accent-line);
+}
