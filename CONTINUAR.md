@@ -29,7 +29,10 @@
 
 - ~~6 (Fundadoras)~~ hecho el 6-oct a la noche: foto juntas riéndose (4:5, la eligió Lautaro) y un retrato 4:3
   de cada una (las de las carpetas "Principales"), salen de `scripts/preparar-fotos-nuevas.py`.
-- Feedback de las secciones **7 (Reconocimientos) y 8 (Contacto / pie)**:
+- ~~7 (Reconocimientos)~~ hecho el 7-oct: ClimateLaunchpad, IAE y Vos Lo Hacés pasados a
+  positivo (todos sobre blanco, `scripts/emparejar-logos.py`) y cada badge enlaza a la
+  página del programa (`url` en el contenido).
+- Feedback de la sección **8 (Contacto / pie)**:
   Lautaro las pasa de a una, como hasta ahora (un cambio → push → verificar en vivo).
 - Para Fundadoras hay fotos nuevas en `fotos-nuevas/` (Juntas, Luciana, Verónica, En
   equipo, Ariel). Ojo: la foto "Vero con desperdicio textil" ya se usa recortada (sólo

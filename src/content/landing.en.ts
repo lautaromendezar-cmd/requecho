@@ -312,23 +312,27 @@ export const fundadoras = {
 // ---------------------------------------------------------------------------
 export const reconocimientos = {
   kicker: "RECOGNITION",
+  pestanaNueva: "(opens in a new tab)",
   badges: [
     {
       titulo: "Regional Semifinalist 2026 · ClimateLaunchpad",
       texto: "We represent Argentina at the Global Final in Singapore, in October 2026.",
-      logo: { src: "/logos/climatelaunchpad-badge.png", alt: "ClimateLaunchpad", width: 352, height: 153 },
+      logo: { src: "/logos/climatelaunchpad-positivo.png", alt: "ClimateLaunchpad", width: 351, height: 153 },
+      url: "https://climatelaunchpad.org/",
     },
     {
       titulo: "Semifinalists · NAVES, IAE Business School",
       texto: "In the IAE Business School startup competition. 2025",
       logo: { src: "/logos/naves-badge.png", alt: "NAVES", width: 506, height: 370 },
-      logoSecundario: { src: "/logos/iae-badge.png", alt: "IAE Business School", width: 386, height: 432 },
+      logoSecundario: { src: "/logos/iae-positivo.png", alt: "IAE Business School", width: 382, height: 285 },
+      url: "https://www.iae.edu.ar/naves",
     },
     {
       titulo: "Winners of “Vos Lo Hacés” · Buenos Aires City Government",
       texto: "Selected from more than 160 applicants. 2025",
-      logo: { src: "/logos/vos-lo-haces-badge.png", alt: "Vos Lo Hacés", width: 1874, height: 398 },
+      logo: { src: "/logos/vos-lo-haces-positivo.png", alt: "Vos Lo Hacés", width: 1874, height: 396 },
       logoSecundario: { src: "/logos/gcba-badge.png", alt: "Buenos Aires City Government", width: 184, height: 64 },
+      url: "https://buenosaires.gob.ar/vos-lo-haces",
     },
   ] satisfies Badge[],
 };

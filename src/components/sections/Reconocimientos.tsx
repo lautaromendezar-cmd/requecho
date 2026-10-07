@@ -9,7 +9,8 @@ import type { Badge } from "@/content/landing";
 
 /**
  * BLOQUE 7 — RECONOCIMIENTOS
- * Tres badges con los logos oficiales en tarjetas cuadradas de esquina redondeada.
+ * Tres badges con los logos oficiales (en positivo, sobre blanco) en tarjetas
+ * cuadradas de esquina redondeada. Cada uno enlaza a la página del programa.
  * Entran en stagger con el trazo dibujándose; en hover se elevan y el trazo pasa a
  * amarillo. Sólo estos tres.
  */
@@ -84,51 +85,66 @@ export function Reconocimientos() {
               key={b.titulo}
               data-reveal
               data-reveal-delay={String(i * 140)}
-              className="group flex flex-col items-center text-center"
             >
-              <div className="badge relative h-48 w-48 transition-transform duration-[var(--duration-base)] ease-[var(--ease-out-expo)] group-hover:-translate-y-1 lg:h-60 lg:w-60">
-                {/* Los dos logos van dentro de la misma tarjeta: colgado afuera,
-                    el segundo corría el badge respecto del texto. */}
-                <div
-                  className={`absolute inset-0 flex items-center justify-center rounded-[var(--radius-lg)] bg-surface ${
-                    apilados ? "flex-col gap-[7%]" : "gap-[5%]"
-                  }`}
-                >
-                  {piezas.map(({ logo, ancho }) => (
-                    <Image
-                      key={logo.src}
-                      src={logo.src}
-                      alt={logo.alt}
-                      width={logo.width}
-                      height={logo.height}
-                      sizes="(min-width: 64rem) 200px, 160px"
-                      className="h-auto"
-                      style={{ width: `${ancho}%` }}
+              <a
+                href={b.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center text-center"
+              >
+                <div className="badge relative h-48 w-48 transition-transform duration-[var(--duration-base)] ease-[var(--ease-out-expo)] group-hover:-translate-y-1 lg:h-60 lg:w-60">
+                  {/* Los dos logos van dentro de la misma tarjeta: colgado afuera,
+                      el segundo corría el badge respecto del texto. */}
+                  <div
+                    className={`absolute inset-0 flex items-center justify-center rounded-[var(--radius-lg)] bg-surface ${
+                      apilados ? "flex-col gap-[7%]" : "gap-[5%]"
+                    }`}
+                  >
+                    {piezas.map(({ logo, ancho }) => (
+                      <Image
+                        key={logo.src}
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={logo.width}
+                        height={logo.height}
+                        sizes="(min-width: 64rem) 200px, 160px"
+                        className="h-auto"
+                        style={{ width: `${ancho}%` }}
+                      />
+                    ))}
+                  </div>
+                  <svg
+                    viewBox="0 0 100 100"
+                    className="pointer-events-none absolute inset-0 h-full w-full text-text-strong"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      data-badge-ring
+                      x="0.5"
+                      y="0.5"
+                      width="99"
+                      height="99"
+                      rx="3"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      strokeLinecap="round"
+                      className="transition-[stroke] duration-[var(--duration-base)] group-hover:stroke-[var(--color-accent-line)]"
                     />
-                  ))}
+                  </svg>
                 </div>
-                <svg
-                  viewBox="0 0 100 100"
-                  className="pointer-events-none absolute inset-0 h-full w-full text-text-strong"
-                  aria-hidden="true"
-                >
-                  <rect
-                    data-badge-ring
-                    x="0.5"
-                    y="0.5"
-                    width="99"
-                    height="99"
-                    rx="3"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    className="transition-[stroke] duration-[var(--duration-base)] group-hover:stroke-[var(--color-accent-line)]"
-                  />
-                </svg>
-              </div>
-              <h3 className="mt-8 max-w-[22ch] text-h3">{b.titulo}</h3>
-              <p className="mt-3 max-w-[36ch] text-text">{b.texto}</p>
+                <h3 className="mt-8 max-w-[22ch] text-h3 decoration-[var(--color-accent-line)] decoration-2 underline-offset-4 group-hover:underline">
+                  {b.titulo}
+                  <span
+                    aria-hidden="true"
+                    className="ml-1.5 inline-block text-muted transition-transform duration-[var(--duration-base)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  >
+                    ↗
+                  </span>
+                  <span className="sr-only"> {reconocimientos.pestanaNueva}</span>
+                </h3>
+                <p className="mt-3 max-w-[36ch] text-text">{b.texto}</p>
+              </a>
             </li>
             );
           })}

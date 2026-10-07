@@ -723,7 +723,3 @@
   overflow: hidden;
 }
 
-/* Badges: trazo con un hueco para que la rotación se note */
-[data-badge-ring] {
-  stroke-dasharray: 275 33;
-}

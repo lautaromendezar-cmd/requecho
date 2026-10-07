@@ -110,7 +110,9 @@ validar** es texto que existe en el documento pero tiene una nota de validación
 - [ ] **Logos oficiales**: se usan los archivos de la carpeta (PNG/JPG chicos). Pedir SVG
   o PNG grandes. NAVES e IAE van juntos en el badge 2; "vos lo hacés" y BA en el 3.
   `scripts/emparejar-logos.py` les recorta el margen propio y escribe los `-badge.png`
-  que consume el bloque; con archivos nuevos, se vuelve a correr y se actualizan las
+  que consume el bloque (ClimateLaunchpad, IAE y Vos Lo Hacés venían en bloque de color
+  y el script los pasa a positivo, en `-positivo.png`, por la devolución del 6-oct: todos
+  sobre blanco); con archivos nuevos, se vuelve a correr y se actualizan las
   medidas en `landing.ts` (las imprime el script). El tamaño con que se ve cada uno lo
   calcula `Reconocimientos.tsx` igualando áreas: no hace falta tocarlo.
 - [ ] Después de la Final Global (octubre 2026), actualizar el texto del badge 1.

@@ -383,29 +383,36 @@ export type Badge = {
   texto: string;
   logo: Imagen;
   logoSecundario?: Imagen;
+  /** Página del programa. Los atajos de cada organización apuntan a la edición vigente. */
+  url: string;
 };
 
 export const reconocimientos = {
   kicker: "RECONOCIMIENTOS",
+  /** Para lectores de pantalla: el enlace abre otra pestaña. */
+  pestanaNueva: "(se abre en una pestaña nueva)",
   badges: [
     {
       titulo: "Semifinalista Regional 2026 · ClimateLaunchpad",
       // El documento trae la frase cortada ("...como una de las dos iniciativas de
       // América"). Se publica hasta "en octubre de 2026"; falta el cierre.
       texto: "Representamos a la Argentina en la Final Global de Singapur, en octubre de 2026.",
-      logo: { src: "/logos/climatelaunchpad-badge.png", alt: "ClimateLaunchpad", width: 352, height: 153 },
+      logo: { src: "/logos/climatelaunchpad-positivo.png", alt: "ClimateLaunchpad", width: 351, height: 153 },
+      url: "https://climatelaunchpad.org/",
     },
     {
       titulo: "Semifinalistas · NAVES, IAE Business School",
       texto: "En la competencia de emprendimientos del IAE Business School. 2025",
       logo: { src: "/logos/naves-badge.png", alt: "NAVES", width: 506, height: 370 },
-      logoSecundario: { src: "/logos/iae-badge.png", alt: "IAE Business School", width: 386, height: 432 },
+      logoSecundario: { src: "/logos/iae-positivo.png", alt: "IAE Business School", width: 382, height: 285 },
+      url: "https://www.iae.edu.ar/naves",
     },
     {
       titulo: "Ganadoras de “Vos Lo Hacés” · Gobierno de la Ciudad de Buenos Aires",
       texto: "Proyecto elegido entre más de 160 postulantes. 2025",
-      logo: { src: "/logos/vos-lo-haces-badge.png", alt: "Vos Lo Hacés", width: 1874, height: 398 },
+      logo: { src: "/logos/vos-lo-haces-positivo.png", alt: "Vos Lo Hacés", width: 1874, height: 396 },
       logoSecundario: { src: "/logos/gcba-badge.png", alt: "Gobierno de la Ciudad de Buenos Aires", width: 184, height: 64 },
+      url: "https://buenosaires.gob.ar/vos-lo-haces",
     },
   ] satisfies Badge[],
 };
