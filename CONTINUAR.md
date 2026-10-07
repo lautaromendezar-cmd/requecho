@@ -1,8 +1,13 @@
-# Dónde quedamos (7-oct-2026)
+# Dónde quedamos (7-oct-2026, noche)
 
-**Estado:** la ronda de devoluciones de las clientas está aplicada entera (secciones 1 a 8 y
-el pie) y en vivo en requecho.vercel.app. Se les mandó el resumen a Luciana, Verónica y
-Ariel. **Ahora se espera la próxima devolución**; puede llegar a esta PC o a la de la oficina.
+**Estado:** llegó la **devolución final** y se está aplicando de a un cambio. **Cambio 1
+(hero) hecho y en vivo** (commit 1aa9e3c): segundo párrafo, fotos en fundido en lugar de la
+foto fija (las 8 fotos del video `../modificaciones07102026/`, en `public/images/hero/`,
+componente `sections/hero/HeroFotos.tsx`, encuadre por foto en `hero.imagenes[].posicion`),
+selector ESP / ENG, íconos de mail, WhatsApp, Instagram y LinkedIn en amarillo y los datos
+reales del pie (`src/content/canales.ts`). Capturas del hero y el pie con
+`node scripts/capturas-hero.mjs` (con `URL=https://requecho.vercel.app` mira el vivo).
+**Sigue el cambio 2 de la devolución final.**
 
 ## Antes de tocar nada (en cualquier PC)
 
@@ -34,7 +39,6 @@ Ariel. **Ahora se espera la próxima devolución**; puede llegar a esta PC o a l
 
 ## Pendiente de las clientas
 
-- Datos reales del pie (dirección, teléfono, mail, Instagram, LinkedIn): hoy son de ejemplo.
 - PDF de la ficha técnica en ES y EN (el botón tiene `href="#"`).
 - Cierre de la frase del badge de ClimateLaunchpad.
 - Que validen los textos en inglés.
