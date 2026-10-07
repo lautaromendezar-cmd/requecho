@@ -36,6 +36,7 @@
   pop-up con el mismo formulario (`contacto/ContactoPopup.tsx`; tiempos en
   `src/config/popup.ts`: abre a los 4 s, no vuelve por 7 días si lo cierran ni nunca si
   envían, no aparece si el bloque 8 ya está en pantalla).
+- Pie: letra a la escala del sitio (datos 17 px, títulos como los kickers), 7-oct.
 - Ronda de devoluciones por sección terminada. Lo que sigue lo marcan las clientas:
   Lautaro las pasa de a una, como hasta ahora (un cambio → push → verificar en vivo).
 - Para Fundadoras hay fotos nuevas en `fotos-nuevas/` (Juntas, Luciana, Verónica, En

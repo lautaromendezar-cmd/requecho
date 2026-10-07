@@ -77,14 +77,14 @@ export function Contacto() {
 
     {/* El pie tiene escenario propio: cierra la página en grafito y despega del
         mostaza del bloque 8. */}
-    <footer className="surface-inverse py-16 text-small lg:py-20">
+    <footer className="surface-inverse py-16 text-body lg:py-20">
       <div className="container-x">
         {datos ? (
           <div className={`grid gap-10 sm:grid-cols-3 ${datos.ejemplo ? "opacity-75" : ""}`}>
             <div>
               <p className="footer-titulo">{datos.direccion.titulo}</p>
               <div className="mt-4 flex gap-3">
-                <Icon name="ubicacion" size={20} bare draw={false} className="mt-[2px] shrink-0 text-accent-line" />
+                <Icon name="ubicacion" size={22} bare draw={false} className="mt-[2px] shrink-0 text-accent-line" />
                 <div>
                   {datos.direccion.lineas.map((l) => (
                     <p key={l}>{l}</p>
@@ -100,7 +100,7 @@ export function Contacto() {
                   { ...datos.contacto.mail, icono: "mail" as const },
                 ].map((d) => (
                   <li key={d.texto} className="flex items-center gap-3">
-                    <Icon name={d.icono} size={20} bare draw={false} className="shrink-0 text-accent-line" />
+                    <Icon name={d.icono} size={22} bare draw={false} className="shrink-0 text-accent-line" />
                     {datos.ejemplo ? (
                       <span>{d.texto}</span>
                     ) : (
@@ -119,7 +119,7 @@ export function Contacto() {
                   <li key={r.url} className="flex items-center gap-3">
                     <Icon
                       name={r.nombre.toLowerCase() === "linkedin" ? "linkedin" : "instagram"}
-                      size={20}
+                      size={22}
                       bare
                       draw={false}
                       className="shrink-0 text-accent-line"
