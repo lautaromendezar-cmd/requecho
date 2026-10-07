@@ -8,6 +8,8 @@ import { Kicker } from "@/components/ui/Kicker";
 import { Icon } from "@/components/ui/Icon";
 import { Logo } from "@/components/brand/Logo";
 import { SelectorIdioma } from "@/components/ui/SelectorIdioma";
+import { IconoMarca } from "@/components/ui/IconoMarca";
+import { instagram, linkedin, mail, whatsapp } from "@/content/canales";
 import { LeadForm } from "./contacto/LeadForm";
 import { ContactoPopup } from "./contacto/ContactoPopup";
 
@@ -18,12 +20,9 @@ import { ContactoPopup } from "./contacto/ContactoPopup";
  * botón con estado de envío y éxito que reemplaza al formulario. Pie de página.
  */
 export function Contacto() {
-  const { contacto, ui } = useContenido();
+  const { contacto } = useContenido();
   const ref = useRef<HTMLElement>(null);
-  // Los datos de relleno del pie sirven para la revisión; si el sitio se
-  // publica, no salen (la regla del proyecto: ningún dato a confirmar en vivo).
-  const datos =
-    contacto.datos.ejemplo && process.env.NEXT_PUBLIC_SITE_LIVE === "true" ? undefined : contacto.datos;
+  const datos = contacto.datos;
 
   useGSAP(
     () => {
@@ -79,67 +78,55 @@ export function Contacto() {
         mostaza del bloque 8. */}
     <footer className="surface-inverse py-16 text-body lg:py-20">
       <div className="container-x">
-        {datos ? (
-          <div className={`grid gap-10 sm:grid-cols-3 ${datos.ejemplo ? "opacity-75" : ""}`}>
-            <div>
-              <p className="footer-titulo">{datos.direccion.titulo}</p>
-              <div className="mt-4 flex gap-3">
-                <Icon name="ubicacion" size={22} bare draw={false} className="mt-[2px] shrink-0 text-accent-line" />
-                <div>
-                  {datos.direccion.lineas.map((l) => (
-                    <p key={l}>{l}</p>
-                  ))}
-                </div>
+        <div className="grid gap-10 sm:grid-cols-3">
+          <div>
+            <p className="footer-titulo">{datos.direccion.titulo}</p>
+            <div className="mt-4 flex gap-3">
+              <Icon name="ubicacion" size={22} bare draw={false} className="mt-[2px] shrink-0 text-accent-line" />
+              <div>
+                {datos.direccion.lineas.map((l) => (
+                  <p key={l}>{l}</p>
+                ))}
               </div>
             </div>
-            <div>
-              <p className="footer-titulo">{datos.contacto.titulo}</p>
-              <ul className="mt-4 m-0 list-none space-y-3 p-0">
-                {[
-                  { ...datos.contacto.telefono, icono: "telefono" as const },
-                  { ...datos.contacto.mail, icono: "mail" as const },
-                ].map((d) => (
-                  <li key={d.texto} className="flex items-center gap-3">
-                    <Icon name={d.icono} size={22} bare draw={false} className="shrink-0 text-accent-line" />
-                    {datos.ejemplo ? (
-                      <span>{d.texto}</span>
-                    ) : (
-                      <a href={d.href} className="underline-offset-4 hover:underline">
-                        {d.texto}
-                      </a>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="footer-titulo">{datos.redes.titulo}</p>
-              <ul className="mt-4 m-0 list-none space-y-3 p-0">
-                {datos.redes.items.map((r) => (
-                  <li key={r.url} className="flex items-center gap-3">
-                    <Icon
-                      name={r.nombre.toLowerCase() === "linkedin" ? "linkedin" : "instagram"}
-                      size={22}
-                      bare
-                      draw={false}
-                      className="shrink-0 text-accent-line"
-                    />
-                    {datos.ejemplo ? (
-                      <span>{r.nombre}</span>
-                    ) : (
-                      <a href={r.url} className="underline-offset-4 hover:underline">
-                        {r.nombre}
-                      </a>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
-        ) : null}
-        {datos?.ejemplo ? (
-          <p className="mt-10 text-legal text-inverse-muted">{ui.datosEjemplo}</p>
-        ) : null}
+          <div>
+            <p className="footer-titulo">{datos.contacto.titulo}</p>
+            <ul className="mt-4 m-0 list-none space-y-3 p-0">
+              {[
+                ...whatsapp.map((w) => ({ ...w, icono: "whatsapp" as const, externo: true })),
+                { ...mail, icono: "mail" as const, externo: false },
+              ].map((d) => (
+                <li key={d.texto} className="flex items-center gap-3">
+                  <IconoMarca name={d.icono} size={20} className="shrink-0 text-accent-line" />
+                  <a
+                    href={d.href}
+                    {...(d.externo ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="underline-offset-4 hover:underline"
+                  >
+                    {d.texto}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="footer-titulo">{datos.redes.titulo}</p>
+            <ul className="mt-4 m-0 list-none space-y-3 p-0">
+              {[
+                { ...instagram, icono: "instagram" as const },
+                { ...linkedin, icono: "linkedin" as const },
+              ].map((r) => (
+                <li key={r.url} className="flex items-center gap-3">
+                  <IconoMarca name={r.icono} size={20} className="shrink-0 text-accent-line" />
+                  <a href={r.url} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
+                    {r.nombre}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
         {/* Versión negativa del logo (letras claras, escuadras amarillas), como
             pide el manual sobre fondos oscuros. */}
         <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t border-inverse-text/15 pt-8">

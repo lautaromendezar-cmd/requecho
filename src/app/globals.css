@@ -131,6 +131,21 @@
     color: var(--color-inverse-text);
   }
 
+  /* Íconos de contacto del encabezado: amarillo del manual (devolución final,
+     7-oct-2026). Caja de 40 px para el dedo; el margen negativo los alinea. */
+  .canal-header {
+    display: inline-flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    transition: color var(--duration-fast);
+  }
+  .canal-header:hover {
+    color: var(--color-text-strong);
+  }
+
   .footer-titulo {
     font-family: var(--font-display);
     font-weight: 700;

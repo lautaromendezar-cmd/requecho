@@ -16,6 +16,9 @@ export type Imagen = {
   height: number;
 };
 
+/** Foto del hero: `posicion` es el object-position dentro del recuadro. */
+export type ImagenHero = Imagen & { posicion: string };
+
 export type Cifra = {
   prefijo?: string;
   valor: number;
@@ -33,7 +36,7 @@ export const idioma = {
   locale: "es-AR",
   ogLocale: "es_AR",
   /** Cómo se nombra este idioma en el selector ES / EN. */
-  corto: "ES",
+  corto: "ESP",
   nombre: "Español",
 };
 
@@ -43,7 +46,7 @@ export const ui = {
   galeria: "Fotos del material",
   fotoAnterior: "Foto anterior",
   fotoSiguiente: "Foto siguiente",
-  datosEjemplo: "Datos de ejemplo, a la espera de los definitivos.",
+  canales: "Contacto y redes",
 };
 
 export const meta = {
@@ -64,12 +67,24 @@ export const hero = {
   titulo: "Del descarte al material. Del material a nuevos espacios.",
   subtitulo:
     "Recuperamos textiles preconsumo y los convertimos en paneles de revestimiento con identidad única y propiedades acústicas y térmicas, y comportamiento frente al fuego.",
-  imagen: {
-    src: "/images/hero-paneles.jpg",
-    alt: "Una mano sostiene en abanico tres paneles Requecho de distintos colores, uno claro, uno gris jaspeado y uno oscuro, sobre una pared clara.",
-    width: 768,
-    height: 1024,
-  } satisfies Imagen,
+  /** Segundo párrafo (devolución final, 7-oct-2026). */
+  subtitulo2:
+    "Requecho trabaja en ese punto de encuentro: recuperamos descarte de la industria textil y lo transformamos en un nuevo material para arquitectura e interiorismo.",
+  /**
+   * Fotos que se suceden con un fundido (devolución final, 7-oct-2026: reemplazan
+   * a la foto fija). Salen del video de producto de las clientas, que son 8 fotos
+   * fijas. `posicion` es el object-position: las fotos son 9:16 y el recuadro no.
+   */
+  imagenes: [
+    { src: "/images/hero/hero-1.jpg", alt: "Tres paneles Requecho apoyados contra una pared clara, entre hojas de hiedra: uno rosado, uno oscuro jaspeado y uno azul.", width: 1280, height: 2276, posicion: "50% 70%" },
+    { src: "/images/hero/hero-2.jpg", alt: "Una pared revestida con paneles Requecho azules, detrás de un sillón claro y una planta.", width: 1280, height: 2276, posicion: "50% 78%" },
+    { src: "/images/hero/hero-3.jpg", alt: "Dos paneles Requecho grises y azules apoyados sobre un piso de madera, contra una pared amarilla.", width: 1280, height: 2276, posicion: "50% 50%" },
+    { src: "/images/hero/hero-4.jpg", alt: "Una pieza ovalada de material Requecho, gris y blanca, colgada de una correa de cuero.", width: 1280, height: 2276, posicion: "50% 42%" },
+    { src: "/images/hero/hero-5.jpg", alt: "Una mano sostiene recortes de jean junto a muestras de paneles Requecho.", width: 1280, height: 2276, posicion: "50% 45%" },
+    { src: "/images/hero/hero-6.jpg", alt: "Una mesa baja verde hecha con material Requecho sobre un fondo rosado.", width: 1280, height: 2276, posicion: "50% 52%" },
+    { src: "/images/hero/hero-7.jpg", alt: "Una pila de paneles Requecho de colores, fucsia, celeste, crema y gris, sobre una mesa de madera.", width: 1280, height: 2276, posicion: "50% 50%" },
+    { src: "/images/hero/hero-8.jpg", alt: "Una pared revestida con paneles Requecho azul jaspeado y dos banquetas verdes adelante.", width: 1280, height: 2276, posicion: "50% 85%" },
+  ] satisfies ImagenHero[],
 };
 
 // ---------------------------------------------------------------------------
@@ -469,29 +484,10 @@ export const contacto = {
   pie: "© 2026",
   /** Barra de firma debajo del pie. */
   firma: { texto: "Diseño web:", nombre: "Lautaro Mendez", url: "https://www.lautaromendez.com.ar" },
-  /** [DATO A CONFIRMAR: redes y mail en el pie]. */
-  redes: undefined as { nombre: string; url: string }[] | undefined,
-  /**
-   * [DATO A CONFIRMAR: dirección, teléfono, mail institucional y redes].
-   * Lo de acá abajo es de relleno, para que las clientas vean la forma del pie
-   * con los datos puestos. Mientras `ejemplo` sea `true` se muestran apagados,
-   * sin enlazar y con su aclaración, y no salen si el sitio se publica. Cuando
-   * lleguen los datos reales: reemplazar y borrar `ejemplo`.
-   */
+  /** Datos reales del pie (devolución final, 7-oct-2026). Mail, WhatsApp y redes salen de canales.ts. */
   datos: {
-    ejemplo: true,
-    direccion: { titulo: "Oficina", lineas: ["Av. Ejemplo 1234, piso 5", "C1000 · Ciudad de Buenos Aires"] },
-    contacto: {
-      titulo: "Contacto",
-      telefono: { texto: "+54 9 11 0000 0000", href: "tel:+5491100000000" },
-      mail: { texto: "hola@requecho.com", href: "mailto:hola@requecho.com" },
-    },
-    redes: {
-      titulo: "Redes",
-      items: [
-        { nombre: "Instagram", url: "https://instagram.com/requecho" },
-        { nombre: "LinkedIn", url: "https://linkedin.com/company/requecho" },
-      ],
-    },
+    direccion: { titulo: "Oficina", lineas: ["Ciudad Autónoma de Buenos Aires"] },
+    contacto: { titulo: "Contacto" },
+    redes: { titulo: "Redes" },
   },
 };

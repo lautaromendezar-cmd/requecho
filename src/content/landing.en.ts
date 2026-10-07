@@ -6,14 +6,14 @@
 // de publicar. Rutas de imágenes, medidas y datos opcionales son los mismos que en
 // español: si un dato a confirmar llega, se carga en los dos archivos.
 // =============================================================================
-import type { Badge, Campo, Cifra, Fundadora, Imagen, Paso, Propiedad } from "./landing";
+import type { Badge, Campo, Cifra, Fundadora, Imagen, ImagenHero, Paso, Propiedad } from "./landing";
 import type { IconName } from "@/components/ui/icon-glyphs";
 
 export const idioma = {
   htmlLang: "en",
   locale: "en-US",
   ogLocale: "en_US",
-  corto: "EN",
+  corto: "ENG",
   nombre: "English",
 };
 
@@ -22,7 +22,7 @@ export const ui = {
   galeria: "Photos of the material",
   fotoAnterior: "Previous photo",
   fotoSiguiente: "Next photo",
-  datosEjemplo: "Sample details, pending the final ones.",
+  canales: "Contact and social media",
 };
 
 export const meta = {
@@ -40,12 +40,18 @@ export const hero = {
   titulo: "From waste to material. From material to new spaces.",
   subtitulo:
     "We recover pre-consumer textiles and turn them into wall-cladding panels with a unique identity, acoustic and thermal properties, and fire performance.",
-  imagen: {
-    src: "/images/hero-paneles.jpg",
-    alt: "A hand fans out three Requecho panels in different colors — one light, one speckled grey and one dark — against a pale wall.",
-    width: 768,
-    height: 1024,
-  } satisfies Imagen,
+  subtitulo2:
+    "Requecho works at that meeting point: we recover waste from the textile industry and turn it into a new material for architecture and interior design.",
+  imagenes: [
+    { src: "/images/hero/hero-1.jpg", alt: "Three Requecho panels leaning against a pale wall among ivy leaves: one pink, one dark and speckled, one blue.", width: 1280, height: 2276, posicion: "50% 70%" },
+    { src: "/images/hero/hero-2.jpg", alt: "A wall clad in blue Requecho panels behind a light sofa and a plant.", width: 1280, height: 2276, posicion: "50% 78%" },
+    { src: "/images/hero/hero-3.jpg", alt: "Two grey and blue Requecho panels resting on a wooden floor against a yellow wall.", width: 1280, height: 2276, posicion: "50% 50%" },
+    { src: "/images/hero/hero-4.jpg", alt: "An oval piece of grey and white Requecho material hanging from a leather strap.", width: 1280, height: 2276, posicion: "50% 42%" },
+    { src: "/images/hero/hero-5.jpg", alt: "A hand holds denim offcuts next to Requecho panel samples.", width: 1280, height: 2276, posicion: "50% 45%" },
+    { src: "/images/hero/hero-6.jpg", alt: "A low green table made of Requecho material against a pink background.", width: 1280, height: 2276, posicion: "50% 52%" },
+    { src: "/images/hero/hero-7.jpg", alt: "A stack of colorful Requecho panels, fuchsia, light blue, cream and grey, on a wooden table.", width: 1280, height: 2276, posicion: "50% 50%" },
+    { src: "/images/hero/hero-8.jpg", alt: "A wall clad in speckled blue Requecho panels with two green stools in front.", width: 1280, height: 2276, posicion: "50% 85%" },
+  ] satisfies ImagenHero[],
 };
 
 // ---------------------------------------------------------------------------
@@ -373,21 +379,9 @@ export const contacto = {
   mailAlternativo: undefined as string | undefined,
   pie: "© 2026",
   firma: { texto: "Web design:", nombre: "Lautaro Mendez", url: "https://www.lautaromendez.com.ar" },
-  redes: undefined as { nombre: string; url: string }[] | undefined,
   datos: {
-    ejemplo: true,
-    direccion: { titulo: "Office", lineas: ["Av. Ejemplo 1234, 5th floor", "C1000 · Buenos Aires, Argentina"] },
-    contacto: {
-      titulo: "Contact",
-      telefono: { texto: "+54 9 11 0000 0000", href: "tel:+5491100000000" },
-      mail: { texto: "hola@requecho.com", href: "mailto:hola@requecho.com" },
-    },
-    redes: {
-      titulo: "Social",
-      items: [
-        { nombre: "Instagram", url: "https://instagram.com/requecho" },
-        { nombre: "LinkedIn", url: "https://linkedin.com/company/requecho" },
-      ],
-    },
+    direccion: { titulo: "Office", lineas: ["Autonomous City of Buenos Aires"] },
+    contacto: { titulo: "Contact" },
+    redes: { titulo: "Social" },
   },
 };

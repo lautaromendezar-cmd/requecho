@@ -1,21 +1,24 @@
 "use client";
 
-import Image from "next/image";
 import { useRef } from "react";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
 import { useContenido } from "@/content/ContenidoProvider";
 import { Logo } from "@/components/brand/Logo";
 import { SelectorIdioma } from "@/components/ui/SelectorIdioma";
+import { IconoMarca } from "@/components/ui/IconoMarca";
+import { instagram, linkedin, mail, whatsapp } from "@/content/canales";
+import { HeroFotos } from "./hero/HeroFotos";
 
 /**
  * BLOQUE 1 — HERO
  * Secuencia de carga corta: logo, H1 por líneas con máscara, subtítulo,
- * foto con máscara clip-path (desktop) o leve escala (mobile, para no demorar el
- * LCP). Parallax de la foto al scroll y tilt con el puntero. Sin botón.
+ * fotos con máscara clip-path (desktop) o leve escala (mobile, para no demorar el
+ * LCP), que después se suceden en fundido. Parallax al scroll y tilt con el
+ * puntero. Arriba, los canales de contacto en amarillo y el selector de idioma.
  */
 export function Hero() {
-  const { hero } = useContenido();
+  const { hero, ui } = useContenido();
   const ref = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -133,7 +136,29 @@ export function Hero() {
       aria-labelledby="hero-titulo"
       data-reveal-scope="manual"
     >
-      <div className="container-x absolute inset-x-0 top-0 z-10 flex justify-end pt-5 lg:pt-8">
+      <div className="container-x absolute inset-x-0 top-0 z-10 flex items-center justify-end gap-5 pt-3 sm:gap-7 lg:pt-6">
+        <nav aria-label={ui.canales}>
+          <ul className="m-0 flex list-none items-center p-0">
+            {[
+              { href: mail.href, label: `Mail: ${mail.texto}`, icono: "mail" as const, externo: false },
+              { href: whatsapp[0].href, label: "WhatsApp", icono: "whatsapp" as const, externo: true },
+              { href: instagram.url, label: instagram.nombre, icono: "instagram" as const, externo: true },
+              { href: linkedin.url, label: linkedin.nombre, icono: "linkedin" as const, externo: true },
+            ].map((c) => (
+              <li key={c.icono}>
+                <a
+                  href={c.href}
+                  aria-label={c.label}
+                  title={c.label}
+                  {...(c.externo ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="canal-header"
+                >
+                  <IconoMarca name={c.icono} size={20} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
         <SelectorIdioma />
       </div>
       <div className="container-x grid w-full items-center gap-10 pb-10 pt-16 lg:grid-cols-12 lg:gap-8 lg:py-24">
@@ -147,6 +172,9 @@ export function Hero() {
           <p data-reveal data-hero="sub" className="mt-8 max-w-[44ch] text-[length:clamp(1.1875rem,1rem+0.55vw,1.5rem)] leading-[1.5] text-text">
             {hero.subtitulo}
           </p>
+          <p data-reveal data-hero="sub" className="mt-5 max-w-[44ch] text-[length:clamp(1.1875rem,1rem+0.55vw,1.5rem)] leading-[1.5] text-text">
+            {hero.subtitulo2}
+          </p>
           <div data-reveal data-hero="cue" className="mt-12 hidden lg:block">
             <span className="scroll-cue" aria-hidden="true" />
           </div>
@@ -157,16 +185,9 @@ export function Hero() {
             data-hero-media
             className="relative aspect-[4/3] w-full overflow-hidden rounded-lg lg:aspect-auto lg:h-[min(62svh,44vw)]"
           >
-            <Image
-              data-hero-img
-              src={hero.imagen.src}
-              alt={hero.imagen.alt}
-              fill
-              priority
-              quality={75}
-              sizes="(min-width: 64rem) 50vw, 100vw"
-              className="object-cover object-[55%_45%]"
-            />
+            <div data-hero-img className="absolute inset-0">
+              <HeroFotos fotos={hero.imagenes} />
+            </div>
           </div>
         </div>
       </div>

@@ -132,11 +132,9 @@ validar** es texto que existe en el documento pero tiene una nota de validación
 - [ ] **Texto legal de la privacidad (se publica, validar)**: "Usamos tus datos solo para
   responder tu consulta."
 - [ ] **Mail de contacto alternativo** para el mensaje de falla (campo `mailAlternativo`).
-- [ ] **Dirección, teléfono, mail institucional y redes del pie** (campo `datos`). Hoy hay
-  datos de relleno para que las clientas vieran la forma del pie: se muestran apagados,
-  sin enlazar y con su aclaración. Al cargar los reales hay que **borrar `ejemplo`**, y
-  recién ahí quedan como enlaces. Mientras la bandera siga puesta, el pie no los muestra
-  si `NEXT_PUBLIC_SITE_LIVE` es `true`: nunca sale en vivo un teléfono inventado.
+- [x] **Datos del pie** (7-oct-2026): "Ciudad Autónoma de Buenos Aires", dos WhatsApp,
+  info@requecho.com, Instagram y LinkedIn. Viven en `src/content/canales.ts` y los usan el pie
+  y los íconos del encabezado del hero. Ya no hay datos de ejemplo ni bandera `ejemplo`.
 - [ ] **Muestras físicas** (punto 7 de datos a confirmar, cortado en el documento; se refiere
   a este bloque): si se pueden ofrecer, sumarlas a la bajada y al botón.
 - [ ] **Botón**: "Quiero conocer el material". La alternativa del documento ("Hablemos de tu
