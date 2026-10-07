@@ -723,3 +723,43 @@
   overflow: hidden;
 }
 
+/* =============================================================================
+   Pop-up de contacto (ContactoPopup.tsx): <dialog> modal sobre el mostaza.
+   ========================================================================== */
+.contacto-popup {
+  width: min(44rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 0.35);
+}
+.contacto-popup::backdrop {
+  background: rgb(21 21 21 / 0.6);
+}
+.contacto-popup[open] {
+  animation: rq-popup-in 0.6s var(--ease-out-expo);
+}
+.contacto-popup[open]::backdrop {
+  animation: rq-fade-in 0.4s ease-out;
+}
+@keyframes rq-popup-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+}
+@keyframes rq-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contacto-popup[open],
+  .contacto-popup[open]::backdrop {
+    animation: none;
+  }
+}

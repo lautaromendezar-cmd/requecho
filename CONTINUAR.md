@@ -32,7 +32,11 @@
 - ~~7 (Reconocimientos)~~ hecho el 7-oct: ClimateLaunchpad, IAE y Vos Lo Hacés pasados a
   positivo (todos sobre blanco, `scripts/emparejar-logos.py`) y cada badge enlaza a la
   página del programa (`url` en el contenido).
-- Feedback de la sección **8 (Contacto / pie)**:
+- ~~8 (Contacto)~~ hecho el 7-oct: título al tamaño de las demás secciones (`text-h2`) y
+  pop-up con el mismo formulario (`contacto/ContactoPopup.tsx`; tiempos en
+  `src/config/popup.ts`: abre a los 4 s, no vuelve por 7 días si lo cierran ni nunca si
+  envían, no aparece si el bloque 8 ya está en pantalla).
+- Ronda de devoluciones por sección terminada. Lo que sigue lo marcan las clientas:
   Lautaro las pasa de a una, como hasta ahora (un cambio → push → verificar en vivo).
 - Para Fundadoras hay fotos nuevas en `fotos-nuevas/` (Juntas, Luciana, Verónica, En
   equipo, Ariel). Ojo: la foto "Vero con desperdicio textil" ya se usa recortada (sólo

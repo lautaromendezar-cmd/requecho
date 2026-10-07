@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
 import { useContenido, useIdioma } from "@/content/ContenidoProvider";
 import type { Contenido } from "@/content";
 import { crearLeadSchema, erroresPorCampo, UTM_KEYS, type LeadErrors, type LeadField, type Utm } from "@/lib/leads/schema";
 import { Icon } from "@/components/ui/Icon";
+import { LEAD_ENVIADO } from "@/config/popup";
 
 type Estado = "idle" | "enviando" | "error" | "exito";
 type Valores = Record<LeadField, string>;
@@ -51,8 +52,11 @@ function limpiarWhatsapp(v: string): string {
   return s.replace(/(?!^)\+/g, "");
 }
 
-export function LeadForm() {
+/** `onEnviado`: lo usa el pop-up para saber que ya no tiene que volver a abrirse. */
+export function LeadForm({ onEnviado }: { onEnviado?: () => void } = {}) {
   const { contacto } = useContenido();
+  // El formulario está dos veces en la página (bloque 8 y pop-up): los id llevan prefijo.
+  const uid = useId();
   const lang = useIdioma();
   const leadSchema = useMemo(() => crearLeadSchema(lang), [lang]);
   const [valores, setValores] = useState<Valores>(() => inicial(contacto));
@@ -123,6 +127,12 @@ export function LeadForm() {
         // a propósito (no se guarda nada y el bot no se entera).
         setNombreEnviado(parsed.data.nombre);
         setEstado("exito");
+        try {
+          localStorage.setItem(LEAD_ENVIADO, String(Date.now()));
+        } catch {
+          /* sin storage: el pop-up puede volver a aparecer, nada más */
+        }
+        onEnviado?.();
         return;
       }
       if (res.status === 400 && data.errors) {
@@ -152,12 +162,13 @@ export function LeadForm() {
           <div className="grid gap-4 sm:grid-cols-2">
             {contacto.campos.map((c) => {
               const error = errores[c.name];
-              const errorId = `${c.name}-error`;
+              const campoId = `${uid}-campo-${c.name}`;
+              const errorId = `${uid}-${c.name}-error`;
               const ancho = c.name === "empresa" || c.name === "mail" ? "sm:col-span-2" : "";
               return (
                 <div key={c.name} className={`field ${error ? "is-invalid" : ""} ${ancho}`}>
                   <input
-                    id={`campo-${c.name}`}
+                    id={campoId}
                     name={c.name}
                     type={c.type}
                     inputMode={c.inputMode}
@@ -171,7 +182,7 @@ export function LeadForm() {
                     required
                     className="field__input"
                   />
-                  <label htmlFor={`campo-${c.name}`} className="field__label">
+                  <label htmlFor={campoId} className="field__label">
                     {c.label}
                   </label>
                   {error ? (
@@ -186,8 +197,8 @@ export function LeadForm() {
 
           {/* Campo trampa: invisible para personas, tentador para bots */}
           <div className="hp" aria-hidden="true">
-            <label htmlFor="website">Website</label>
-            <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+            <label htmlFor={`${uid}-website`}>Website</label>
+            <input id={`${uid}-website`} name="website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
           </div>
 
           <div className="mt-2 flex flex-col items-start gap-4">

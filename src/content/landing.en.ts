@@ -343,6 +343,7 @@ export const reconocimientos = {
 export const contacto = {
   kicker: "CONTACT",
   titulo: "Let's talk",
+  popup: { cerrar: "Close" },
   bajada:
     "Leave your details and we'll get in touch to tell you more about the material and how it can fit into your project.",
   campos: [

@@ -433,6 +433,8 @@ export type Campo = {
 export const contacto = {
   kicker: "CONTACTO",
   titulo: "Hablemos",
+  /** Pop-up de contacto: mismo formulario, abre al entrar (src/config/popup.ts). */
+  popup: { cerrar: "Cerrar" },
   bajada:
     "Dejanos tus datos y te contactamos para contarte más sobre el material y ver cómo puede sumarse a tu proyecto.",
   campos: [

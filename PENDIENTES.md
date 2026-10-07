@@ -119,6 +119,11 @@ validar** es texto que existe en el documento pero tiene una nota de validación
 
 ## Bloque 8 — Cierre y formulario
 
+- [ ] **Pop-up de contacto al entrar** (pedido de las clientas, 7-oct): antes de publicar
+  con `NEXT_PUBLIC_SITE_LIVE=true`, ver que no castigue el SEO en mobile (Google penaliza
+  las ventanas que tapan el contenido apenas se llega desde el buscador). Si hace falta,
+  subir `retrasoMs` o apagarlo en mobile desde `src/config/popup.ts`.
+
 - [ ] **Excel de destino**: archivo, cuenta, responsable y si llega aviso por mail. Las dos
   recetas (Google Sheets y OneDrive) están en `docs/formulario.md`. Hasta definirlo, el
   deploy de revisión apunta a un receptor descartable de webhook.site que **vence el

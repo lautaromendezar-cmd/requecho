@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { motion } from "@/config/motion";
+import { registrarLenis } from "@/lib/scroll";
 
 /**
  * Scroll suavizado con Lenis, sincronizado con el ticker de GSAP para que
@@ -16,6 +17,7 @@ export function SmoothScroll() {
     if (window.matchMedia(motion.media.reduce).matches) return;
 
     const lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
+    registrarLenis(lenis);
     const update = () => ScrollTrigger.update();
     lenis.on("scroll", update);
     const raf = (time: number) => lenis.raf(time * 1000);
@@ -24,6 +26,7 @@ export function SmoothScroll() {
 
     return () => {
       gsap.ticker.remove(raf);
+      registrarLenis(null);
       lenis.destroy();
     };
   }, []);

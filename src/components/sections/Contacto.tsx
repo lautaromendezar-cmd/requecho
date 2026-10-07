@@ -9,6 +9,7 @@ import { Icon } from "@/components/ui/Icon";
 import { Logo } from "@/components/brand/Logo";
 import { SelectorIdioma } from "@/components/ui/SelectorIdioma";
 import { LeadForm } from "./contacto/LeadForm";
+import { ContactoPopup } from "./contacto/ContactoPopup";
 
 /**
  * BLOQUE 8 — CIERRE Y FORMULARIO
@@ -57,7 +58,7 @@ export function Contacto() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-x-8">
           <div className="lg:col-span-5">
             <Kicker>{contacto.kicker}</Kicker>
-            <h2 id="contacto-titulo" data-reveal className="mt-6 text-display">
+            <h2 id="contacto-titulo" data-reveal className="mt-6 text-h2">
               {contacto.titulo}
             </h2>
             <p data-reveal data-reveal-delay="120" className="mt-8 max-w-[40ch] text-lead">
@@ -71,6 +72,8 @@ export function Contacto() {
 
       </div>
     </section>
+
+    <ContactoPopup seccion={ref} />
 
     {/* El pie tiene escenario propio: cierra la página en grafito y despega del
         mostaza del bloque 8. */}
