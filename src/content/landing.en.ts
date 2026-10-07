@@ -88,7 +88,7 @@ export const problema = {
       icono: "construccion",
     },
   ] satisfies Cifra[],
-  imagen: undefined as Imagen | undefined,
+  imagen: { src: "/images/problema-secado.jpg", alt: "Freshly pressed Requecho panels drying in a row on a wooden rack: denim blue ones and light ones with colored threads.", width: 1024, height: 1536 } as Imagen | undefined,
 };
 
 // ---------------------------------------------------------------------------

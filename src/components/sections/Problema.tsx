@@ -120,7 +120,7 @@ export function Problema() {
           <div data-reveal className="lg:col-span-5 lg:col-start-8 lg:pt-10">
             <div className="lg:sticky lg:top-24">
               {problema.imagen ? (
-                <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-lg lg:aspect-[2/3]">
                   <Image
                     src={problema.imagen.src}
                     alt={problema.imagen.alt}
@@ -131,7 +131,7 @@ export function Problema() {
                   />
                 </div>
               ) : (
-                <Placeholder ratio="4 / 5" />
+                <Placeholder ratio="2 / 3" />
               )}
             </div>
           </div>
