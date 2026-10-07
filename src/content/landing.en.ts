@@ -88,8 +88,7 @@ export const problema = {
       icono: "construccion",
     },
   ] satisfies Cifra[],
-  puente:
-    "Requecho works right at that intersection: we recover waste from the textile industry and transform it into a new material for architecture and interior design.",
+  imagen: undefined as Imagen | undefined,
 };
 
 // ---------------------------------------------------------------------------

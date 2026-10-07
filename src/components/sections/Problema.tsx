@@ -1,16 +1,20 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, SplitText, useGSAP } from "@/lib/gsap";
+import Image from "next/image";
+import { gsap, useGSAP } from "@/lib/gsap";
 import { motion } from "@/config/motion";
 import { useContenido } from "@/content/ContenidoProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Icon } from "@/components/ui/Icon";
+import { Placeholder } from "@/components/ui/Placeholder";
 
 /**
  * BLOQUE 2 — PROBLEMA
- * Sin fotos. Tres cifras enormes con conteo único, la línea amarilla que crece y el
- * ícono que se dibuja. La línea puente se revela palabra por palabra con el scroll.
+ * Tres cifras enormes con conteo único, la línea amarilla que crece y el ícono que
+ * se dibuja; el texto de cada cifra va debajo de la línea. A la derecha, una foto
+ * que acompaña a las tres (devolución final, 7-oct-2026: reemplaza a la línea puente,
+ * que pasó al hero).
  */
 export function Problema() {
   const { problema, idioma } = useContenido();
@@ -44,28 +48,6 @@ export function Problema() {
           });
         });
 
-        const puente = root.querySelector<HTMLElement>("[data-puente]");
-        if (!puente) return;
-        // aria: "none": sin aria-label en el <p> (prohibido por WAI-ARIA), el texto
-        // sigue siendo legible tal cual. Opacidad inicial 0,5: mantiene contraste 3:1.
-        const split = SplitText.create(puente, {
-          type: "words",
-          aria: "none",
-          autoSplit: true,
-          onSplit: (self) =>
-            gsap.fromTo(
-              self.words,
-              { opacity: 0.5, yPercent: 24 },
-              {
-                opacity: 1,
-                yPercent: 0,
-                stagger: 0.06,
-                ease: "none",
-                scrollTrigger: { trigger: puente, start: "top 80%", end: "bottom 45%", scrub: 0.5 },
-              },
-            ),
-        });
-        return () => split.revert();
       });
     },
     { scope: ref },
@@ -86,61 +68,74 @@ export function Problema() {
           </p>
         </div>
 
-        <ol className="mt-14 list-none p-0 lg:mt-20">
-          {cifras.map((c, i) => {
-            const numero = formatoNumero.format(c.valor);
-            const largo = numero.length > 3;
-            return (
-              <li
-                key={i}
-                data-icon-host
-                data-reveal
-                className="grid gap-6 border-t border-line py-10 lg:grid-cols-12 lg:items-end lg:gap-x-8 lg:py-14"
-              >
-                <div className="lg:col-span-1">
-                  <Icon name={c.icono} size={56} />
-                </div>
-                <div className="lg:col-span-7">
-                  <p
-                    className={`font-display font-extrabold tabular-nums text-text-strong ${
-                      largo ? "text-[length:var(--text-stat-long)]" : "text-stat"
-                    }`}
-                    style={largo ? ({ "--text-stat-long": "clamp(2.5rem, 1rem + 6vw, 6.5rem)", lineHeight: 0.95, letterSpacing: "-0.035em" } as React.CSSProperties) : undefined}
-                  >
-                    <span aria-hidden="true">
-                      {c.prefijo}
-                      <span data-count={c.valor}>{numero}</span>
-                      {c.sufijo}
-                    </span>
-                    <span className="sr-only">
-                      {c.prefijo}
-                      {numero}
-                      {c.sufijo}
-                      {c.unidad ? ` ${c.unidad}` : ""}
-                    </span>
-                  </p>
-                  {c.unidad ? (
-                    <p aria-hidden="true" className="mt-1 font-display text-h3 font-bold text-text-strong">
-                      {c.unidad}
+        <div className="mt-14 grid gap-10 lg:mt-20 lg:grid-cols-12 lg:gap-x-8">
+          <ol className="m-0 list-none p-0 lg:col-span-7">
+            {cifras.map((c, i) => {
+              const numero = formatoNumero.format(c.valor);
+              const largo = numero.length > 3;
+              return (
+                <li
+                  key={i}
+                  data-icon-host
+                  data-reveal
+                  className="grid gap-6 border-t border-line py-10 sm:grid-cols-[auto_1fr] sm:gap-x-8 lg:py-12"
+                >
+                  <div>
+                    <Icon name={c.icono} size={56} />
+                  </div>
+                  <div>
+                    <p
+                      className={`font-display font-extrabold tabular-nums text-text-strong ${
+                        largo ? "text-[length:var(--text-stat-long)]" : "text-stat"
+                      }`}
+                      style={largo ? ({ "--text-stat-long": "clamp(2.5rem, 1rem + 6vw, 6.5rem)", lineHeight: 0.95, letterSpacing: "-0.035em" } as React.CSSProperties) : undefined}
+                    >
+                      <span aria-hidden="true">
+                        {c.prefijo}
+                        <span data-count={c.valor}>{numero}</span>
+                        {c.sufijo}
+                      </span>
+                      <span className="sr-only">
+                        {c.prefijo}
+                        {numero}
+                        {c.sufijo}
+                        {c.unidad ? ` ${c.unidad}` : ""}
+                      </span>
                     </p>
-                  ) : null}
-                  <span className="accent-line mt-5" data-reveal="line" data-reveal-delay="200" aria-hidden="true" />
-                </div>
-                <div className="lg:col-span-4">
-                  <p className="max-w-[34ch] text-lead text-text">{c.texto}</p>
-                  <p className="mt-4 text-legal text-muted">{c.fuente}</p>
-                </div>
-              </li>
-            );
-          })}
-        </ol>
+                    {c.unidad ? (
+                      <p aria-hidden="true" className="mt-1 font-display text-h3 font-bold text-text-strong">
+                        {c.unidad}
+                      </p>
+                    ) : null}
+                    <span className="accent-line mt-5" data-reveal="line" data-reveal-delay="200" aria-hidden="true" />
+                    <p className="mt-5 max-w-[38ch] text-lead text-text">{c.texto}</p>
+                    <p className="mt-3 text-legal text-muted">{c.fuente}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
 
-        <p
-          data-puente
-          className="mt-14 max-w-[28ch] font-display text-h2 font-bold text-text-strong lg:mt-20"
-        >
-          {problema.puente}
-        </p>
+          {/* La foto acompaña a las tres cifras y queda fija mientras pasan. */}
+          <div data-reveal className="lg:col-span-5 lg:col-start-8 lg:pt-10">
+            <div className="lg:sticky lg:top-24">
+              {problema.imagen ? (
+                <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
+                  <Image
+                    src={problema.imagen.src}
+                    alt={problema.imagen.alt}
+                    fill
+                    quality={75}
+                    sizes="(min-width: 64rem) 40vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <Placeholder ratio="4 / 5" />
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

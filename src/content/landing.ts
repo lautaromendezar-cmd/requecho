@@ -121,8 +121,8 @@ export const problema = {
       icono: "construccion",
     },
   ] satisfies Cifra[],
-  puente:
-    "Requecho trabaja en ese punto de encuentro: recuperamos descarte de la industria textil y lo transformamos en un nuevo material para arquitectura e interiorismo.",
+  /** Foto junto a las cifras (devolución final, 7-oct-2026). Hasta que llegue, va el placeholder. */
+  imagen: undefined as Imagen | undefined,
 };
 
 // ---------------------------------------------------------------------------
