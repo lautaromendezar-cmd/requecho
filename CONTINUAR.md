@@ -27,7 +27,7 @@
 
 ## Sigue
 
-- ~~6 (Fundadoras)~~ hecho el 6-oct a la noche: foto juntas con muestras y un retrato 4:3
+- ~~6 (Fundadoras)~~ hecho el 6-oct a la noche: foto juntas riéndose (4:5, la eligió Lautaro) y un retrato 4:3
   de cada una (las de las carpetas "Principales"), salen de `scripts/preparar-fotos-nuevas.py`.
 - Feedback de las secciones **7 (Reconocimientos) y 8 (Contacto / pie)**:
   Lautaro las pasa de a una, como hasta ahora (un cambio → push → verificar en vivo).

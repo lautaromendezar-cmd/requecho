@@ -271,10 +271,10 @@ export const fundadoras = {
   complementariedad:
     "Today we bring those two experiences together to build Requecho. Luciana leads business, commercial development and communication. Verónica leads product, production and textile recovery.",
   foto: {
-    src: "/images/fundadoras/juntas.jpg",
-    alt: "Verónica Litvinoff and Luciana Sabsay against a white wall: Verónica holds a handful of textile scraps and Luciana two Requecho panels.",
-    width: 1280,
-    height: 960,
+    src: "/images/fundadoras/juntas-riendo.jpg",
+    alt: "Verónica Litvinoff and Luciana Sabsay look at each other and laugh against a white wall: Verónica holds a handful of textile scraps and Luciana two Requecho panels.",
+    width: 940,
+    height: 1175,
     epigrafe: undefined as string | undefined,
   },
   cards: [

@@ -56,7 +56,7 @@ export function Fundadoras() {
       <div className="container-x">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-x-8">
           <figure className="m-0 lg:col-span-5">
-            <div data-reveal="mask-up" className="aspect-[4/3] overflow-hidden rounded-lg">
+            <div data-reveal="mask-up" className="aspect-[4/5] overflow-hidden rounded-lg">
               <Image
                 src={fundadoras.foto.src}
                 alt={fundadoras.foto.alt}

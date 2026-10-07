@@ -338,10 +338,10 @@ export const fundadoras = {
   complementariedad:
     "Hoy combinamos esas dos experiencias para construir Requecho. Luciana lidera negocios, desarrollo comercial y comunicación. Verónica lidera el producto, producción y recuperación textil.",
   foto: {
-    src: "/images/fundadoras/juntas.jpg",
-    alt: "Verónica Litvinoff y Luciana Sabsay frente a una pared blanca: Verónica sostiene un puñado de recortes textiles y Luciana dos paneles de Requecho.",
-    width: 1280,
-    height: 960,
+    src: "/images/fundadoras/juntas-riendo.jpg",
+    alt: "Verónica Litvinoff y Luciana Sabsay se miran y se ríen frente a una pared blanca: Verónica sostiene un puñado de recortes textiles y Luciana dos paneles de Requecho.",
+    width: 940,
+    height: 1175,
     /** [DATO A CONFIRMAR: quién es quién en la foto]. Sin dato, no hay epígrafe. */
     epigrafe: undefined as string | undefined,
   },
