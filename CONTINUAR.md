@@ -7,7 +7,19 @@ componente `sections/hero/HeroFotos.tsx`, encuadre por foto en `hero.imagenes[].
 selector ESP / ENG, íconos de mail, WhatsApp, Instagram y LinkedIn en amarillo y los datos
 reales del pie (`src/content/canales.ts`). Capturas del hero y el pie con
 `node scripts/capturas-hero.mjs` (con `URL=https://requecho.vercel.app` mira el vivo).
-**Cambio 2 (El problema) hecho y en vivo** (269b6eb): texto de cada cifra bajo la línea amarilla, foto del secado a la derecha (sticky en escritorio, 4:5 en mobile) y sin la línea puente. Capturas de una sección: `MSYS_NO_PATHCONV=1 SECCION=2 node scripts/capturas-seccion.mjs`. **Cambio 3 (El material) hecho y en vivo** (9c19f8f): título a lo ancho (2 renglones en escritorio, 1 en inglés; en uno solo no entra) y "Paneles para revestimientos…" junto a la foto, arriba de "Trabajamos el color…". **Cambio 4 (aplicaciones y ficha) hecho y en vivo**: dos tablas, Aplicaciones y Características, sin la macro de textura (se borró `TextureLens`), y botón de la ficha más grande y centrado, con los PDF de Drive (ES y EN, públicos). **Cambio 5 (carrusel) hecho y en vivo**: se corta en el borde del contenedor, sin sangrar hasta la pantalla. **Cambio 6 (fundadoras) hecho y en vivo**: sin el párrafo "Hoy combinamos…" y la foto de las dos estirada hasta el final del texto en desktop. **Cambio 7 (cards de fundadoras) hecho y en vivo**: sin los dos textos de impacto y con el LinkedIn de cada una a la izquierda del nombre. **Cambio 8 (reconocimientos) hecho y en vivo**: links de ClimateLaunchpad, NAVES (IAE) y Vos Lo Hacés los que pasaron las clientas. **Sigue el cambio 9.**
+**Cambio 2 (El problema) hecho y en vivo** (269b6eb): texto de cada cifra bajo la línea amarilla, foto del secado a la derecha (sticky en escritorio, 4:5 en mobile) y sin la línea puente. Capturas de una sección: `MSYS_NO_PATHCONV=1 SECCION=2 node scripts/capturas-seccion.mjs`. **Cambio 3 (El material) hecho y en vivo** (9c19f8f): título a lo ancho (2 renglones en escritorio, 1 en inglés; en uno solo no entra) y "Paneles para revestimientos…" junto a la foto, arriba de "Trabajamos el color…". **Cambio 4 (aplicaciones y ficha) hecho y en vivo**: dos tablas, Aplicaciones y Características, sin la macro de textura (se borró `TextureLens`), y botón de la ficha más grande y centrado, con los PDF de Drive (ES y EN, públicos). **Cambio 5 (carrusel) hecho y en vivo**: se corta en el borde del contenedor, sin sangrar hasta la pantalla. **Cambio 6 (fundadoras) hecho y en vivo**: sin el párrafo "Hoy combinamos…" y la foto de las dos estirada hasta el final del texto en desktop. **Cambio 7 (cards de fundadoras) hecho y en vivo**: sin los dos textos de impacto y con el LinkedIn de cada una a la izquierda del nombre. **Cambio 8 (reconocimientos) hecho y en vivo**: links de ClimateLaunchpad, NAVES (IAE) y Vos Lo Hacés los que pasaron las clientas. Cambio 9 (pie) ya estaba desde el cambio 1. **Devolución final completa.**
+
+**Devolución general (mobile largo + espacios entre secciones), hecha y en vivo:** aire entre
+secciones a 48 px mobile / 88 px desktop (`--spacing-section`), tarjetas de propiedades y
+diferenciales en carril deslizable en mobile (`.carril-mobile`, sólo CSS), cifras y foto del
+problema más compactas, pasos del proceso con el texto al lado del ícono, reconocimientos en
+fila logo + texto, foto de fundadoras 4:3 y retratos chicos al lado del nombre. Mobile pasó de
+21,6 a ~15 pantallas (`node scripts/medir-alturas.mjs`).
+
+**Lo que sigue:** (1) el cliente crea la hoja de Google y el Apps Script (receta A de
+`docs/formulario.md`) y pasa la URL `/exec`; (2) con el OK del diseño, exportar a HTML
+estático para el FTP de DUPLIKA (formulario por `lead.php`, imágenes sin optimizador,
+sacar el noindex, dominio para canonical y sitemap).
 
 ## Antes de tocar nada (en cualquier PC)
 

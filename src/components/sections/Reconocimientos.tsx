@@ -77,7 +77,7 @@ export function Reconocimientos() {
           <span className="accent-line" data-reveal="line" data-reveal-delay="180" aria-hidden="true" />
         </h2>
 
-        <ul className="mt-14 grid list-none gap-14 p-0 md:grid-cols-3 md:gap-8 lg:mt-14">
+        <ul className="mt-8 grid list-none gap-6 p-0 md:mt-14 md:grid-cols-3 md:gap-8">
           {reconocimientos.badges.map((b, i) => {
             const { piezas, apilados } = repartir(b);
             return (
@@ -90,9 +90,9 @@ export function Reconocimientos() {
                 href={b.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center text-center"
+                className="group flex items-center gap-5 text-left md:flex-col md:items-center md:gap-0 md:text-center"
               >
-                <div className="badge relative h-48 w-48 transition-transform duration-[var(--duration-base)] ease-[var(--ease-out-expo)] group-hover:-translate-y-1 lg:h-60 lg:w-60">
+                <div className="badge relative h-28 w-28 shrink-0 transition-transform duration-[var(--duration-base)] ease-[var(--ease-out-expo)] group-hover:-translate-y-1 md:h-48 md:w-48 lg:h-60 lg:w-60">
                   {/* Los dos logos van dentro de la misma tarjeta: colgado afuera,
                       el segundo corría el badge respecto del texto. */}
                   <div
@@ -133,7 +133,9 @@ export function Reconocimientos() {
                     />
                   </svg>
                 </div>
-                <h3 className="mt-8 max-w-[22ch] text-h3 decoration-[var(--color-accent-line)] decoration-2 underline-offset-4 group-hover:underline">
+                {/* En mobile el texto va al lado del logo (recorrido más corto). */}
+                <div className="md:flex md:flex-col md:items-center">
+                <h3 className="max-w-[22ch] text-h3 md:mt-8 decoration-[var(--color-accent-line)] decoration-2 underline-offset-4 group-hover:underline">
                   {b.titulo}
                   <span
                     aria-hidden="true"
@@ -143,7 +145,8 @@ export function Reconocimientos() {
                   </span>
                   <span className="sr-only"> {reconocimientos.pestanaNueva}</span>
                 </h3>
-                <p className="mt-3 max-w-[36ch] text-text">{b.texto}</p>
+                <p className="mt-2 max-w-[36ch] text-small text-text md:mt-3 md:text-body">{b.texto}</p>
+                </div>
               </a>
             </li>
             );

@@ -30,7 +30,7 @@ export function PorQue() {
           </p>
         </div>
 
-        <ul className="mt-14 grid list-none gap-4 p-0 sm:grid-cols-2 lg:mt-20 xl:grid-cols-4">
+        <ul className="carril-mobile mt-10 list-none gap-4 p-0 md:mt-14 md:grid md:grid-cols-2 lg:mt-20 xl:grid-cols-4">
           {porQue.diferenciales.map((d, i) => (
             <li
               key={d.titulo}
@@ -45,7 +45,7 @@ export function PorQue() {
                   alt={d.imagen.alt}
                   width={d.imagen.width}
                   height={d.imagen.height}
-                  sizes="(min-width: 80rem) 22vw, (min-width: 40rem) 46vw, 92vw"
+                  sizes="(min-width: 80rem) 22vw, (min-width: 48rem) 46vw, 80vw"
                   className="h-full w-full object-cover transition-transform duration-[var(--duration-slow)] ease-[var(--ease-out-expo)] group-hover:scale-[1.05]"
                 />
                 {/* Línea amarilla que se dibuja al pasar el mouse, al pie de la foto */}
@@ -54,7 +54,7 @@ export function PorQue() {
                   className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-accent-line transition-transform duration-[var(--duration-slow)] ease-[var(--ease-out-expo)] group-hover:scale-x-100"
                 />
               </div>
-              <div className="flex flex-1 flex-col p-6 lg:p-7">
+              <div className="flex flex-1 flex-col p-5 md:p-6 lg:p-7">
                 <Icon name={d.icono} size={48} />
                 <h3 className="mt-5 text-h3 font-bold text-inverse-text">{d.titulo}</h3>
                 <p className="mt-3 text-inverse-muted">{d.texto}</p>

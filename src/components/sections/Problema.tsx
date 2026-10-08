@@ -68,7 +68,7 @@ export function Problema() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-10 lg:mt-20 lg:grid-cols-12 lg:gap-x-8">
+        <div className="mt-10 grid gap-10 lg:mt-20 lg:grid-cols-12 lg:gap-x-8">
           <ol className="m-0 list-none p-0 lg:col-span-7">
             {cifras.map((c, i) => {
               const numero = formatoNumero.format(c.valor);
@@ -78,10 +78,10 @@ export function Problema() {
                   key={i}
                   data-icon-host
                   data-reveal
-                  className="grid gap-6 border-t border-line py-10 sm:grid-cols-[auto_1fr] sm:gap-x-8 lg:py-12"
+                  className="grid grid-cols-[auto_1fr] gap-x-5 border-t border-line py-7 sm:gap-x-8 sm:py-10 lg:py-12"
                 >
                   <div>
-                    <Icon name={c.icono} size={56} />
+                    <Icon name={c.icono} size={56} className="h-11 w-11 sm:h-14 sm:w-14" />
                   </div>
                   <div>
                     <p
@@ -108,7 +108,7 @@ export function Problema() {
                       </p>
                     ) : null}
                     <span className="accent-line mt-5" data-reveal="line" data-reveal-delay="200" aria-hidden="true" />
-                    <p className="mt-5 max-w-[38ch] text-lead text-text">{c.texto}</p>
+                    <p className="mt-4 max-w-[38ch] text-lead text-text sm:mt-5">{c.texto}</p>
                     <p className="mt-3 text-legal text-muted">{c.fuente}</p>
                   </div>
                 </li>
@@ -120,7 +120,7 @@ export function Problema() {
           <div data-reveal className="lg:col-span-5 lg:col-start-8 lg:pt-10">
             <div className="lg:sticky lg:top-24">
               {problema.imagen ? (
-                <div className="relative aspect-[4/5] overflow-hidden rounded-lg lg:aspect-[2/3]">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg lg:aspect-[2/3]">
                   <Image
                     src={problema.imagen.src}
                     alt={problema.imagen.alt}

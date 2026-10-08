@@ -73,7 +73,9 @@
   --radius-pill: 999px;
 
   /* ---- Espaciado y contenedores ------------------------------------------ */
-  --spacing-section: clamp(4rem, 2.5rem + 5vw, 7rem);
+  /* Aire entre secciones: 48 px en mobile, 88 px en desktop (devolución
+     general, 7-oct-2026: "que no haya espacios largos entre sección"). */
+  --spacing-section: clamp(3rem, 2.4rem + 2.6vw, 5.5rem);
   --spacing-gutter: clamp(1.25rem, 0.6rem + 3vw, 4rem);
   --container-content: 80rem;
   --container-prose: 42rem;

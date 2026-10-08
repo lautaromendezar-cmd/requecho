@@ -57,7 +57,7 @@ export function Producto() {
         </div>
 
         {/* Panel sobre mostaza + cuerpo */}
-        <div className="mt-12 grid items-end gap-10 lg:mt-16 lg:grid-cols-12 lg:gap-x-8">
+        <div className="mt-10 grid items-end gap-10 lg:mt-16 lg:grid-cols-12 lg:gap-x-8">
           <div className="relative lg:col-span-7">
             <div
               data-accent-block
@@ -86,19 +86,19 @@ export function Producto() {
         </div>
 
         {/* Propiedades y desempeño */}
-        <div className="mt-16 lg:mt-24">
+        <div className="mt-12 lg:mt-24">
           <h3 data-reveal className="text-h3">
             {producto.propiedadesTitulo}
           </h3>
           <span className="accent-line mt-4" data-reveal="line" aria-hidden="true" />
-          <ul className="mt-10 grid list-none gap-4 p-0 md:grid-cols-2 xl:grid-cols-4">
+          <ul className="carril-mobile mt-8 list-none gap-4 p-0 md:mt-10 md:grid md:grid-cols-2 xl:grid-cols-4">
             {producto.propiedades.map((p, i) => (
               <li
                 key={p.id}
                 data-icon-host
                 data-reveal
                 data-reveal-delay={String(i * 90)}
-                className="group relative flex flex-col gap-5 overflow-hidden rounded-lg bg-bg p-7 transition-transform duration-[var(--duration-base)] ease-[var(--ease-out-expo)] hover:-translate-y-1"
+                className="group relative flex flex-col gap-5 overflow-hidden rounded-lg bg-bg p-6 transition-transform md:p-7 duration-[var(--duration-base)] ease-[var(--ease-out-expo)] hover:-translate-y-1"
               >
                 <span
                   aria-hidden="true"
@@ -138,7 +138,7 @@ export function Producto() {
         {/* Aplicaciones y características: dos tablas mínimas lado a lado y el
             botón de la ficha centrado debajo (devolución final, 7-oct-2026: se
             quitó la macro de textura). */}
-        <div className="mt-14 grid gap-12 lg:mt-20 lg:grid-cols-2 lg:gap-x-16">
+        <div className="mt-12 grid gap-10 lg:mt-20 lg:grid-cols-2 lg:gap-x-16">
           <div>
             <h3 data-reveal className="text-h3">
               {producto.aplicacionesTitulo}
@@ -172,7 +172,7 @@ export function Producto() {
           </div>
         </div>
         {producto.fichaTecnica.url ? (
-          <div className="mt-12 flex justify-center lg:mt-14">
+          <div className="mt-10 flex justify-center lg:mt-14">
             <a
               href={producto.fichaTecnica.url}
               target="_blank"
@@ -189,11 +189,11 @@ export function Producto() {
         ) : null}
 
         {/* Carrusel: el material aplicado a productos */}
-        <div className="mt-16 lg:mt-24">
+        <div className="mt-12 lg:mt-24">
           <h3 data-reveal className="max-w-[18ch] text-h2">
             {producto.galeriaTitulo}
           </h3>
-          <div className="mt-10 lg:mt-12">
+          <div className="mt-8 lg:mt-12">
             <Gallery imagenes={producto.galeria} />
           </div>
         </div>

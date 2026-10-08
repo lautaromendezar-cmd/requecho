@@ -59,7 +59,7 @@ export function Fundadoras() {
           {/* En desktop la foto se estira hasta el final del texto de la derecha
               (devolución final, 7-oct-2026). */}
           <figure className="m-0 flex flex-col lg:col-span-5">
-            <div data-reveal="mask-up" className="aspect-[4/5] overflow-hidden rounded-lg lg:aspect-auto lg:min-h-[28rem] lg:flex-1">
+            <div data-reveal="mask-up" className="aspect-[4/3] overflow-hidden rounded-lg lg:aspect-auto lg:min-h-[28rem] lg:flex-1">
               <Image
                 src={fundadoras.foto.src}
                 alt={fundadoras.foto.alt}
@@ -79,7 +79,7 @@ export function Fundadoras() {
             <h2 id="fundadoras-titulo" data-reveal className="mt-6 text-h2">
               {fundadoras.titulo}
             </h2>
-            <div className="mt-10 space-y-6 text-lead text-text">
+            <div className="mt-8 space-y-6 text-lead text-text lg:mt-10">
               {fundadoras.apertura.map((p, i) => (
                 <p key={i} data-reveal data-reveal-delay={String(100 + i * 120)}>
                   {p}
@@ -89,32 +89,34 @@ export function Fundadoras() {
           </div>
         </div>
 
-        <ul className="mt-14 grid list-none gap-6 p-0 md:grid-cols-2 lg:mt-20">
+        <ul className="mt-10 grid list-none gap-4 p-0 md:mt-14 md:grid-cols-2 md:gap-6 lg:mt-20">
           {fundadoras.cards.map((f, i) => (
             <li
               key={f.nombre}
               data-tilt
               data-reveal
               data-reveal-delay={String(i * 120)}
-              className="flex flex-col gap-6 rounded-lg bg-surface p-7 will-change-transform lg:p-9"
+              className="flex flex-col gap-5 rounded-lg bg-surface p-5 will-change-transform md:gap-6 md:p-7 lg:p-9"
             >
-              <figure className="m-0">
+              {/* En mobile el retrato va chico, al lado del nombre (devolución general:
+                  recorrido más corto); desde md vuelve arriba, a todo el ancho. */}
+              <figure className="m-0 flex items-center gap-3 md:block">
                 {f.retrato ? (
-                  <div className="overflow-hidden rounded-md">
+                  <div className="aspect-square w-20 shrink-0 overflow-hidden rounded-md md:aspect-auto md:w-auto">
                     <Image
                       src={f.retrato.src}
                       alt={f.retrato.alt}
                       width={f.retrato.width}
                       height={f.retrato.height}
-                      sizes="(min-width: 64rem) 40vw, 100vw"
-                      className="h-auto w-full"
+                      sizes="(min-width: 64rem) 40vw, (min-width: 48rem) 46vw, 80px"
+                      className="h-full w-full object-cover object-top md:h-auto"
                     />
                   </div>
                 ) : (
                   <Placeholder ratio="16 / 10" />
                 )}
                 {/* LinkedIn a la izquierda del nombre (devolución final, 7-oct-2026). */}
-                <figcaption className="mt-5 flex items-center gap-3">
+                <figcaption className="flex min-w-0 flex-1 items-center gap-1 md:mt-5 md:gap-3">
                   {f.linkedin ? (
                     <a
                       href={f.linkedin}

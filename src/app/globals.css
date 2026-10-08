@@ -602,6 +602,28 @@
 /* =============================================================================
    Galería arrastrable y lupa de textura
    ========================================================================== */
+/* Carril de mobile: debajo de 48rem la lista de tarjetas se desliza en
+   horizontal (con la siguiente asomando) en lugar de apilarse; arriba vuelve a
+   la grilla de cada sección. Sólo CSS (devolución general, 7-oct-2026: el
+   recorrido en el celular se sentía largo). */
+@media (max-width: 47.99rem) {
+  .carril-mobile {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .carril-mobile::-webkit-scrollbar {
+    display: none;
+  }
+  .carril-mobile > * {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+  }
+}
+
 .gallery {
   overflow-x: auto;
   overscroll-behavior-x: contain;

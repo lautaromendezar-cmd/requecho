@@ -86,7 +86,7 @@ export function ComoFunciona() {
             </p>
           </div>
 
-          <ol className="relative mt-12 grid list-none gap-12 p-0 pl-[calc(1.75rem+1.5rem)] lg:mt-16 lg:grid-cols-5 lg:gap-6 lg:pl-0">
+          <ol className="relative mt-10 grid list-none gap-8 p-0 pl-[4.5rem] lg:mt-16 lg:grid-cols-5 lg:gap-6 lg:pl-0">
             {/* Línea horizontal (desktop) a la altura del centro de los círculos */}
             <span
               data-line-h
@@ -101,7 +101,7 @@ export function ComoFunciona() {
             />
             {proceso.pasos.map((p) => (
               <li key={p.numero} data-step data-icon-host className="step relative">
-                <div className="relative z-[1] -ml-[calc(1.75rem+1.5rem)] w-[3.5rem] lg:ml-0">
+                <div className="relative z-[1] -ml-[4.5rem] w-[3.5rem] lg:ml-0">
                   <span className="relative block h-14 w-14 rounded-full bg-bg">
                     <span
                       aria-hidden="true"
@@ -110,7 +110,9 @@ export function ComoFunciona() {
                     <Icon name={p.icono} size={56} draw={false} className="relative" />
                   </span>
                 </div>
-                <div data-step-body className="mt-6">
+                {/* En mobile el texto sube a la altura del ícono (que va en el riel de la
+                    izquierda): el número queda al lado del círculo y no debajo. */}
+                <div data-step-body className="-mt-14 lg:mt-6">
                   <p className="step-number text-text-strong">{p.numero}</p>
                   <h3 className="mt-3 text-h3">{p.titulo}</h3>
                   <p className="mt-2 max-w-[30ch] text-[length:1.125rem] leading-[1.55] text-text">{p.texto}</p>
