@@ -21,6 +21,8 @@ const inicial = (contacto: Contenido["contacto"]): Valores => ({
 });
 
 const UTM_STORAGE = "rq_utm";
+/** En Vercel lo recibe la API de Next; en el HTML estático, lead.php (ver hosting/). */
+const LEAD_ENDPOINT = process.env.NEXT_PUBLIC_EXPORTAR === "1" ? "/lead.php" : "/api/lead";
 
 function leerUtm(): Utm {
   const out = Object.fromEntries(UTM_KEYS.map((k) => [k, ""])) as Utm;
@@ -116,7 +118,7 @@ export function LeadForm({ onEnviado }: { onEnviado?: () => void } = {}) {
     setErrores({});
     const honeypot = formRef.current?.querySelector<HTMLInputElement>('[name="website"]')?.value ?? "";
     try {
-      const res = await fetch("/api/lead", {
+      const res = await fetch(LEAD_ENDPOINT, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ ...parsed.data, idioma: lang, website: honeypot, utm: utm.current ?? leerUtm() }),

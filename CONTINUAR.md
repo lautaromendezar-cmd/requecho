@@ -19,10 +19,9 @@ problema más compactas, pasos del proceso con el texto al lado del ícono, reco
 fila logo + texto, foto de fundadoras 4:3 y retratos chicos al lado del nombre. Mobile pasó de
 21,6 a ~15 pantallas (`node scripts/medir-alturas.mjs`).
 
-**Lo que sigue:** (1) el cliente crea la hoja de Google y el Apps Script (receta A de
-`docs/formulario.md`) y pasa la URL `/exec`; (2) con el OK del diseño, exportar a HTML
-estático para el FTP de DUPLIKA (formulario por `lead.php`, imágenes sin optimizador,
-sacar el noindex, dominio para canonical y sitemap).
+**HTML para DUPLIKA (8-oct, oficina):** `node scripts/exportar-html.mjs` arma `out/` + `requecho-html.zip` (export estático de Next, `lead.php` en lugar de la API, .webp por ancho, indexable con canonical/sitemap a https://requecho.com). Probado en local: sin 404, sin errores de JS, fuentes OK, ES y EN. **Todo el paso a paso (subida, dominio, SSL, formulario) está en `docs/subir-a-duplika.md`.** requecho.com hoy está estacionado en el registrador: hay que apuntarlo a DUPLIKA.
+
+**Lo que sigue:** (1) subir el zip a DUPLIKA y apuntar el dominio; (2) SSL y descomentar las líneas de https del `.htaccess`; (3) hoja de Google + Apps Script (receta A de `docs/formulario.md`) y la URL `/exec` en `lead-config.php` del servidor.
 
 ## Antes de tocar nada (en cualquier PC)
 

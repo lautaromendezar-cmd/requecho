@@ -4,6 +4,23 @@ import type { NextConfig } from "next";
 // (metadata y cabecera): es un deploy de revisión con datos pendientes.
 const live = process.env.NEXT_PUBLIC_SITE_LIVE?.trim() === "true";
 
+// HTML estático para el hosting de las clientas (DUPLIKA, Apache + PHP). Lo arma
+// `node scripts/exportar-html.mjs`; sin esta variable, todo sigue como en Vercel.
+const exportar = process.env.NEXT_PUBLIC_EXPORTAR === "1";
+
+// Anchos que genera el script de exportación para cada imagen (en .webp, al lado de
+// la original). El loader de src/lib/image-loader.ts arma la ruta de cada uno.
+export const ANCHOS_EXPORTACION = { deviceSizes: [640, 960, 1280, 1920], imageSizes: [256, 384] };
+
+const configExportacion: NextConfig = {
+  poweredByHeader: false,
+  experimental: { globalNotFound: true },
+  output: "export",
+  // /en/ → en/index.html: Apache lo sirve sin reglas extra. "/" sale de copiar es/.
+  trailingSlash: true,
+  images: { loader: "custom", loaderFile: "./src/lib/image-loader.ts", ...ANCHOS_EXPORTACION },
+};
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   // El layout raíz está en app/[lang] (ver app/global-not-found.tsx).
@@ -33,4 +50,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default exportar ? configExportacion : nextConfig;

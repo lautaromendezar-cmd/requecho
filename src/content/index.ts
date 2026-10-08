@@ -18,4 +18,8 @@ export const contenidos: Record<Lang, Contenido> = { es, en };
 export const esIdioma = (v: string): v is Lang => (IDIOMAS as readonly string[]).includes(v);
 
 /** Ruta pública de cada idioma: el español vive en la raíz. */
-export const rutaIdioma: Record<Lang, string> = { es: "/", en: "/en" };
+// En el HTML estático (Apache) las páginas son carpetas: /en/ con barra final.
+export const rutaIdioma: Record<Lang, string> = {
+  es: "/",
+  en: process.env.NEXT_PUBLIC_EXPORTAR === "1" ? "/en/" : "/en",
+};
