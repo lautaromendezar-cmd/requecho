@@ -206,13 +206,6 @@ export const producto = {
     ["Rendimiento", "50 paneles = 1 m²"],
     ["Material recuperado", "≈ 7,5 kg de descarte textil recuperado por m²"],
   ] as [string, string][],
-  imagenPrincipal: {
-    src: "/images/producto-mostaza.jpg",
-    alt: "Una mano sostiene dos paneles Requecho, uno claro y uno gris jaspeado, contra una puerta pintada de amarillo.",
-    width: 768,
-    height: 1024,
-  } satisfies Imagen,
-  galeriaTitulo: "Nuestro material aplicado a productos",
   /** Carrusel en cuadrado (scripts/preparar-carrusel.py). */
   galeria: [
     { src: "/images/productos/puerta-amarilla.jpg", alt: "Una mano sostiene dos paneles Requecho en tonos azules y blancos contra una puerta pintada de amarillo.", width: 940, height: 940 },

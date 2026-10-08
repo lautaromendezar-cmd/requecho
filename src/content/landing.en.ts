@@ -153,13 +153,6 @@ export const producto = {
     ["Coverage", "50 panels = 1 m²"],
     ["Recovered material", "≈ 7.5 kg of textile waste recovered per m²"],
   ] as [string, string][],
-  imagenPrincipal: {
-    src: "/images/producto-mostaza.jpg",
-    alt: "A hand holds two Requecho panels, one light and one speckled grey, against a door painted yellow.",
-    width: 768,
-    height: 1024,
-  } satisfies Imagen,
-  galeriaTitulo: "Our material applied to products",
   /** Carrusel en cuadrado (scripts/preparar-carrusel.py). */
   galeria: [
     { src: "/images/productos/puerta-amarilla.jpg", alt: "A hand holds two blue-and-white Requecho panels against a door painted yellow.", width: 940, height: 940 },

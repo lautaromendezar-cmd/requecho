@@ -1,9 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { useRef } from "react";
-import { gsap, useGSAP } from "@/lib/gsap";
-import { motion } from "@/config/motion";
 import { useContenido } from "@/content/ContenidoProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Icon } from "@/components/ui/Icon";
@@ -11,71 +7,24 @@ import { Gallery } from "./producto/Gallery";
 
 /**
  * BLOQUE 3 — PRODUCTO
- * El bloque de acento se expande detrás de la foto (como "Nuestra mirada").
- * Cuatro propiedades como cards interactivas, aplicaciones, ficha breve en texto,
- * tablas de aplicaciones y características y galería arrastrable sin autoplay.
+ * Título y texto a lo ancho, el carrusel arrastrable debajo y, a continuación, las
+ * cuatro propiedades como cards interactivas y las tablas de aplicaciones y
+ * características con el botón de la ficha.
  */
 export function Producto() {
   const { producto, idioma } = useContenido();
-  const ref = useRef<HTMLElement>(null);
-
-  useGSAP(
-    () => {
-      const root = ref.current;
-      if (!root) return;
-      const block = root.querySelector<HTMLElement>("[data-accent-block]");
-      if (!block) return;
-      const mm = gsap.matchMedia();
-      mm.add(motion.media.ok, () => {
-        gsap.fromTo(
-          block,
-          { scaleX: 0.15, scaleY: 0.4, transformOrigin: "left bottom" },
-          {
-            scaleX: 1,
-            scaleY: 1,
-            duration: 1.6,
-            ease: "expo.inOut",
-            scrollTrigger: { trigger: block, start: "top 80%", once: true },
-          },
-        );
-      });
-    },
-    { scope: ref },
-  );
-
   return (
-    <section ref={ref} className="surface-soft py-section" aria-labelledby="producto-titulo">
+    <section className="surface-soft py-section" aria-labelledby="producto-titulo">
       <div className="container-x">
-        {/* Encabezado */}
-        {/* El título va a lo ancho y la bajada baja junto a la foto (devolución
-            final, 7-oct-2026). */}
+        {/* Encabezado: título, bajada y cuerpo a lo ancho, y debajo el carrusel con el
+            mismo ancho (devolución del 8-oct-2026: sin la foto sobre mostaza ni el
+            título del carrusel). */}
         <div>
           <Kicker>{producto.kicker}</Kicker>
           <h2 id="producto-titulo" data-reveal className="mt-6 text-h2">
             {producto.titulo}
           </h2>
-        </div>
-
-        {/* Panel sobre mostaza + cuerpo */}
-        <div className="mt-10 grid items-end gap-10 lg:mt-16 lg:grid-cols-12 lg:gap-x-8">
-          <div className="relative lg:col-span-7">
-            <div
-              data-accent-block
-              aria-hidden="true"
-              className="absolute -bottom-6 -left-4 h-[72%] w-[78%] rounded-lg bg-accent lg:-bottom-10 lg:-left-10"
-            />
-            <div data-reveal="mask-left" className="relative aspect-[4/3] overflow-hidden rounded-lg">
-              <Image
-                src={producto.imagenPrincipal.src}
-                alt={producto.imagenPrincipal.alt}
-                width={producto.imagenPrincipal.width}
-                height={producto.imagenPrincipal.height}
-                sizes="(min-width: 64rem) 55vw, 100vw"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
-          <div className="space-y-6 lg:col-span-4 lg:col-start-9">
+          <div className="mt-6 space-y-3 lg:mt-8">
             <p data-reveal className="text-lead text-text">
               {producto.bajada}
             </p>
@@ -85,8 +34,12 @@ export function Producto() {
           </div>
         </div>
 
+        <div className="mt-10 lg:mt-14">
+          <Gallery imagenes={producto.galeria} />
+        </div>
+
         {/* Propiedades y desempeño */}
-        <div className="mt-12 lg:mt-24">
+        <div className="mt-12 lg:mt-16">
           <h3 data-reveal className="text-h3">
             {producto.propiedadesTitulo}
           </h3>
@@ -188,15 +141,6 @@ export function Producto() {
           </div>
         ) : null}
 
-        {/* Carrusel: el material aplicado a productos */}
-        <div className="mt-12 lg:mt-24">
-          <h3 data-reveal className="max-w-[18ch] text-h2">
-            {producto.galeriaTitulo}
-          </h3>
-          <div className="mt-8 lg:mt-12">
-            <Gallery imagenes={producto.galeria} />
-          </div>
-        </div>
       </div>
     </section>
   );
