@@ -23,6 +23,8 @@ fila logo + texto, foto de fundadoras 4:3 y retratos chicos al lado del nombre. 
 
 **EN VIVO en https://requecho.com (8-oct, mediodía).** Subido a DUPLIKA (cPanel usuario `requecho`, servidor rosas.duplika.com, IP 67.227.214.110), dominio de GoDaddy apuntado (sólo el A de `@`; mail Google intacto), SSL Let's Encrypt por AutoSSL y `.htaccess` con redirección a https sin www. Verificado: ES/EN escritorio y mobile sin errores. Ojo al resubir: la primera extracción dejó carpetas con 0644 (zip de Compress-Archive); ya se arregló y el zip actual sale con permisos bien (`scripts/empaquetar-zip.py`).
 
+**Ajuste post-publicación (8-oct):** hero con columna de texto más ancha y menos aire en escritorio para que entre en pantalla (1898×925 y 1920×960 entra; 1440×900 se ven título y párrafos; 1366×768 no alcanza sin achicar letra). Subido a DUPLIKA y verificado.
+
 **Lo que sigue:** hoja de Google + Apps Script (receta A de `docs/formulario.md`) y la URL `/exec` en `lead-config.php` de `public_html` (paso 4 de `docs/subir-a-duplika.md`). Hasta entonces el formulario responde con el mensaje de falla.
 
 ## Antes de tocar nada (en cualquier PC)
