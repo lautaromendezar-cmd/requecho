@@ -48,16 +48,13 @@ export function Producto() {
     <section ref={ref} className="surface-soft py-section" aria-labelledby="producto-titulo">
       <div className="container-x">
         {/* Encabezado */}
-        <div className="grid gap-8 lg:grid-cols-12 lg:gap-x-8">
-          <div className="lg:col-span-6">
-            <Kicker>{producto.kicker}</Kicker>
-            <h2 id="producto-titulo" data-reveal className="mt-6 text-h2">
-              {producto.titulo}
-            </h2>
-          </div>
-          <p data-reveal data-reveal-delay="120" className="self-end text-lead lg:col-span-5 lg:col-start-8">
-            {producto.bajada}
-          </p>
+        {/* El título va a lo ancho y la bajada baja junto a la foto (devolución
+            final, 7-oct-2026). */}
+        <div>
+          <Kicker>{producto.kicker}</Kicker>
+          <h2 id="producto-titulo" data-reveal className="mt-6 text-h2">
+            {producto.titulo}
+          </h2>
         </div>
 
         {/* Panel sobre mostaza + cuerpo */}
@@ -79,8 +76,11 @@ export function Producto() {
               />
             </div>
           </div>
-          <div className="lg:col-span-4 lg:col-start-9">
+          <div className="space-y-6 lg:col-span-4 lg:col-start-9">
             <p data-reveal className="text-lead text-text">
+              {producto.bajada}
+            </p>
+            <p data-reveal data-reveal-delay="120" className="text-lead text-text">
               {producto.cuerpo}
             </p>
           </div>
