@@ -26,11 +26,11 @@ export function HeroFotos({ fotos }: { fotos: readonly ImagenHero[] }) {
   const cargadas = useRef(new Set<number>([0]));
 
   useEffect(() => {
-    if (document.readyState === "complete") {
-      setResto(true);
-      return;
-    }
     const on = () => setResto(true);
+    if (document.readyState === "complete") {
+      const t = window.setTimeout(on, 0);
+      return () => window.clearTimeout(t);
+    }
     window.addEventListener("load", on, { once: true });
     return () => window.removeEventListener("load", on);
   }, []);

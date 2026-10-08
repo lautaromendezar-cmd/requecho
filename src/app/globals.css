@@ -546,6 +546,19 @@
     background-color var(--duration-base) var(--ease-out-expo),
     color var(--duration-base) var(--ease-out-expo);
 }
+/* Ficha técnica: más grande que el resto (devolución final, 7-oct-2026). */
+.btn-outline--grande {
+  gap: clamp(0.625rem, 2vw, 1rem);
+  max-width: 100%;
+  min-height: 4rem;
+  padding: 1rem clamp(1.25rem, 4vw, 2rem);
+  font-size: clamp(1.0625rem, 0.9rem + 0.7vw, 1.375rem);
+}
+@media (min-width: 40rem) {
+  .btn-outline--grande {
+    white-space: nowrap;
+  }
+}
 .btn-outline:hover {
   background: var(--color-text-strong);
   color: var(--color-inverse-text);

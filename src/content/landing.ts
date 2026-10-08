@@ -194,16 +194,12 @@ export const producto = {
     "Mobiliario y objetos de diseño",
     "Desarrollos especiales",
   ],
-  fichaTitulo: "Ficha breve",
-  /**
-   * [DATO A CONFIRMAR: link al PDF de la ficha técnica en Drive]. Sin url, el
-   * botón no se muestra. La versión en inglés tiene su propio PDF.
-   */
+  fichaTitulo: "Características",
+  /** PDF de la ficha técnica en el Drive de las clientas; el inglés tiene el suyo. Sin url, el botón no se muestra. */
   fichaTecnica: {
     texto: "Descargar ficha técnica",
     formato: "PDF",
-    // "#" provisorio para que se vea el botón; reemplazar por el link de Drive.
-    url: "#" as string | undefined,
+    url: "https://drive.google.com/file/d/1vOEZoSydxOj_zLFp_lsWYz45wP09iFVA/view" as string | undefined,
   },
   ficha: [
     ["Composición", "Textiles triturados + aglutinante de base biológica"],
@@ -217,12 +213,6 @@ export const producto = {
     alt: "Una mano sostiene dos paneles Requecho, uno claro y uno gris jaspeado, contra una puerta pintada de amarillo.",
     width: 768,
     height: 1024,
-  } satisfies Imagen,
-  textura: {
-    src: "/images/textura-macro.jpg",
-    alt: "Detalle de la superficie de un panel Requecho: fibras textiles blancas y grises prensadas, con vetas oscuras.",
-    width: 395,
-    height: 206,
   } satisfies Imagen,
   galeriaTitulo: "Nuestro material aplicado a productos",
   /** Carrusel en cuadrado (scripts/preparar-carrusel.py). */

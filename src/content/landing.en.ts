@@ -141,12 +141,11 @@ export const producto = {
   ] satisfies Propiedad[],
   aplicacionesTitulo: "Applications",
   aplicaciones: ["Interior wall cladding", "Acoustic panels", "Furniture and design objects", "Custom developments"],
-  fichaTitulo: "Quick specs",
+  fichaTitulo: "Specifications",
   fichaTecnica: {
     texto: "Download technical data sheet",
     formato: "PDF",
-    // "#" provisorio para que se vea el botón; reemplazar por el link de Drive.
-    url: "#" as string | undefined,
+    url: "https://drive.google.com/file/d/1y6UN7bzm0ohmzxreHHKRCQYUJKxkjFIw/view" as string | undefined,
   },
   ficha: [
     ["Composition", "Shredded textiles + bio-based binder"],
@@ -160,12 +159,6 @@ export const producto = {
     alt: "A hand holds two Requecho panels, one light and one speckled grey, against a door painted yellow.",
     width: 768,
     height: 1024,
-  } satisfies Imagen,
-  textura: {
-    src: "/images/textura-macro.jpg",
-    alt: "Close-up of a Requecho panel surface: pressed white and grey textile fibers with dark streaks.",
-    width: 395,
-    height: 206,
   } satisfies Imagen,
   galeriaTitulo: "Our material applied to products",
   /** Carrusel en cuadrado (scripts/preparar-carrusel.py). */

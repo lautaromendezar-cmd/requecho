@@ -7,14 +7,13 @@ import { motion } from "@/config/motion";
 import { useContenido } from "@/content/ContenidoProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Icon } from "@/components/ui/Icon";
-import { TextureLens } from "./producto/TextureLens";
 import { Gallery } from "./producto/Gallery";
 
 /**
  * BLOQUE 3 — PRODUCTO
  * El bloque de acento se expande detrás de la foto (como "Nuestra mirada").
  * Cuatro propiedades como cards interactivas, aplicaciones, ficha breve en texto,
- * macro de textura con lupa y galería arrastrable sin autoplay.
+ * tablas de aplicaciones y características y galería arrastrable sin autoplay.
  */
 export function Producto() {
   const { producto, idioma } = useContenido();
@@ -136,26 +135,24 @@ export function Producto() {
           </ul>
         </div>
 
-        {/* Aplicaciones */}
-        <div className="mt-14 grid gap-6 lg:grid-cols-12 lg:gap-x-8">
-          <h3 data-reveal className="text-h3 lg:col-span-3">
-            {producto.aplicacionesTitulo}
-          </h3>
-          {/* Dos columnas parejas: con los puntos en una sola tira, el corte de
-              renglón dejaba un separador colgando al principio de la segunda línea. */}
-          <ul className="m-0 grid list-none gap-x-16 gap-y-4 p-0 text-lead sm:grid-cols-[repeat(2,minmax(0,max-content))] lg:col-span-9">
-            {producto.aplicaciones.map((a, i) => (
-              <li key={a} data-reveal data-reveal-delay={String(i * 80)} className="flex items-baseline gap-4">
-                <span aria-hidden="true" className="h-[2px] w-4 shrink-0 translate-y-[-0.3em] bg-accent-line" />
-                <span>{a}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Ficha breve + macro de textura */}
-        <div className="mt-14 grid gap-10 lg:mt-20 lg:grid-cols-12 lg:gap-x-8">
-          <div className="lg:col-span-6">
+        {/* Aplicaciones y características: dos tablas mínimas lado a lado y el
+            botón de la ficha centrado debajo (devolución final, 7-oct-2026: se
+            quitó la macro de textura). */}
+        <div className="mt-14 grid gap-12 lg:mt-20 lg:grid-cols-2 lg:gap-x-16">
+          <div>
+            <h3 data-reveal className="text-h3">
+              {producto.aplicacionesTitulo}
+            </h3>
+            <ul className="m-0 mt-6 list-none divide-y divide-line border-y border-line p-0">
+              {producto.aplicaciones.map((a, i) => (
+                <li key={a} data-reveal data-reveal-delay={String(i * 70)} className="flex items-baseline gap-4 py-4 text-text">
+                  <span aria-hidden="true" className="h-[2px] w-4 shrink-0 translate-y-[-0.3em] bg-accent-line" />
+                  <span>{a}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
             <h3 data-reveal className="text-h3">
               {producto.fichaTitulo}
             </h3>
@@ -165,31 +162,31 @@ export function Producto() {
                   key={k}
                   data-reveal
                   data-reveal-delay={String(i * 70)}
-                  className="grid grid-cols-[minmax(9rem,1fr)_2fr] gap-4 py-4"
+                  className="grid grid-cols-[minmax(8rem,2fr)_3fr] gap-4 py-4"
                 >
                   <dt className="text-small font-bold uppercase tracking-[0.08em] text-muted">{k}</dt>
                   <dd className="m-0 text-text">{v}</dd>
                 </div>
               ))}
             </dl>
-            {producto.fichaTecnica.url ? (
-              <a
-                href={producto.fichaTecnica.url}
-                {...(producto.fichaTecnica.url !== "#" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                data-reveal
-                data-icon-host
-                className="btn-outline mt-8"
-              >
-                <Icon name="documento" size={22} bare draw={false} />
-                <span>{producto.fichaTecnica.texto}</span>
-                <span className="text-legal opacity-70">{producto.fichaTecnica.formato}</span>
-              </a>
-            ) : null}
-          </div>
-          <div data-reveal className="lg:col-span-5 lg:col-start-8">
-            <TextureLens imagen={producto.textura} />
           </div>
         </div>
+        {producto.fichaTecnica.url ? (
+          <div className="mt-12 flex justify-center lg:mt-14">
+            <a
+              href={producto.fichaTecnica.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-reveal
+              data-icon-host
+              className="btn-outline btn-outline--grande"
+            >
+              <Icon name="documento" size={28} bare draw={false} />
+              <span>{producto.fichaTecnica.texto}</span>
+              <span className="text-small opacity-70">{producto.fichaTecnica.formato}</span>
+            </a>
+          </div>
+        ) : null}
 
         {/* Carrusel: el material aplicado a productos */}
         <div className="mt-16 lg:mt-24">
