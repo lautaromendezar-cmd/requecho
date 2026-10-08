@@ -223,26 +223,26 @@ export const porQue = {
       titulo: "Recovered material",
       texto: "Each m² recovers approximately 7.5 kg of pre-consumer textile waste.",
       icono: "ciclo",
-      imagen: { src: "/images/diferenciales/material-recuperado.jpg", alt: "Hands holding a bunch of shredded textile waste, Requecho's raw material.", width: 960, height: 720 },
+      imagen: { src: "/images/diferenciales/material-recuperado.jpg", alt: "A hand holds scraps of denim, the textile waste that becomes panels, with Requecho panels in the background.", width: 960, height: 720 },
     },
     {
       titulo: "Design for every space",
       texto:
         "We work on colors, combinations and gradients together with architects and designers to integrate the material into the project.",
       icono: "diseno",
-      imagen: { src: "/images/diferenciales/diseno.jpg", alt: "A round black-and-cream Requecho piece hanging on a yellow door.", width: 960, height: 720 },
+      imagen: { src: "/images/diferenciales/diseno.jpg", alt: "A hand holds three Requecho panel samples with different finishes against a yellow door.", width: 960, height: 720 },
     },
     {
       titulo: "Functional properties",
       texto: "The same material provides a visible finish, sound absorption and thermal performance.",
       icono: "capas",
-      imagen: { src: "/images/diferenciales/propiedades.jpg", alt: "Thick Requecho panels drying on a rack, showing the thickness and density of the fibers.", width: 960, height: 720 },
+      imagen: { src: "/images/diferenciales/propiedades.jpg", alt: "Eight blue and cream Requecho panels in a wooden frame, showing the thickness and density of the fibers.", width: 960, height: 720 },
     },
     {
       titulo: "Material identity",
       texto: "The material's own fibers, textures and variations are part of the final expression of each piece.",
       icono: "huella",
-      imagen: { src: "/images/diferenciales/identidad.jpg", alt: "Close-up of a Requecho surface: light fibers with colored threads and a pink fabric scrap.", width: 960, height: 720 },
+      imagen: { src: "/images/diferenciales/identidad.jpg", alt: "Three Requecho panels in different colors resting next to a plant: each piece has its own texture.", width: 960, height: 720 },
     },
   ] satisfies { titulo: string; texto: string; icono: IconName; imagen: Imagen }[],
 };

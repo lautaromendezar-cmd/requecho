@@ -283,27 +283,27 @@ export const porQue = {
       titulo: "Material recuperado",
       texto: "Cada m² permite recuperar aproximadamente 7,5 kg de descarte textil preconsumo.",
       icono: "ciclo",
-      imagen: { src: "/images/diferenciales/material-recuperado.jpg", alt: "Manos que sostienen un puñado de descarte textil triturado, la materia prima de Requecho.", width: 960, height: 720 },
+      imagen: { src: "/images/diferenciales/material-recuperado.jpg", alt: "Una mano sostiene retazos de tela de jean, el descarte textil que se vuelve panel, con paneles Requecho de fondo.", width: 960, height: 720 },
     },
     {
       titulo: "Diseño para cada espacio",
       texto:
         "Trabajamos colores, combinaciones y degradés junto con arquitectos y diseñadores para integrar el material al proyecto.",
       icono: "diseno",
-      imagen: { src: "/images/diferenciales/diseno.jpg", alt: "Pieza circular de Requecho en negro y crema colgada sobre una puerta amarilla.", width: 960, height: 720 },
+      imagen: { src: "/images/diferenciales/diseno.jpg", alt: "Una mano sostiene tres muestras de paneles Requecho de distintos acabados frente a una puerta amarilla.", width: 960, height: 720 },
     },
     {
       titulo: "Propiedades funcionales",
       texto: "El mismo material aporta terminación visible, absorción acústica y comportamiento térmico.",
       icono: "capas",
-      imagen: { src: "/images/diferenciales/propiedades.jpg", alt: "Paneles Requecho gruesos secándose sobre una rejilla: se ven el espesor y la densidad de las fibras.", width: 960, height: 720 },
+      imagen: { src: "/images/diferenciales/propiedades.jpg", alt: "Ocho paneles Requecho en azul y crudo dentro de un marco de madera: se ven el espesor y la densidad de las fibras.", width: 960, height: 720 },
     },
     {
       titulo: "Identidad material",
       texto:
         "Las fibras, texturas y variaciones propias del material forman parte de la expresión final de cada pieza.",
       icono: "huella",
-      imagen: { src: "/images/diferenciales/identidad.jpg", alt: "Primer plano de la superficie de una pieza Requecho: fibras claras con hilos de colores y un recorte rosa.", width: 960, height: 720 },
+      imagen: { src: "/images/diferenciales/identidad.jpg", alt: "Tres paneles Requecho de colores distintos apoyados junto a una planta: cada pieza tiene su propia textura.", width: 960, height: 720 },
     },
   ] satisfies { titulo: string; texto: string; icono: IconName; imagen: Imagen }[],
 };
