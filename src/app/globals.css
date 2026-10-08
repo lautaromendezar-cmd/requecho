@@ -625,6 +625,7 @@
 }
 
 .gallery {
+  container-type: inline-size;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;

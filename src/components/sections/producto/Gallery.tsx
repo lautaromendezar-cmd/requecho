@@ -203,7 +203,8 @@ export function Gallery({ imagenes }: { imagenes: Imagen[] }) {
     <div>
       {/* El carrusel se corta en el borde del contenedor, con el mismo margen
           blanco que a la izquierda (devolución final, 7-oct-2026: antes sangraba
-          hasta el borde de la pantalla). */}
+          hasta el borde de la pantalla). En escritorio cada foto se mide contra el
+          ancho del carrusel (cqi): entran tres y un cuarto de la cuarta (8-oct-2026). */}
       <div
         ref={wrap}
         className="gallery"
@@ -216,7 +217,7 @@ export function Gallery({ imagenes }: { imagenes: Imagen[] }) {
           {imagenes.map((im, i) => (
             <li
               key={im.src}
-              className="gallery__slide aspect-square w-[78vw] overflow-hidden rounded-lg sm:w-[46vw] lg:w-[min(30vw,30rem)]"
+              className="gallery__slide aspect-square w-[78vw] overflow-hidden rounded-lg sm:w-[46vw] lg:w-[calc((100cqi-3rem)/3.25)]"
             >
               <div data-parallax className="h-full w-full">
                 <Image
@@ -224,8 +225,8 @@ export function Gallery({ imagenes }: { imagenes: Imagen[] }) {
                   alt={im.alt}
                   width={im.width}
                   height={im.height}
-                  sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 46vw, 78vw"
-                  loading={i < 3 ? "eager" : "lazy"}
+                  sizes="(min-width: 64rem) 28vw, (min-width: 40rem) 46vw, 78vw"
+                  loading={i < 4 ? "eager" : "lazy"}
                   className="h-full w-full object-cover"
                   draggable={false}
                 />
