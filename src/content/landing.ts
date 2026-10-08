@@ -331,6 +331,8 @@ export type Fundadora = {
   cita?: string;
   /** Retrato individual, 4:3. Sin retrato, la card muestra un placeholder. */
   retrato?: Imagen;
+  /** Perfil de LinkedIn: ícono a la izquierda del nombre. */
+  linkedin?: string;
 };
 
 export const fundadoras = {
@@ -351,6 +353,7 @@ export const fundadoras = {
   cards: [
     {
       nombre: "Luciana Sabsay",
+      linkedin: "https://www.linkedin.com/in/luciana-sabsay-738aa013",
       rol: "Cofundadora · Negocio y Comercial",
       retrato: {
         src: "/images/fundadoras/luciana.jpg",
@@ -362,6 +365,7 @@ export const fundadoras = {
     },
     {
       nombre: "Verónica Litvinoff",
+      linkedin: "https://www.linkedin.com/in/veronica-litvinoff-87007512a",
       rol: "Cofundadora · Producto y Operaciones",
       retrato: {
         src: "/images/fundadoras/veronica.jpg",
@@ -372,10 +376,6 @@ export const fundadoras = {
       bio: "Diseñadora de Indumentaria (UBA), especializada en producto, biomateriales e innovación textil, con formación en Sociología del Diseño. Más de veinte años de experiencia en desarrollo de producto y producción, desde la selección de materias primas hasta el trabajo con talleres y procesos industriales.",
     },
   ] as Fundadora[],
-  impacto: [
-    "Un proyecto liderado por mujeres, con un modelo pensado para generar trabajo con foco en mujeres y personas de la diversidad en situación de vulnerabilidad.",
-    "Dos recorridos diferentes dentro de una misma industria que hoy convergen en un objetivo: transformar el descarte textil en un recurso.",
-  ],
 };
 
 // ---------------------------------------------------------------------------

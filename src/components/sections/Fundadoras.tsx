@@ -7,6 +7,7 @@ import { motion } from "@/config/motion";
 import { useContenido } from "@/content/ContenidoProvider";
 import { Kicker } from "@/components/ui/Kicker";
 import { Placeholder } from "@/components/ui/Placeholder";
+import { IconoMarca } from "@/components/ui/IconoMarca";
 
 /**
  * BLOQUE 6 — FUNDADORAS
@@ -112,9 +113,24 @@ export function Fundadoras() {
                 ) : (
                   <Placeholder ratio="16 / 10" />
                 )}
-                <figcaption className="mt-5">
-                  <h3 className="text-h3">{f.nombre}</h3>
-                  <p className="mt-1 text-small text-muted">{f.rol}</p>
+                {/* LinkedIn a la izquierda del nombre (devolución final, 7-oct-2026). */}
+                <figcaption className="mt-5 flex items-center gap-3">
+                  {f.linkedin ? (
+                    <a
+                      href={f.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`LinkedIn: ${f.nombre}`}
+                      title={`LinkedIn: ${f.nombre}`}
+                      className="canal-header -ml-2 shrink-0"
+                    >
+                      <IconoMarca name="linkedin" size={26} />
+                    </a>
+                  ) : null}
+                  <div>
+                    <h3 className="text-h3">{f.nombre}</h3>
+                    <p className="mt-1 text-small text-muted">{f.rol}</p>
+                  </div>
                 </figcaption>
               </figure>
               {f.cita ? (
@@ -124,16 +140,6 @@ export function Fundadoras() {
             </li>
           ))}
         </ul>
-
-        <div className="mt-14 grid gap-8 lg:mt-20 lg:grid-cols-12 lg:gap-x-8">
-          <p data-reveal className="font-display text-h3 font-bold text-text-strong lg:col-span-6">
-            <span className="accent-line mb-5" data-reveal="line" aria-hidden="true" />
-            {fundadoras.impacto[0]}
-          </p>
-          <p data-reveal data-reveal-delay="140" className="self-end text-lead text-text lg:col-span-5 lg:col-start-8">
-            {fundadoras.impacto[1]}
-          </p>
-        </div>
       </div>
     </section>
   );

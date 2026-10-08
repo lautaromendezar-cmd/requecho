@@ -276,6 +276,7 @@ export const fundadoras = {
   cards: [
     {
       nombre: "Luciana Sabsay",
+      linkedin: "https://www.linkedin.com/in/luciana-sabsay-738aa013",
       rol: "Co-founder · Business & Sales",
       retrato: {
         src: "/images/fundadoras/luciana.jpg",
@@ -287,6 +288,7 @@ export const fundadoras = {
     },
     {
       nombre: "Verónica Litvinoff",
+      linkedin: "https://www.linkedin.com/in/veronica-litvinoff-87007512a",
       rol: "Co-founder · Product & Operations",
       retrato: {
         src: "/images/fundadoras/veronica.jpg",
@@ -297,10 +299,6 @@ export const fundadoras = {
       bio: "Fashion designer (UBA) specialized in product, biomaterials and textile innovation, with training in the Sociology of Design. More than twenty years of experience in product development and production, from raw-material selection to working with workshops and industrial processes.",
     },
   ] as Fundadora[],
-  impacto: [
-    "A women-led project, with a model designed to create jobs focused on women and LGBTQ+ people in vulnerable situations.",
-    "Two different paths within the same industry, now converging on one goal: turning textile waste into a resource.",
-  ],
 };
 
 // ---------------------------------------------------------------------------
