@@ -121,8 +121,6 @@ export const problema = {
       icono: "construccion",
     },
   ] satisfies Cifra[],
-  /** Foto junto a las cifras (devolución final, 7-oct-2026). */
-  imagen: { src: "/images/problema-secado.jpg", alt: "Paneles Requecho recién prensados secándose en fila sobre una rejilla de madera: azules de jean y claros con hilos de colores.", width: 1024, height: 1536 } as Imagen | undefined,
 };
 
 // ---------------------------------------------------------------------------
