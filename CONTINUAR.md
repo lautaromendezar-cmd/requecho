@@ -21,7 +21,9 @@ fila logo + texto, foto de fundadoras 4:3 y retratos chicos al lado del nombre. 
 
 **HTML para DUPLIKA (8-oct, oficina):** `node scripts/exportar-html.mjs` arma `out/` + `requecho-html.zip` (export estático de Next, `lead.php` en lugar de la API, .webp por ancho, indexable con canonical/sitemap a https://requecho.com). Probado en local: sin 404, sin errores de JS, fuentes OK, ES y EN. **Todo el paso a paso (subida, dominio, SSL, formulario) está en `docs/subir-a-duplika.md`.** requecho.com hoy está estacionado en el registrador: hay que apuntarlo a DUPLIKA.
 
-**Lo que sigue:** (1) subir el zip a DUPLIKA y apuntar el dominio; (2) SSL y descomentar las líneas de https del `.htaccess`; (3) hoja de Google + Apps Script (receta A de `docs/formulario.md`) y la URL `/exec` en `lead-config.php` del servidor.
+**EN VIVO en https://requecho.com (8-oct, mediodía).** Subido a DUPLIKA (cPanel usuario `requecho`, servidor rosas.duplika.com, IP 67.227.214.110), dominio de GoDaddy apuntado (sólo el A de `@`; mail Google intacto), SSL Let's Encrypt por AutoSSL y `.htaccess` con redirección a https sin www. Verificado: ES/EN escritorio y mobile sin errores. Ojo al resubir: la primera extracción dejó carpetas con 0644 (zip de Compress-Archive); ya se arregló y el zip actual sale con permisos bien (`scripts/empaquetar-zip.py`).
+
+**Lo que sigue:** hoja de Google + Apps Script (receta A de `docs/formulario.md`) y la URL `/exec` en `lead-config.php` de `public_html` (paso 4 de `docs/subir-a-duplika.md`). Hasta entonces el formulario responde con el mensaje de falla.
 
 ## Antes de tocar nada (en cualquier PC)
 
