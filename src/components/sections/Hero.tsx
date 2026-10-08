@@ -161,21 +161,21 @@ export function Hero() {
         </nav>
         <SelectorIdioma />
       </div>
-      <div className="container-x grid w-full items-center gap-10 pb-10 pt-16 lg:grid-cols-12 lg:gap-8 lg:py-24">
-        <div className="order-2 lg:order-1 lg:col-span-6 xl:col-span-5">
+      <div className="container-x grid w-full items-center gap-10 pb-10 pt-16 lg:grid-cols-12 lg:gap-12 lg:pb-10 lg:pt-16">
+        <div className="order-2 lg:order-1 lg:col-span-6">
           <div data-reveal data-hero="logo" className="text-text-strong">
             <Logo height={64} />
           </div>
-          <h1 id="hero-titulo" data-reveal className="mt-10 max-w-[17ch] text-display text-text-strong">
+          <h1 id="hero-titulo" data-reveal className="mt-10 max-w-[17ch] text-display text-text-strong lg:mt-8">
             {hero.titulo}
           </h1>
-          <p data-reveal data-hero="sub" className="mt-8 max-w-[44ch] text-[length:clamp(1.1875rem,1rem+0.55vw,1.5rem)] leading-[1.5] text-text">
+          <p data-reveal data-hero="sub" className="mt-8 max-w-[44ch] lg:mt-6 text-[length:clamp(1.1875rem,1rem+0.55vw,1.5rem)] leading-[1.5] text-text">
             {hero.subtitulo}
           </p>
           <p data-reveal data-hero="sub" className="mt-5 max-w-[44ch] text-[length:clamp(1.1875rem,1rem+0.55vw,1.5rem)] leading-[1.5] text-text">
             {hero.subtitulo2}
           </p>
-          <div data-reveal data-hero="cue" className="mt-12 hidden lg:block">
+          <div data-reveal data-hero="cue" className="mt-8 hidden lg:block">
             <span className="scroll-cue" aria-hidden="true" />
           </div>
         </div>
