@@ -1,5 +1,8 @@
 # Dónde quedamos (7-oct-2026, noche)
 
+**EN ESPERA: se mandó todo y se espera el OK final de las clientas.** Si llegan más
+cambios, aplicarlos como venimos haciendo; si llega el OK, seguir por "Lo que sigue".
+
 **Estado:** llegó la **devolución final** y se está aplicando de a un cambio. **Cambio 1
 (hero) hecho y en vivo** (commit 1aa9e3c): segundo párrafo, fotos en fundido en lugar de la
 foto fija (las 8 fotos del video `../modificaciones07102026/`, en `public/images/hero/`,
