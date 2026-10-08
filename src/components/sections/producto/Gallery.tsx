@@ -13,8 +13,9 @@ const dos = (n: number) => String(n).padStart(2, "0");
 
 /**
  * Carrusel cuadrado arrastrable con inercia (Draggable + Inertia, cargados bajo
- * demanda) y swipe en mobile. En desktop sangra hasta el borde derecho de la
- * pantalla. Mientras se mueve, cada foto se desliza dentro de su marco
+ * demanda) y swipe en mobile. Se corta en el borde del contenedor, con el
+ * mismo margen que a la izquierda (antes sangraba hasta el borde de la
+ * pantalla). Mientras se mueve, cada foto se desliza dentro de su marco
  * (parallax) y la barra y el contador acompañan. Al entrar, las fotos se
  * descubren en cascada. Sin reproducción automática. Sin JS o con movimiento
  * reducido cae a scroll nativo con scroll-snap.
@@ -200,16 +201,18 @@ export function Gallery({ imagenes }: { imagenes: Imagen[] }) {
 
   return (
     <div>
-      {/* En desktop el carrusel sangra hasta el borde derecho de la pantalla */}
+      {/* El carrusel se corta en el borde del contenedor, con el mismo margen
+          blanco que a la izquierda (devolución final, 7-oct-2026: antes sangraba
+          hasta el borde de la pantalla). */}
       <div
         ref={wrap}
-        className="gallery lg:mr-[calc(50%-50vw)]"
+        className="gallery"
         tabIndex={0}
         role="region"
         aria-roledescription="carrusel"
         aria-label={ui.galeria}
       >
-        <ul ref={track} className="gallery__track m-0 list-none p-0 lg:pr-[var(--spacing-gutter)]">
+        <ul ref={track} className="gallery__track m-0 list-none p-0">
           {imagenes.map((im, i) => (
             <li
               key={im.src}
