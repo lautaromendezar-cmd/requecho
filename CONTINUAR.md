@@ -1,4 +1,4 @@
-# Dónde quedamos (7-oct-2026, noche)
+# Dónde quedamos (8-oct-2026, casa)
 
 **8-oct: llegó otra tanda de devoluciones (de a un cambio). Feedback general 1 hecho: títulos de sección en minúscula y con punto (Cómo lo hacemos., Circularidad…, Hablemos.; también en inglés). Cambio 2 hecho: El problema sin la foto y con las tres cifras en columnas en escritorio (número junto al ícono, se achica con la columna: `min(4.5rem, 14cqi)`); mobile igual. Cambio 3 hecho: El material sin la foto sobre mostaza (se borró `producto-mostaza.jpg`), bajada y cuerpo a lo ancho bajo el título y el carrusel subido ahí, sin su título y al ancho del contenedor; después siguen Propiedades, Aplicaciones y Características. Los kickers (POR QUÉ REQUECHO, etc.) quedan en mayúscula: son etiquetas, no títulos.** Si llegan más
 cambios, aplicarlos como venimos haciendo; si llega el OK, seguir por "Lo que sigue".
