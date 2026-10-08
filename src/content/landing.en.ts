@@ -182,7 +182,7 @@ export const producto = {
 // BLOQUE 4 — CÓMO FUNCIONA
 // ---------------------------------------------------------------------------
 export const proceso = {
-  titulo: "HOW WE DO IT",
+  titulo: "How we do it.",
   bajada:
     "We developed a process that lets us recover waste, preserve its material value and transform it into a new piece.",
   pasos: [
@@ -224,7 +224,7 @@ export const proceso = {
 // ---------------------------------------------------------------------------
 export const porQue = {
   kicker: "WHY REQUECHO",
-  titulo: "Circularity, performance and design",
+  titulo: "Circularity, performance and design.",
   bajada:
     "Where a conventional solution needs several layers, Requecho combines acoustic and thermal performance with a visible finish in a single material.",
   diferenciales: [
@@ -336,7 +336,7 @@ export const reconocimientos = {
 // ---------------------------------------------------------------------------
 export const contacto = {
   kicker: "CONTACT",
-  titulo: "Let's talk",
+  titulo: "Let's talk.",
   popup: { cerrar: "Close" },
   bajada:
     "Leave your details and we'll get in touch to tell you more about the material and how it can fit into your project.",

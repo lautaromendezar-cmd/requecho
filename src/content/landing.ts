@@ -245,7 +245,7 @@ export type Paso = {
 };
 
 export const proceso = {
-  titulo: "CÓMO LO HACEMOS",
+  titulo: "Cómo lo hacemos.",
   bajada:
     "Desarrollamos un proceso que nos permite recuperar el descarte, conservar su valor material y transformarlo en una nueva pieza.",
   pasos: [
@@ -287,7 +287,7 @@ export const proceso = {
 // ---------------------------------------------------------------------------
 export const porQue = {
   kicker: "POR QUÉ REQUECHO",
-  titulo: "Circularidad, desempeño y diseño",
+  titulo: "Circularidad, desempeño y diseño.",
   bajada:
     "Donde una solución convencional necesita varias capas, Requecho integra desempeño acústico y térmico con terminación visible en un solo material.",
   diferenciales: [
@@ -435,7 +435,7 @@ export type Campo = {
 
 export const contacto = {
   kicker: "CONTACTO",
-  titulo: "Hablemos",
+  titulo: "Hablemos.",
   /** Pop-up de contacto: mismo formulario, abre al entrar (src/config/popup.ts). */
   popup: { cerrar: "Cerrar" },
   bajada:

@@ -1,6 +1,6 @@
 # Dónde quedamos (7-oct-2026, noche)
 
-**EN ESPERA: se mandó todo y se espera el OK final de las clientas.** Si llegan más
+**8-oct: llegó otra tanda de devoluciones (de a un cambio). Feedback general 1 hecho: títulos de sección en minúscula y con punto (Cómo lo hacemos., Circularidad…, Hablemos.; también en inglés). Los kickers (POR QUÉ REQUECHO, etc.) quedan en mayúscula: son etiquetas, no títulos.** Si llegan más
 cambios, aplicarlos como venimos haciendo; si llega el OK, seguir por "Lo que sigue".
 
 **Estado:** llegó la **devolución final** y se está aplicando de a un cambio. **Cambio 1
