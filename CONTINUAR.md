@@ -1,3 +1,19 @@
+# Dónde quedamos (8-oct-2026) — PROYECTO CERRADO Y COBRADO
+
+**Lo único que falta: conectar la hoja de Google.** Ariel crea la hoja y el Apps Script
+siguiendo la guía (https://claude.ai/artifact/SoG6KuKeHLuKP6KPAC6yJe, código en
+`hosting/apps-script.js`, sin aviso por mail) y manda la URL que termina en `/exec`. Con eso:
+
+1. Crear `lead-config.php` con `<?php return ['webhook' => 'https://script.google.com/.../exec'];`
+   y subirlo a `public_html` (cPanel DUPLIKA, usuario `requecho`). No va en el zip: no se pisa.
+2. Envío de prueba desde https://requecho.com en español y en inglés; verificar las dos filas
+   (WhatsApp como texto, sin `#ERROR!`). Avisarles que las borren.
+3. Detalle en `docs/subir-a-duplika.md` (paso 4) y `docs/formulario.md` (receta A).
+
+Si el formulario falla después de conectarlo: `error_log` en `public_html` (lo escribe `lead.php`).
+
+---
+
 # Dónde quedamos (8-oct-2026, casa)
 
 **8-oct: llegó otra tanda de devoluciones (de a un cambio). Feedback general 1 hecho: títulos de sección en minúscula y con punto (Cómo lo hacemos., Circularidad…, Hablemos.; también en inglés). Cambio 2 hecho: El problema sin la foto y con las tres cifras en columnas en escritorio (número junto al ícono, se achica con la columna: `min(4.5rem, 14cqi)`); mobile igual. Cambio 3 hecho: El material sin la foto sobre mostaza (se borró `producto-mostaza.jpg`), bajada y cuerpo a lo ancho bajo el título y el carrusel subido ahí, sin su título y al ancho del contenedor; después siguen Propiedades, Aplicaciones y Características. Arreglo del carrusel: el ancho de cada foto sale del carrusel (`calc((100cqi-3rem)/3.25)`, `.gallery` es container), no de la pantalla: 3 fotos y un cuarto en escritorio, como el boceto. **Puntos 3 y 4 hechos y en vivo (8-oct, oficina; la tanda está completa):** (3) Propiedades: sin ISO 10534-2, sin '(ensayo en Argentina en proceso)' ni 'Certificación en proceso', y una nota única 'Ensayos y certificaciones en proceso.' a la derecha bajo las 4 cards (`producto.propiedadesNota`, ES y EN; se borraron los campos `norma` y `nota`). (4) Por qué Requecho: 4 fotos nuevas de los diferenciales, recortadas a 4:3 desde `modif-08102026/` (carpeta local, sin versionar) con alt nuevos. Los kickers (POR QUÉ REQUECHO, etc.) quedan en mayúscula: son etiquetas, no títulos.** Si llegan más
