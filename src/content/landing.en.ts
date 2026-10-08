@@ -266,8 +266,6 @@ export const fundadoras = {
     "We are Luciana Sabsay and Verónica Litvinoff. We met while studying Fashion Design at the University of Buenos Aires (UBA) and have spent more than twenty years working across different areas of the textile industry.",
     "For years we watched the same scene repeat itself: offcuts, leftovers and materials that lost their value as soon as production ended. Requecho was born from a simple question: what if, instead of treating that material as waste, we could design with it again?",
   ],
-  complementariedad:
-    "Today we bring those two experiences together to build Requecho. Luciana leads business, commercial development and communication. Verónica leads product, production and textile recovery.",
   foto: {
     src: "/images/fundadoras/juntas-riendo.jpg",
     alt: "Verónica Litvinoff and Luciana Sabsay look at each other and laugh against a white wall: Verónica holds a handful of textile scraps and Luciana two Requecho panels.",

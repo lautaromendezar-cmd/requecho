@@ -55,8 +55,10 @@ export function Fundadoras() {
     <section ref={ref} className="py-section" aria-labelledby="fundadoras-titulo">
       <div className="container-x">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-x-8">
-          <figure className="m-0 lg:col-span-5">
-            <div data-reveal="mask-up" className="aspect-[4/5] overflow-hidden rounded-lg">
+          {/* En desktop la foto se estira hasta el final del texto de la derecha
+              (devolución final, 7-oct-2026). */}
+          <figure className="m-0 flex flex-col lg:col-span-5">
+            <div data-reveal="mask-up" className="aspect-[4/5] overflow-hidden rounded-lg lg:aspect-auto lg:min-h-[28rem] lg:flex-1">
               <Image
                 src={fundadoras.foto.src}
                 alt={fundadoras.foto.alt}
@@ -83,9 +85,6 @@ export function Fundadoras() {
                 </p>
               ))}
             </div>
-            <p data-reveal className="mt-8 border-l-2 border-accent-line pl-6 text-text">
-              {fundadoras.complementariedad}
-            </p>
           </div>
         </div>
 

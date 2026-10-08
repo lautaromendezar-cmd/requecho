@@ -340,8 +340,6 @@ export const fundadoras = {
     "Somos Luciana Sabsay y Verónica Litvinoff. Nos conocimos estudiando Diseño de Indumentaria en la UBA y llevamos más de veinte años trabajando en diferentes áreas de la industria textil.",
     "Durante años vimos repetirse la misma escena: recortes, sobrantes y materiales que perdían su valor apenas terminaba la producción. Requecho nació de una pregunta concreta: ¿qué pasaría si en lugar de tratar ese material como residuo pudiéramos volver a diseñar con él?",
   ],
-  complementariedad:
-    "Hoy combinamos esas dos experiencias para construir Requecho. Luciana lidera negocios, desarrollo comercial y comunicación. Verónica lidera el producto, producción y recuperación textil.",
   foto: {
     src: "/images/fundadoras/juntas-riendo.jpg",
     alt: "Verónica Litvinoff y Luciana Sabsay se miran y se ríen frente a una pared blanca: Verónica sostiene un puñado de recortes textiles y Luciana dos paneles de Requecho.",
