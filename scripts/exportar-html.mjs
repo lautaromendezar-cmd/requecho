@@ -100,10 +100,8 @@ writeFileSync(
 // 5. Zip para subir y descomprimir en public_html.
 const ZIP = join(RAIZ, "requecho-html.zip");
 rmSync(ZIP, { force: true });
-execFileSync("powershell", [
-  "-NoProfile",
-  "-Command",
-  `Compress-Archive -Path '${OUT}\\*' -DestinationPath '${ZIP}'`,
-]);
+// tar de Windows (bsdtar): zip con "/" como separador. Compress-Archive usa "\\" y el
+// cPanel lo extrae con un aviso.
+execFileSync("C:/Windows/System32/tar.exe", ["-a", "-c", "-f", ZIP, "-C", OUT, "."]);
 const total = archivos(OUT).length;
 console.log(`\nListo: ${relative(RAIZ, OUT)}/ (${total} archivos) y ${relative(RAIZ, ZIP)}.`);
