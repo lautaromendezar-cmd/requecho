@@ -38,37 +38,27 @@ Si la variable no está:
 
 ## Receta A: Google Sheets con Apps Script
 
-1. Crear una hoja de cálculo nueva. En la fila 1 poner los encabezados, en este orden:
-   `fecha_hora | nombre | apellido | empresa | whatsapp | mail | utm_source | utm_medium | utm_campaign | utm_content | utm_term`.
-2. Menú **Extensiones → Apps Script**. Borrar lo que haya y pegar:
+El script está en `hosting/apps-script.js`. Lo tiene que pegar e implementar **el dueño de
+la hoja**: con la hoja compartida como Editor, Google da error de permisos al autorizarlo
+desde otra cuenta (probado con otro cliente).
 
-   ```js
-   const COLUMNAS = [
-     "fecha_hora", "nombre", "apellido", "empresa", "whatsapp", "mail",
-     "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term",
-   ];
-
-   function doPost(e) {
-     const hoja = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
-     const datos = JSON.parse(e.postData.contents || "{}");
-     hoja.appendRow(COLUMNAS.map((c) => datos[c] ?? ""));
-     return ContentService
-       .createTextOutput(JSON.stringify({ ok: true }))
-       .setMimeType(ContentService.MimeType.JSON);
-   }
-   ```
-
+1. Crear una hoja de cálculo nueva y vacía (los encabezados los escribe el script con el
+   primer contacto, en negrita y fijos).
+2. **Extensiones → Apps Script.** Borrar lo que haya y pegar `hosting/apps-script.js`.
+   Para recibir un aviso por mail con cada contacto, completar `AVISO_A`.
 3. **Implementar → Nueva implementación → Aplicación web.** Ejecutar como: *Yo*.
-   Quién tiene acceso: *Cualquier usuario*. Autorizar cuando lo pida.
-4. Copiar la URL que termina en `/exec` y cargarla en Vercel como `LEADS_WEBHOOK_URL`
-   (Production). Redeployar o esperar el próximo deploy.
+   Quién tiene acceso: *Cualquier usuario*. Autorizar (si Google avisa que la app no está
+   verificada: *Configuración avanzada → Ir a … (no seguro)*: es el script propio).
+4. Copiar la URL que termina en `/exec`: en DUPLIKA va en `lead-config.php`
+   (`docs/subir-a-duplika.md`, paso 4); en Vercel, en `LEADS_WEBHOOK_URL`.
 5. Probar con un envío real y verificar que la fila aparezca completa.
 
-Notas: Apps Script responde al POST con una redirección 302; la API la sigue y da por
-bueno el 200 final. Si se cambia el script hay que crear una **nueva versión** de la
-implementación, si no sigue corriendo la anterior. Para recibir un aviso por mail en
-cada envío, agregar dentro de `doPost`, antes del `return`:
-`MailApp.sendEmail("hola@ejemplo.com", "Nuevo contacto Requecho", JSON.stringify(datos, null, 2));`
+Notas: el WhatsApp ("+54…") se guarda con apóstrofo para que Sheets no lo tome como
+fórmula (sin eso daba `#ERROR!`); lo mismo cualquier campo que empiece con `= + - @`.
+Apps Script responde al POST con un 302: la API y `lead.php` lo siguen y dan por bueno el
+200 final. Si se cambia el script hay que crear una **nueva versión** de la implementación
+(Implementar → Gestionar implementaciones → editar → Nueva versión); si no, sigue
+corriendo la anterior y la URL no cambia.
 
 ## Receta B: Excel en OneDrive con Power Automate
 
