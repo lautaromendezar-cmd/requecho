@@ -7,12 +7,13 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # --- Activar cuando el certificado SSL del dominio ya esté emitido ----------
-  # (si se activan antes, el sitio da error de certificado). Mandan todo a
-  # https://requecho.com, sin www, que es la dirección de los metadatos y el sitemap.
-  # RewriteCond %{HTTPS} off [OR]
-  # RewriteCond %{HTTP_HOST} ^www\. [NC]
-  # RewriteRule ^ https://requecho.com%{REQUEST_URI} [R=301,L]
+  # Todo a https://requecho.com, sin www: la dirección de los metadatos y el sitemap.
+  # Certificado de Let's Encrypt por AutoSSL del cPanel (se renueva solo).
+  # La validación de AutoSSL (/.well-known/) queda afuera, por las dudas.
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://requecho.com%{REQUEST_URI} [R=301,L]
 
   # El español vive en "/": /es/ existe sólo por dentro del export.
   RewriteRule ^es/?$ / [R=301,L]

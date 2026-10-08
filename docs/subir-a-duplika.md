@@ -35,17 +35,18 @@ Por **FTP**: subir el *contenido* de `out/` (no la carpeta) a `public_html`. Act
 En cPanel → **Seleccionar versión de PHP**: tiene que ser 7.4 o más nueva, con la
 extensión `curl` (viene activada casi siempre).
 
-## 3. Dominio y SSL
+## 3. Dominio y SSL (hecho el 8-oct-2026)
 
-Hoy `requecho.com` está estacionado en el registrador (redirige a una página `/lander`).
-Hay que apuntarlo a DUPLIKA: cambiar los DNS (o el registro A) a los que dé DUPLIKA en
-el mail de alta del hosting.
+- **Dominio:** registrado en GoDaddy (de las clientas; lo cambian ellas). Se cambió sólo el
+  registro **A de `@`** a `67.227.214.110` (servidor `rosas.duplika.com`); el `www` es un
+  CNAME a `requecho.com` y sigue solo. **No tocar MX ni TXT**: el mail `info@requecho.com`
+  es Google Workspace.
+- **SSL:** cPanel → **SSL/TLS Status** → *Run AutoSSL* (gratis, Let's Encrypt, se renueva
+  solo). Ojo: "Issue a certificate" es la tienda de certificados pagos, no es eso.
+- Con el certificado andando, el `.htaccess` manda todo a `https://requecho.com` sin www.
 
-Cuando el dominio ya resuelva a DUPLIKA, emitir el certificado (cPanel → **SSL/TLS
-Status** o **Let's Encrypt** → emitir para `requecho.com` y `www.requecho.com`). Con
-el certificado andando, **descomentar las tres líneas de www/https** en el `.htaccess`
-del servidor (y en `hosting/.htaccess`, para que la próxima exportación ya las traiga).
-Antes no: el sitio daría error de certificado.
+Para ver el sitio en DUPLIKA sin depender del DNS (DUPLIKA no tiene URL temporal):
+`chrome.exe --user-data-dir=%TEMP%\chrome-requecho --host-resolver-rules="MAP requecho.com 67.227.214.110, MAP www.requecho.com 67.227.214.110" http://requecho.com`
 
 ## 4. Conectar el formulario a la hoja de Google
 
