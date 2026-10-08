@@ -81,11 +81,12 @@ export function Producto() {
                     </ul>
                   </div>
                 ) : null}
-                {p.norma ? <p className="mt-auto text-small text-muted">{p.norma}</p> : null}
-                {p.nota ? <p className="mt-auto text-small text-muted">{p.nota}</p> : null}
               </li>
             ))}
           </ul>
+          <p data-reveal className="mt-4 text-right text-small text-muted">
+            {producto.propiedadesNota}
+          </p>
         </div>
 
         {/* Aplicaciones y características: dos tablas mínimas lado a lado y el

@@ -101,6 +101,7 @@ export const producto = {
   cuerpo:
     "We work with color, combinations and gradients for each project. The texture, the fibers and the variations of every piece are part of an aesthetic that seeks character, not uniformity.",
   propiedadesTitulo: "Properties and performance",
+  propiedadesNota: "Testing and certifications in progress.",
   propiedades: [
     {
       id: "acustica",
@@ -109,7 +110,6 @@ export const producto = {
       datoLabel: "Sound absorption:",
       dato: "α = 0.51–0.70",
       texto: "Helps reduce reverberation and improve acoustic comfort in interiors.",
-      norma: "ISO 10534-2",
       rango: { min: 0.51, max: 0.7, escalaMax: 1 },
     },
     {
@@ -124,7 +124,7 @@ export const producto = {
       id: "fuego",
       titulo: "Fire performance",
       icono: "llama",
-      dato: "Requecho — IRAM 11910 standard · RE2 target (testing in Argentina underway)",
+      dato: "Requecho — IRAM 11910 standard · RE2 target",
       referencias: {
         titulo: "International references for comparable materials:",
         items: ["Europe — C-s1,d0 · EN 13501-1", "France — M2 · NF P92-501", "USA — Class B · ASTM E84-26"],
@@ -135,7 +135,6 @@ export const producto = {
       titulo: "Emissions",
       icono: "emisiones",
       texto: "Low volatile organic compound (VOC) emissions.",
-      nota: "Certification in progress.",
     },
   ] satisfies Propiedad[],
   aplicacionesTitulo: "Applications",

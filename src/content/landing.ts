@@ -133,8 +133,6 @@ export type Propiedad = {
   datoLabel?: string;
   dato?: string;
   texto?: string;
-  norma?: string;
-  nota?: string;
   /** Sólo valores del documento. Sirve para la barra de rango de la acústica. */
   rango?: { min: number; max: number; escalaMax: number };
   referencias?: { titulo: string; items: string[] };
@@ -148,6 +146,7 @@ export const producto = {
   cuerpo:
     "Trabajamos el color, las combinaciones y los dégradés según cada proyecto. La textura, las fibras y las variaciones de cada pieza forman parte de una estética que no busca uniformidad, sino carácter.",
   propiedadesTitulo: "Propiedades y desempeño",
+  propiedadesNota: "Ensayos y certificaciones en proceso.",
   propiedades: [
     {
       id: "acustica",
@@ -156,7 +155,6 @@ export const producto = {
       datoLabel: "Absorción sonora:",
       dato: "α = 0,51–0,70",
       texto: "Contribuye a reducir la reverberación y mejorar el confort acústico de los espacios.",
-      norma: "ISO 10534-2",
       rango: { min: 0.51, max: 0.7, escalaMax: 1 },
     },
     {
@@ -171,7 +169,7 @@ export const producto = {
       id: "fuego",
       titulo: "Comportamiento frente al fuego",
       icono: "llama",
-      dato: "Requecho — Norma IRAM 11910 · objetivo RE2 (ensayo en Argentina en proceso)",
+      dato: "Requecho — Norma IRAM 11910 · objetivo RE2",
       referencias: {
         titulo: "Referencias internacionales en materiales comparables:",
         items: ["Europa — C-s1,d0 · EN 13501-1", "Francia — M2 · NF P92-501", "EE.UU. — Clase B · ASTM E84-26"],
@@ -182,7 +180,6 @@ export const producto = {
       titulo: "Emisiones",
       icono: "emisiones",
       texto: "Bajas emisiones de compuestos orgánicos volátiles (VOC).",
-      nota: "Certificación en proceso.",
     },
   ] satisfies Propiedad[],
   aplicacionesTitulo: "Aplicaciones",
