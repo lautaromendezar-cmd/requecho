@@ -7,7 +7,7 @@ componente `sections/hero/HeroFotos.tsx`, encuadre por foto en `hero.imagenes[].
 selector ESP / ENG, íconos de mail, WhatsApp, Instagram y LinkedIn en amarillo y los datos
 reales del pie (`src/content/canales.ts`). Capturas del hero y el pie con
 `node scripts/capturas-hero.mjs` (con `URL=https://requecho.vercel.app` mira el vivo).
-**Cambio 2 (El problema) hecho y en vivo** (269b6eb): texto de cada cifra bajo la línea amarilla, foto del secado a la derecha (sticky en escritorio, 4:5 en mobile) y sin la línea puente. Capturas de una sección: `MSYS_NO_PATHCONV=1 SECCION=2 node scripts/capturas-seccion.mjs`. **Sigue el cambio 3.**
+**Cambio 2 (El problema) hecho y en vivo** (269b6eb): texto de cada cifra bajo la línea amarilla, foto del secado a la derecha (sticky en escritorio, 4:5 en mobile) y sin la línea puente. Capturas de una sección: `MSYS_NO_PATHCONV=1 SECCION=2 node scripts/capturas-seccion.mjs`. **Cambio 3 (El material) hecho y en vivo** (9c19f8f): título a lo ancho (2 renglones en escritorio, 1 en inglés; en uno solo no entra) y "Paneles para revestimientos…" junto a la foto, arriba de "Trabajamos el color…". **Sigue el cambio 4.**
 
 ## Antes de tocar nada (en cualquier PC)
 
