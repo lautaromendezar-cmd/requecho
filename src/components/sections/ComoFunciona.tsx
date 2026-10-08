@@ -115,7 +115,7 @@ export function ComoFunciona() {
                 <div data-step-body className="-mt-14 lg:mt-6">
                   <p className="step-number text-text-strong">{p.numero}</p>
                   <h3 className="mt-3 text-h3">{p.titulo}</h3>
-                  <p className="mt-2 max-w-[30ch] text-[length:1.125rem] leading-[1.55] text-text">{p.texto}</p>
+                  <p className="mt-2 max-w-[30ch] text-text">{p.texto}</p>
                   {p.foto ? (
                     <div className="mt-5 overflow-hidden rounded-md">
                       <Image

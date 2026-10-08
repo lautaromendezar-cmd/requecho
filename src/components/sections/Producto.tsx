@@ -162,7 +162,7 @@ function RangeBar({ min, max, escalaMax, locale }: { min: number; max: number; e
           style={{ left: `${left}%`, width: `${width}%` }}
         />
       </div>
-      <div className="relative mt-2 h-5 text-[0.8125rem] text-muted">
+      <div className="relative mt-2 h-4 text-[0.7rem] text-muted">
         <span className="absolute left-0">0</span>
         <span className="absolute -translate-x-1/2 font-bold text-text" style={{ left: `${left}%` }}>
           {f(min)}

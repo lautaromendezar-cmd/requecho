@@ -169,10 +169,10 @@ export function Hero() {
           <h1 id="hero-titulo" data-reveal className="mt-10 max-w-[17ch] text-display text-text-strong lg:mt-8">
             {hero.titulo}
           </h1>
-          <p data-reveal data-hero="sub" className="mt-8 max-w-[44ch] lg:mt-6 text-[length:clamp(1.1875rem,1rem+0.55vw,1.5rem)] leading-[1.5] text-text">
+          <p data-reveal data-hero="sub" className="mt-8 max-w-[52ch] lg:mt-6 text-lead text-text">
             {hero.subtitulo}
           </p>
-          <p data-reveal data-hero="sub" className="mt-5 max-w-[44ch] text-[length:clamp(1.1875rem,1rem+0.55vw,1.5rem)] leading-[1.5] text-text">
+          <p data-reveal data-hero="sub" className="mt-5 max-w-[52ch] text-lead text-text">
             {hero.subtitulo2}
           </p>
           <div data-reveal data-hero="cue" className="mt-8 hidden lg:block">
