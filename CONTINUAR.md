@@ -25,6 +25,8 @@ fila logo + texto, foto de fundadoras 4:3 y retratos chicos al lado del nombre. 
 
 **Ajuste post-publicación (8-oct):** hero con columna de texto más ancha y menos aire en escritorio para que entre en pantalla (1898×925 y 1920×960 entra; 1440×900 se ven título y párrafos; 1366×768 no alcanza sin achicar letra). Subido a DUPLIKA y verificado.
 
+**Letra a la escala original (8-oct, tarde):** el agrandado del 6-oct (cuerpo 17px, bajadas 22px, hero 24px, pasos 18px) se había pedido mirando con Chrome al 75 %; se volvió a 16/20/20/16. Commit c5ba7b5. Hay que resubir el zip a DUPLIKA (borrar `_next`, extraer).
+
 **Lo que sigue:** hoja de Google + Apps Script (receta A de `docs/formulario.md`) y la URL `/exec` en `lead-config.php` de `public_html` (paso 4 de `docs/subir-a-duplika.md`). Hasta entonces el formulario responde con el mensaje de falla.
 
 ## Antes de tocar nada (en cualquier PC)
