@@ -1,3 +1,12 @@
+# PROYECTO TERMINADO (9-oct-2026)
+
+Formulario conectado a la hoja de Google de las clientas (requechotextil@gmail.com):
+`lead-config.php` con la URL `/exec` subido a `public_html` de DUPLIKA (copia local en
+esta carpeta, fuera de git). Probado en vivo en español y en inglés: las filas llegan bien.
+No queda nada pendiente de nuestro lado. Si el formulario falla: `error_log` en `public_html`.
+
+---
+
 # Dónde quedamos (8-oct-2026) — PROYECTO CERRADO Y COBRADO
 
 **Lo único que falta: conectar la hoja de Google.** Ariel crea la hoja y el Apps Script

@@ -57,3 +57,6 @@ next-env.d.ts
 # fotos que mandan las clientas (fuente): nunca al repo
 /fotos-nuevas/
 /*.zip
+
+# URL del Apps Script: va sólo en public_html de DUPLIKA
+lead-config.php
